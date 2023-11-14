@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    min-width: fit-content;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/*NAVIGATION*/
+
+header {
+    background-color: #fff;
+    padding: 25px 50px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,.09);
+    position: fixed;
+    top: 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2rem;
+}
+
+header nav h3 {
+    font-size: 1.2rem;
+}
+
+header nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header nav li {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/*WELCOME SECTION*/
+
+.welcome-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome {
+    border: 1px solid green;
+    padding: 0 40px;
+}
+
+/*TITLE-IMAGE*/
+.title-image {
+    display: flex;
+    border: 1px solid red;
+    column-gap: 5rem;
+}
+
+/*WELCOME TEXT AND SOCIAL ICONS*/
+.welcome-title {
+    flex: 1;
+}
+
+.welcome-title h3 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    margin: 20px 0;
+    color: #2d2e32;
+}
+
+.welcome-title p {
+    font-size: 1.15rem;
+    color: #555;
+}
+
+.social-icons-welcome {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.social-icons-welcome img {
+    width: 30px;
+}
+
+/*WELCOME IMAGE*/
+.welcome-image {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*TECH STACK*/
+.tech-stack {
+    margin: 100px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.tech-stack h3 {
+    border-right: 2px solid #2d2e32;
+    padding-right: 20px;
+    margin-right: 70px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: initial;
+    color: #2d2e32;
+}
+
+.tech-stack img {
+    width: 50px;
+    border-radius: 10px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+
+
+
+.about-image img {
+    width: 50px;
+}
+
+
+
+
+/*MEDIA QUERIES*/
+
+
+/*NAVIGATION AND WELCOME SECTION*/
+
+@media screen and (max-width: 900px) {
+/*NAVIGATION*/
+    header nav ul {
+        display: none;
+    }
+
+/*WELCOME SECTION*/
+    .welcome {
+        padding: 125px 20px 110px 20px;
+        margin: 0 auto;
+    }
+
+    /*TITLE-IMAGE*/
+    .title-image {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 3rem;
+        max-width: 500px;
+    }
+
+    /*WELCOME IMAGE*/
+    .welcome-image {
+        grid-row: 1;
+    }
+
+    .welcome-image {
+        margin: 0 auto;
+    }
+
+    /*WELCOME TEXT*/
+    .welcome-title {
+        text-align: center;
+    }
+
+    .social-icons-welcome {
+        justify-content: center;
+    }
+
+    /*TECH STACK*/
+    .tech-stack {
+        display: block;
+        border: 1px solid blue;
+        text-align: center;
+        margin: 50px 0 0;
+    }
+    
+    .tech-stack h3 {
+        border-right: none;
+        border-bottom: 1px solid #2d2e32;
+        padding: 0 0 10px 0;
+        margin: 0 0 30px 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+        line-height: initial;
+        display: inline-block;
+    }
+    
+    .stack-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tech-stack img {
+        width: 50px;
+        border-radius: 10px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .welcome-title h3 {
+        font-size: 3rem;
+    }
+
+    .welcome-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    .title-image {
+        row-gap: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .welcome-title h3 {
+        font-size: 2.75rem;
+    }
+
+    .welcome-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .title-image {
+        row-gap: 2rem;
+    }
+}
+
+
+
