@@ -8,7 +8,7 @@
 <hr>
 <br>
 
-## Final project after 2 months of studying HTML and CSS
+# Final project after 2 months of studying HTML and CSS
 
 <br>
 
