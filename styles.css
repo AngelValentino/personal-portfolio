@@ -750,7 +750,7 @@ footer {
 /*MEDIA QUERY FOR NOT HOVER READY DEIVES*/
 /*RESIZE OF CLICKABLE ELEMETS TO BE EASIER TO USE WITH TOUCH SCREEN DEVICES*/
 
-@media screen and (hover:none) {
+@media screen and (hover: none) {
 /*NAVIGATION*/
 
     header nav li {
@@ -822,7 +822,7 @@ footer {
 
 /*MEDIA QUERY FOR HOVER CAPABLE DEVICES*/
 
-@media screen and (hover:hover) {
+@media screen and (hover: hover) {
 /*NAVIGATION*/
 
     header nav h3:hover {
