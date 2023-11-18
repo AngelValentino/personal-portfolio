@@ -34,9 +34,32 @@ p, h1, h2, h3, h4, h5, h6, ul, li {
     --skills-background-color: #f9617a;
 }
 
+
+/*ADJUST OF THE SCROLL SNAP POSITION OFFSET WITH ONLY CSS, IT NEEDS JAVASCRIPT TO BE ACTULLY RESPONSIVE AND DETECT THE WINDOW HEIGHT*/
+
 #about {
-    scroll-margin: 150px;
+    scroll-margin-top: 150px;
 }
+
+@media screen and (max-height: 850px) {
+    #about {
+        scroll-margin-top: 85px;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    #about {
+        scroll-margin-top: 30px;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    #about {
+        scroll-margin-top: 0;
+    }
+}
+
+/*END OF ADJUST OF THE SCROLL SNAP POSITION OFFSET WITH ONLY CSS, IT NEEDS JAVASCRIPT TO BE ACTULLY RESPONSIVE AND DETECT THE WINDOW HEIGHT*/
 
 
 
