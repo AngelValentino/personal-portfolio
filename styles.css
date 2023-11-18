@@ -586,11 +586,6 @@ header nav li {
     width: 75px;
 }
 
-.skill-container:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-}
-
 .skill-container p {
     color: #fff;
     font-size: 1.3rem;
@@ -881,6 +876,13 @@ footer {
         opacity: 1;
     }
 
+
+/*SKILLS*/
+
+    .skill-container:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+    }
 
 /*CONTACT SECTION*/
     .contact-container form:valid > input:last-child:hover {
