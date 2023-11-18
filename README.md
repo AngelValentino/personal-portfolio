@@ -26,8 +26,6 @@
 
 - Changed font size of clickable elements to be easier to use with touch screen devices
 
-- Implemented progressive loading to images for better performance
-
 - Implemented color variables for an easier webpage customization
 
 - Still isn't 100% complete due to the lack of JavaScript
