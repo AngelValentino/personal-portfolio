@@ -67,7 +67,7 @@ p, h1, h2, h3, h4, h5, h6, ul, li {
 
 header {
     background-color: var(--background-contrast);
-    padding: 20px 50px;
+    padding: 25px 50px;
     width: 100%;
     box-shadow: 0 0 10px rgba(0,0,0,.09);
     position: fixed;
@@ -85,26 +85,31 @@ header nav {
 header nav ul {
     list-style-type: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 header nav h3 {
     font-size: 1.2rem;
     color: var(--color-text-dark);
-    padding: 5px 10px;
     transition: color 0.15s;
 }
 
-header nav a {
+header nav > a {
     text-decoration: none;
     color: inherit;
+    padding: 5px;
+}
+
+header nav ul a {
+    text-decoration: none;
+    color: inherit;
+    padding: 5px;
 }
 
 header nav li {
     font-weight: 600;
     font-size: 1.05rem;
     color: var(--color-text-dark);
-    padding: 5px 10px;
     transition: color 0.15s;
 }
 
@@ -820,7 +825,7 @@ footer {
 @media screen and (hover: hover) {
 /*NAVIGATION*/
 
-    header nav h3:hover {
+    header nav > a:hover h3 {
         color: var(--color-text-light);
         cursor: pointer;
     }
