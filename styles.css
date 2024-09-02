@@ -248,6 +248,7 @@ body {
   width: 50px;
   vertical-align: middle;
   transition: transform 0.15s;
+  border-radius: 10px;
 }
 
 /* END OF HERO HEADER */
