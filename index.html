@@ -8,340 +8,363 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
 </head>
 <body>
-    <header>
-        <nav>
-            <a title="Home" href="#">
-                <h3>Angel Valentino</h3>
-            </a>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home" class="welcome-section">
-            <div class="welcome">
-                <div class="title-image">
-                    <div class="welcome-title">
-                        <h3>Front-End<br />Developer<img src="images/welcome-title-icons/waving-hand.png" alt="waving hand icon"></h3>
-                        <p>Hi, I'm Angel Valentino. A passionate Front-End Developer based in Spain.<img src="images/welcome-title-icons/location-pin2.png" alt="location pin"></p>
-                        <div class="social-icons-welcome">
-                            <a title="freecodecamp" target="_blank" href="https://www.freecodecamp.org/AngelValentino">
-                                <img src="images/social-icons/freecodecamp-icon.png" alt="freecodecamp icon">
-                                <img src="images/social-icons/freecodecamp-icon-blue.png" alt="freecodecamp icon blue">
-                            </a>
-                            <a title="LinkedIn" target="_blank" href="https://www.linkedin.com/">
-                                <img src="images/social-icons/linkedin-icon.png" alt="linkedin icon">
-                                <img src="images/social-icons/linkedin-icon-blue.png" alt="linkedin icon blue">
-                            </a>
-                            <a title="Github" target="_blank" href="https://github.com/AngelValentino">
-                                <img src="images/social-icons/github-icon.png" alt="github icon">
-                                <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="welcome-image">
-                        <img src="images/welcome-images/looking-tiger.jpg" alt="japanese tiger drwaing">
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <h3>Tech Stack</h3>
-                    <div class="stack-icons">
-                        <img src="images/tech-icons/html-icon.png" alt="html icon">
-                        <img src="images/tech-icons/css-icon.png" alt="css icon">
-                        <img src="images/tech-icons/javascript-icon.png" alt="javascript icon">
-                        <img src="images/tech-icons/typescript-icon.png" alt="typescript icon">
-                        <img src="images/tech-icons/next-icon.png" alt="next icon">
-                        <img src="images/tech-icons/react-icon.png" alt="react icon">
-                        <img src="images/tech-icons/bootstrap-icon.png" alt="bootstrap icon">
-                        <img src="images/tech-icons/sass-icon.png" alt="sass icon">
-                    </div>
-                </div>
+  <header class="navigation-bar">
+    <nav class="navigation-bar__nav">
+      <h1 class="navigation-bar__title">
+        <a class="navigation-bar__title-link" title="Home" href="/">
+          Angel Valentino
+        </a>
+      </h1>
+      <ul class="navigation-bar__links-list">
+        <li>
+          <h2>
+            <a class="navigation-bar__link" href="#home">Home</a>
+          </h2>
+        </li>
+        <li>
+          <h2>
+            <a class="navigation-bar__link" href="#about">About</a>
+          </h2>
+        </li>
+        <li>
+          <h2>
+            <a class="navigation-bar__link" href="#projects">Projects</a>
+          </h2>
+        </li>
+        <li>
+          <h2>
+            <a class="navigation-bar__link" href="#contact">Contact</a>
+          </h2>
+        </li>
+      </ul>
+      <button class="navigation-bar__menu-btn">
+        <svg class="navigation-bar__menu-icon" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m0 6.032a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m1 5.033a1 1 0 1 0 0 2h18a1 1 0 0 0 0-2z" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="welcome-section">
+      <div class="welcome">
+        <div class="title-image">
+          <div class="welcome-title">
+            <h3>Front-End<br />Developer<img src="images/welcome-title-icons/waving-hand.png" alt="waving hand icon"></h3>
+            <p>Hi, I'm Angel Valentino. A passionate Front-End Developer based in Spain.<img src="images/welcome-title-icons/location-pin2.png" alt="location pin"></p>
+            <div class="social-icons-welcome">
+              <a title="freecodecamp" target="_blank" href="https://www.freecodecamp.org/AngelValentino">
+                  <img src="images/social-icons/freecodecamp-icon.png" alt="freecodecamp icon">
+                  <img src="images/social-icons/freecodecamp-icon-blue.png" alt="freecodecamp icon blue">
+              </a>
+              <a title="LinkedIn" target="_blank" href="https://www.linkedin.com/">
+                  <img src="images/social-icons/linkedin-icon.png" alt="linkedin icon">
+                  <img src="images/social-icons/linkedin-icon-blue.png" alt="linkedin icon blue">
+              </a>
+              <a title="Github" target="_blank" href="https://github.com/AngelValentino">
+                  <img src="images/social-icons/github-icon.png" alt="github icon">
+                  <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
+              </a>
             </div>
-        </section>
-        <section id="about" class="about-section">
-            <div class="about-container">
-                <div class="image-flex-container">
-                    <div class="about-image">
-                        <img src="images/welcome-images/katayama.jpg" alt="japanese tiger drawing">
-                    </div>
-                </div>
-                <div class="about-title">
-                    <h2>About me</h3>
-                    <div class="underline"></div>
-                    <div class="about-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure amet dolorem labore porro pariatur suscipit quod accusamus eos corporis consequatur?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eius eveniet obcaecati.</p>   
-                    </div>
-                    <a href="#">
-                        <p>Download CV</p>
-                    </a>
-                </div>
+          </div>
+          <div class="welcome-image">
+              <img src="images/welcome-images/looking-tiger.jpg" alt="japanese tiger drwaing">
+          </div>
+        </div>
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="stack-icons">
+              <img src="images/tech-icons/html-icon.png" alt="html icon">
+              <img src="images/tech-icons/css-icon.png" alt="css icon">
+              <img src="images/tech-icons/javascript-icon.png" alt="javascript icon">
+              <img src="images/tech-icons/typescript-icon.png" alt="typescript icon">
+              <img src="images/tech-icons/next-icon.png" alt="next icon">
+              <img src="images/tech-icons/react-icon.png" alt="react icon">
+              <img src="images/tech-icons/bootstrap-icon.png" alt="bootstrap icon">
+              <img src="images/tech-icons/sass-icon.png" alt="sass icon">
             </div>
-        </section>
-        <section id="projects" class="projects">
-            <h2>Projects</h2>
-            <div class="underline2"></div>
-            <div class="projects-grid">
-                <div class="project-container">
-                    <a target="_blank" href="https://the-godfather-wiki-css-grid.pages.dev/">
-                        <div title="The Godfather Wiki" class="project-image">
-                            <img src="images/webpages-screenshots/the-godfather-wiki-css.jpg" alt="the godfather wiki screenshot">
-                            <img src="images/webpages-screenshots/the-godfather-wiki-css-500px.jpg" alt="the godfather wiki screenhsot lower resolution">
-                            <div class="project-tooltip">
-                                <p>Live Demo</p>
-                                <img src="images/project-icons/external-link.png" alt="external link icon">
-                            </div>
-                        </div>
-                    </a>
-                    <div class="project-summary">
-                        <h3>The Godfather Wiki</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
-                        <div class="project-technologies">
-                            <p>HTML</p>
-                            <p>CSS</p>
-                        </div>
-                        <div class="project-links">
-                            <div class="project-code">
-                                <a target="_blank" href="https://github.com/AngelValentino/the-godfather-wiki-css-grid">
-                                    <p>Code</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/github-icon.png" alt="github icon">
-                                        <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="project-link">
-                                <a target="_blank" href="https://the-godfather-wiki-css-grid.pages.dev/">
-                                    <p>Live Demo</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/external-link.png" alt="external link icon">
-                                        <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-container2">
-                    <div class="project-summary">
-                        <h3>MarioClub</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
-                        <div class="project-technologies">
-                            <p>HTML</p>
-                            <p>CSS</p>
-                        </div>
-                        <div class="project-links">
-                            <div class="project-code">
-                                <a target="_blank" href="https://github.com/AngelValentino/mario-webpage">
-                                    <p>Code</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/github-icon.png" alt="github icon">
-                                        <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="project-link">
-                                <a target="_blank" href="https://marioclub.pages.dev/">
-                                    <p>Live Demo</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/external-link.png" alt="external link icon">
-                                        <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a target="_blank" href="https://marioclub.pages.dev/">
-                        <div title="MarioClub" class="project-image">
-                            <img src="images/webpages-screenshots/marioclub.jpg" alt="marioclub screenshot">
-                            <img src="images/webpages-screenshots/marioclub-500px.jpg" alt="marioclub screenhost lower resolution">
-                            <div class="project-tooltip">
-                                <p>Live Demo</p>
-                                <img src="images/project-icons/external-link.png" alt="external link icon">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="project-container">
-                    <a target="_blank" href="https://masonry-style-layout-css-grid.pages.dev/">
-                        <div title="Cafe Racer Enthusiast" class="project-image">
-                            <img src="images/webpages-screenshots/masonry-style-layout-css.jpg" alt="cafe racer enthusiast screenshot">
-                            <img src="images/webpages-screenshots/masonry-style-layout-css-500px.jpg" alt="cafe racer enthusiast screenshot lower resolution">
-                            <div class="project-tooltip">
-                                <p>Live Demo</p>
-                                <img src="images/project-icons/external-link.png" alt="external link icon">
-                            </div>
-                        </div>
-                    </a>
-                    <div class="project-summary">
-                        <h3>Cafe Racer Enthusiast</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
-                        <div class="project-technologies">
-                            <p>HTML</p>
-                            <p>CSS</p>
-                        </div>
-                        <div class="project-links">
-                            <div class="project-code">
-                                <a target="_blank" href="https://github.com/AngelValentino/masonry-style-layout-css-grid">
-                                    <p>Code</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/github-icon.png" alt="github icon">
-                                        <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="project-link">
-                                <a target="_blank" href="https://masonry-style-layout-css-grid.pages.dev/">
-                                    <p>Live Demo</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/external-link.png" alt="external link icon">
-                                        <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-container2">
-                    <div class="project-summary">
-                        <h3>Personal Porfolio</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
-                        <div class="project-technologies">
-                            <p>HTML</p>
-                            <p>CSS</p>
-                        </div>
-                        <div class="project-links">
-                            <div class="project-code">
-                                <a target="_blank" href="https://github.com/AngelValentino/personal-portfolio-webpage">
-                                    <p>Code</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/github-icon.png" alt="github icon">
-                                        <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="project-link">
-                                <a target="_blank" href="https://personal-portfolio-webpage1.pages.dev/">
-                                    <p>Live Demo</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/external-link.png" alt="external link icon">
-                                        <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a target="_blank" href="https://personal-portfolio-webpage1.pages.dev/">
-                        <div title="Personal Portfolio" class="project-image">
-                            <img src="images/webpages-screenshots/personal-portfolio-webpage.jpg" alt="personal portfolio webpage screenshot">
-                            <img src="images/webpages-screenshots/personal-portfolio-webpage-500px.jpg" alt="personal portfolio webpage screenshot lower resolution">
-                            <div class="project-tooltip">
-                                <p>Live Demo</p>
-                                <img src="images/project-icons/external-link.png" alt="external link icon">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="project-container">
-                    <a target="_blank" href="https://github.com/AngelValentino/youtube-clone">
-                        <div title="YouTube clone" class="project-image">
-                            <img src="images/webpages-screenshots/youtube-clone.jpg" alt="youtube clone screenshot">
-                            <img src="images/webpages-screenshots/youtube-clone-500px.jpg" alt="youtube clone screenshot lower resolution">
-                            <div class="project-tooltip">
-                                <p>Live Demo</p>
-                                <img src="images/project-icons/external-link.png" alt="external link icon">
-                            </div>
-                        </div>
-                    </a>
-                    <div class="project-summary">
-                        <h3>YouTube clone</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
-                        <div class="project-technologies">
-                            <p>HTML</p>
-                            <p>CSS</p>
-                        </div>
-                        <div class="project-links">
-                            <div class="project-code">
-                                <a target="_blank" href="https://youtube-clone1.pages.dev/">
-                                    <p>Code</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/github-icon.png" alt="github icon">
-                                        <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="project-link">
-                                <a target="_blank" href="https://youtube-clone1.pages.dev/">
-                                    <p>Live Demo</p>
-                                    <div class="project-link-image-container">
-                                        <img src="images/project-icons/external-link.png" alt="external link icon">
-                                        <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="skills">
-            <div class="skills-container">
-                <div class="skill-container">
-                    <img src="images/tech-icons/html-icon-white.png" alt="html icon">
-                    <p>HTML</p>
-                </div>
-                <div class="skill-container">
-                    <img src="images/tech-icons/css-icon-white.png" alt="css icon">
-                    <p>CSS</p>
-                </div>
-                <div class="skill-container">
-                    <img src="images/tech-icons/javascript-icon-white.png" alt="javascript icon">
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill-container">
-                    <img src="images/tech-icons/typescript-icon-white.png" alt="typescript icon">
-                    <p>Typescript</p>
-                </div>
-                <div class="skill-container">
-                    <img src="images/tech-icons/next-icon-white.png" alt="next icon">
-                    <p>Next</p>
-                </div>
-                <div class="skill-container">
-                    <img src="images/tech-icons/react-icon-white.png" alt="react icon">
-                    <p>React</p>
-                </div>
-                <div class="skill-container">
-                    <img src="images/tech-icons/bootstrap-icon-white.png" alt="bootstrap icon">
-                    <p>Bootstrap</p>
-                </div>
-                <div class="skill-container">
-                    <img src="images/tech-icons/sass-icon-white.png" alt="sass icon">
-                    <p>Sass</p>
-                </div>
-            </div>
-        </section>
-        <section id="contact" class="contact">
-            <div class="contact-container">
-                <form>
-                    <h3>Contact Me</h3>
-                    <div class="name-email">
-                        <input required placeholder="Name*" type="text" name="name" id="name">
-                        <input required placeholder="Email*" type="email" name="emal" id="email">
-                    </div>
-                    <textarea required placeholder="Your message here*" name="message" id="message" rows="10"></textarea>
-                    <input type="submit" value="Send Message">
-                </form>
-                <div class="contact-image-text">
-                    <img src="images/contact-section/coffe-and-cookies.png" alt="coffe and cookies">
-                    <h3><span>How do you</span><br />take your coffee?</h3>
-                </div>
-            </div>
-        </section>
-    </main>
+          </div>
+      </div>
+    </section>
+      <section id="about" class="about-section">
+          <div class="about-container">
+              <div class="image-flex-container">
+                  <div class="about-image">
+                      <img src="images/welcome-images/katayama.jpg" alt="japanese tiger drawing">
+                  </div>
+              </div>
+              <div class="about-title">
+                  <h2>About me</h3>
+                  <div class="underline"></div>
+                  <div class="about-text">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure amet dolorem labore porro pariatur suscipit quod accusamus eos corporis consequatur?</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eius eveniet obcaecati.</p>   
+                  </div>
+                  <a href="#">
+                      <p>Download CV</p>
+                  </a>
+              </div>
+          </div>
+      </section>
+      <section id="projects" class="projects">
+          <h2>Projects</h2>
+          <div class="underline2"></div>
+          <div class="projects-grid">
+              <div class="project-container">
+                  <a target="_blank" href="https://the-godfather-wiki-css-grid.pages.dev/">
+                      <div title="The Godfather Wiki" class="project-image">
+                          <img src="images/webpages-screenshots/the-godfather-wiki-css.jpg" alt="the godfather wiki screenshot">
+                          <img src="images/webpages-screenshots/the-godfather-wiki-css-500px.jpg" alt="the godfather wiki screenhsot lower resolution">
+                          <div class="project-tooltip">
+                              <p>Live Demo</p>
+                              <img src="images/project-icons/external-link.png" alt="external link icon">
+                          </div>
+                      </div>
+                  </a>
+                  <div class="project-summary">
+                      <h3>The Godfather Wiki</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
+                      <div class="project-technologies">
+                          <p>HTML</p>
+                          <p>CSS</p>
+                      </div>
+                      <div class="project-links">
+                          <div class="project-code">
+                              <a target="_blank" href="https://github.com/AngelValentino/the-godfather-wiki-css-grid">
+                                  <p>Code</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/github-icon.png" alt="github icon">
+                                      <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="project-link">
+                              <a target="_blank" href="https://the-godfather-wiki-css-grid.pages.dev/">
+                                  <p>Live Demo</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/external-link.png" alt="external link icon">
+                                      <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="project-container2">
+                  <div class="project-summary">
+                      <h3>MarioClub</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
+                      <div class="project-technologies">
+                          <p>HTML</p>
+                          <p>CSS</p>
+                      </div>
+                      <div class="project-links">
+                          <div class="project-code">
+                              <a target="_blank" href="https://github.com/AngelValentino/mario-webpage">
+                                  <p>Code</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/github-icon.png" alt="github icon">
+                                      <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="project-link">
+                              <a target="_blank" href="https://marioclub.pages.dev/">
+                                  <p>Live Demo</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/external-link.png" alt="external link icon">
+                                      <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <a target="_blank" href="https://marioclub.pages.dev/">
+                      <div title="MarioClub" class="project-image">
+                          <img src="images/webpages-screenshots/marioclub.jpg" alt="marioclub screenshot">
+                          <img src="images/webpages-screenshots/marioclub-500px.jpg" alt="marioclub screenhost lower resolution">
+                          <div class="project-tooltip">
+                              <p>Live Demo</p>
+                              <img src="images/project-icons/external-link.png" alt="external link icon">
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              <div class="project-container">
+                  <a target="_blank" href="https://masonry-style-layout-css-grid.pages.dev/">
+                      <div title="Cafe Racer Enthusiast" class="project-image">
+                          <img src="images/webpages-screenshots/masonry-style-layout-css.jpg" alt="cafe racer enthusiast screenshot">
+                          <img src="images/webpages-screenshots/masonry-style-layout-css-500px.jpg" alt="cafe racer enthusiast screenshot lower resolution">
+                          <div class="project-tooltip">
+                              <p>Live Demo</p>
+                              <img src="images/project-icons/external-link.png" alt="external link icon">
+                          </div>
+                      </div>
+                  </a>
+                  <div class="project-summary">
+                      <h3>Cafe Racer Enthusiast</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
+                      <div class="project-technologies">
+                          <p>HTML</p>
+                          <p>CSS</p>
+                      </div>
+                      <div class="project-links">
+                          <div class="project-code">
+                              <a target="_blank" href="https://github.com/AngelValentino/masonry-style-layout-css-grid">
+                                  <p>Code</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/github-icon.png" alt="github icon">
+                                      <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="project-link">
+                              <a target="_blank" href="https://masonry-style-layout-css-grid.pages.dev/">
+                                  <p>Live Demo</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/external-link.png" alt="external link icon">
+                                      <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="project-container2">
+                  <div class="project-summary">
+                      <h3>Personal Porfolio</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
+                      <div class="project-technologies">
+                          <p>HTML</p>
+                          <p>CSS</p>
+                      </div>
+                      <div class="project-links">
+                          <div class="project-code">
+                              <a target="_blank" href="https://github.com/AngelValentino/personal-portfolio-webpage">
+                                  <p>Code</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/github-icon.png" alt="github icon">
+                                      <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="project-link">
+                              <a target="_blank" href="https://personal-portfolio-webpage1.pages.dev/">
+                                  <p>Live Demo</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/external-link.png" alt="external link icon">
+                                      <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <a target="_blank" href="https://personal-portfolio-webpage1.pages.dev/">
+                      <div title="Personal Portfolio" class="project-image">
+                          <img src="images/webpages-screenshots/personal-portfolio-webpage.jpg" alt="personal portfolio webpage screenshot">
+                          <img src="images/webpages-screenshots/personal-portfolio-webpage-500px.jpg" alt="personal portfolio webpage screenshot lower resolution">
+                          <div class="project-tooltip">
+                              <p>Live Demo</p>
+                              <img src="images/project-icons/external-link.png" alt="external link icon">
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              <div class="project-container">
+                  <a target="_blank" href="https://github.com/AngelValentino/youtube-clone">
+                      <div title="YouTube clone" class="project-image">
+                          <img src="images/webpages-screenshots/youtube-clone.jpg" alt="youtube clone screenshot">
+                          <img src="images/webpages-screenshots/youtube-clone-500px.jpg" alt="youtube clone screenshot lower resolution">
+                          <div class="project-tooltip">
+                              <p>Live Demo</p>
+                              <img src="images/project-icons/external-link.png" alt="external link icon">
+                          </div>
+                      </div>
+                  </a>
+                  <div class="project-summary">
+                      <h3>YouTube clone</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, nisi unde facere aliquid voluptatum soluta vitae explicabo libero impedit? Incidunt fugiat delectus rem deleniti culpa!</p>
+                      <div class="project-technologies">
+                          <p>HTML</p>
+                          <p>CSS</p>
+                      </div>
+                      <div class="project-links">
+                          <div class="project-code">
+                              <a target="_blank" href="https://youtube-clone1.pages.dev/">
+                                  <p>Code</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/github-icon.png" alt="github icon">
+                                      <img src="images/social-icons/github-icon-blue.png" alt="github icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="project-link">
+                              <a target="_blank" href="https://youtube-clone1.pages.dev/">
+                                  <p>Live Demo</p>
+                                  <div class="project-link-image-container">
+                                      <img src="images/project-icons/external-link.png" alt="external link icon">
+                                      <img src="images/project-icons/external-link-blue.png" alt="external link icon blue">
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="skills">
+          <div class="skills-container">
+              <div class="skill-container">
+                  <img src="images/tech-icons/html-icon-white.png" alt="html icon">
+                  <p>HTML</p>
+              </div>
+              <div class="skill-container">
+                  <img src="images/tech-icons/css-icon-white.png" alt="css icon">
+                  <p>CSS</p>
+              </div>
+              <div class="skill-container">
+                  <img src="images/tech-icons/javascript-icon-white.png" alt="javascript icon">
+                  <p>JavaScript</p>
+              </div>
+              <div class="skill-container">
+                  <img src="images/tech-icons/typescript-icon-white.png" alt="typescript icon">
+                  <p>Typescript</p>
+              </div>
+              <div class="skill-container">
+                  <img src="images/tech-icons/next-icon-white.png" alt="next icon">
+                  <p>Next</p>
+              </div>
+              <div class="skill-container">
+                  <img src="images/tech-icons/react-icon-white.png" alt="react icon">
+                  <p>React</p>
+              </div>
+              <div class="skill-container">
+                  <img src="images/tech-icons/bootstrap-icon-white.png" alt="bootstrap icon">
+                  <p>Bootstrap</p>
+              </div>
+              <div class="skill-container">
+                  <img src="images/tech-icons/sass-icon-white.png" alt="sass icon">
+                  <p>Sass</p>
+              </div>
+          </div>
+      </section>
+      <section id="contact" class="contact">
+          <div class="contact-container">
+              <form>
+                  <h3>Contact Me</h3>
+                  <div class="name-email">
+                      <input required placeholder="Name*" type="text" name="name" id="name">
+                      <input required placeholder="Email*" type="email" name="emal" id="email">
+                  </div>
+                  <textarea required placeholder="Your message here*" name="message" id="message" rows="10"></textarea>
+                  <input type="submit" value="Send Message">
+              </form>
+              <div class="contact-image-text">
+                  <img src="images/contact-section/coffe-and-cookies.png" alt="coffe and cookies">
+                  <h3><span>How do you</span><br />take your coffee?</h3>
+              </div>
+          </div>
+      </section>
+  </main>
     <footer>
         <div class="footer-container">
             <p>Copyright © 2023. All rights are reserved</p>

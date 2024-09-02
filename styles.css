@@ -1,121 +1,142 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+@media (prefers-reduced-motion: no-preference) {
+  * {
+      scroll-behavior: smooth;
+  }
+}
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+button, input, textarea {
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+fieldset {
+  border: none;
+}
+
+html {
+  font-size: 16px;
+  scrollbar-width: thin;
+}
+
+/* END OF RESET */
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    min-width: fit-content;
-}
-
-p, h1, h2, h3, h4, h5, h6, ul, li {
-    padding: 0;
-    margin: 0;
-}
-
-* {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  min-width: fit-content;
 }
 
 :root {
-    --color-text: #2d2e32;
-    --color-text-light: #555;
-    --color-text-dark: #000;
-    --navigation-hover: #147efb;
-    --background-contrast: #fff;
-    --about-title: #147efb;
-    --button-color: #147efb;
-    --button-color-hover: #2c5af1;
-    --invalid-button-color: #6b8dfd; 
-    --contact-input-border: rgb(206, 212, 218); 
-    --button-inside-color: #fff;
-    --project-link-color-hover: #0098e0;
-    --skills-background-color: #f9617a;
+  --base-color-text: #2d2e32;
+  --base-color-text-light: #555;
+  --base-color-text-dark: #000;
+  --base-transition-duration: 0.15s;
+  --base-blue: #147efb;
+  --base-dark-blue: #2c5af1;
+  
+  
+  --background-contrast: #fff;
+  --about-title: #147efb;
+  --button-color: #147efb;
+  --invalid-button-color: #6b8dfd; 
+  --contact-input-border: rgb(206, 212, 218); 
+  --button-inside-color: #fff;
+  --project-link-color-hover: #0098e0;
+  --skills-background-color: #f9617a;
 }
 
+/* NAVIGATION BAR */
 
-/*ADJUST OF THE SCROLL SNAP POSITION OFFSET WITH ONLY CSS, IT NEEDS JAVASCRIPT TO BE ACTULLY RESPONSIVE AND DETECT THE WINDOW HEIGHT*/
-
-#about {
-    scroll-margin-top: 150px;
+.navigation-bar {
+  background-color: var(--background-contrast);
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,.09);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  height: 79px;
 }
 
-@media screen and (max-height: 850px) {
-    #about {
-        scroll-margin-top: 85px;
-    }
+.navigation-bar__nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
 }
 
-@media screen and (max-height: 750px) {
-    #about {
-        scroll-margin-top: 30px;
-    }
+.navigation-bar__links-list {
+  display: flex;
+  gap: 1.25rem;
 }
 
-@media screen and (max-height: 650px) {
-    #about {
-        scroll-margin-top: 0;
-    }
+.navigation-bar__title {
+  font-size: 1.2rem;
+  color: var(--base-color-text-dark);
+  transition: color var(--base-transition-duration);
 }
 
-/*END OF ADJUST OF THE SCROLL SNAP POSITION OFFSET WITH ONLY CSS, IT NEEDS JAVASCRIPT TO BE ACTULLY RESPONSIVE AND DETECT THE WINDOW HEIGHT*/
-
-
-
-/*NAVIGATION*/
-
-header {
-    background-color: var(--background-contrast);
-    padding: 25px 50px;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0,0,0,.09);
-    position: fixed;
-    top: 0;
-    z-index: 2;
+.navigation-bar__links-list h2 {
+  font-size: 1.05rem;
+  color: var(--base-color-text);
+  font-weight: 600;
 }
 
-header nav {
-    display: flex;
-    justify-content: space-between ;
-    align-items: center;
-    user-select: none;
+.navigation-bar__link {
+  padding: 5px;
+  transition: color var(--base-transition-duration);
 }
 
-header nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 1.25rem;
+.navigation-bar__menu-btn {
+  line-height: 0;
+  display: none;
 }
 
-header nav h3 {
-    font-size: 1.2rem;
-    color: var(--color-text-dark);
-    transition: color 0.15s;
+.navigation-bar__menu-icon {
+  width: 1.85rem;
+  color: var(--base-color-text);
 }
 
-header nav > a {
-    text-decoration: none;
-    color: inherit;
-    padding: 5px;
-}
+/* END OF NAVIGATION BAR */
 
-header nav ul a {
-    text-decoration: none;
-    color: inherit;
-    padding: 5px;
-}
-
-header nav li {
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--color-text-dark);
-    transition: color 0.15s;
-}
-
-
-
-/*WELCOME SECTION*/
+/* WELCOME HEADER */
 
 .welcome-section {
     max-width: 1000px;
@@ -145,12 +166,12 @@ header nav li {
     font-size: 3.5rem;
     line-height: 4rem;
     margin: 20px 0;
-    color: var(--color-text);
+    color: var(--base-color-text);
 }
 
 .welcome-title > p {
     font-size: 1.15rem;
-    color: var(--color-text-light);
+    color: var(--base-color-text-light);
 }
 
 .welcome-title h3 img {
@@ -230,13 +251,13 @@ header nav li {
 }
 
 .tech-stack h3 {
-    border-right: 2px solid var(--color-text);
+    border-right: 2px solid var(--base-color-text);
     padding-right: 20px;
     margin-right: 70px;
     font-weight: 600;
     font-size: 1.1rem;
     line-height: initial;
-    color: var(--color-text);
+    color: var(--base-color-text);
 }
 
 .stack-icons img {
@@ -244,6 +265,15 @@ header nav li {
     vertical-align: middle;
     transition: transform 0.15s;
 }
+
+
+/* END OF WELCOME HEADER */
+
+
+
+
+
+
 
 
 
@@ -311,7 +341,7 @@ header nav li {
     margin: 10px 0;
     line-height: 1.8rem;
     font-size: 1.05rem;
-    color: var(--color-text);
+    color: var(--base-color-text);
 }
 
 /*ABOUT BUTTON*/
@@ -343,7 +373,7 @@ header nav li {
 }
 
 .projects > h2 {
-    color: var(--color-text-light);
+    color: var(--base-color-text-light);
     font-size: 2.75rem;
     margin: 0 0 15px;
     text-align: center;
@@ -352,7 +382,7 @@ header nav li {
 .underline2 {
     width: 100px;
     height: 4px;
-    background-color: var(--color-text-light);
+    background-color: var(--base-color-text-light);
     margin: 0 auto;
 }
 
@@ -425,7 +455,7 @@ header nav li {
 
 .project-tooltip p {
     font-size: 1.25rem;
-    color: var(--color-text-dark);
+    color: var(--base-color-text-dark);
     font-weight: 700;
 }
 
@@ -444,14 +474,14 @@ header nav li {
 .project-summary h3 {
     margin-bottom: 20px;
     font-size: 1.8rem;
-    color: var(--color-text);
+    color: var(--base-color-text);
 }
 
 /*PROJECT TECHNOLOGIES*/
 .project-summary > p:first-of-type {
     margin-bottom: 10px;
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: var(--base-color-text-light);
 }
 
 .project-technologies {
@@ -466,7 +496,7 @@ header nav li {
     margin-bottom: 10px;
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--color-text-dark);
+    color: var(--base-color-text-dark);
 }
 
 .project-technologies p:nth-of-type(1) {
@@ -625,7 +655,7 @@ header nav li {
 .contact-container form h3 {
     font-size: 2.25rem;
     margin: 0 0 30px;
-    color: var(--color-text);
+    color: var(--base-color-text);
 }
 
 .contact-container form input, .contact-container form textarea {
@@ -688,13 +718,13 @@ header nav li {
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 3rem;
-    color: var(--color-text);
+    color: var(--base-color-text);
 }
 
 .contact-image-text h3 span {
     font-size: 1.3em;
     font-weight: 700;
-    color: var(--color-text-dark);
+    color: var(--base-color-text-dark);
 }
 
 
@@ -702,7 +732,7 @@ header nav li {
 /*FOOTER*/
 
 footer {
-    background-color: var(--color-text);
+    background-color: var(--base-color-text);
     color: #fff;
     padding: 60px 40px;
 }
@@ -746,94 +776,38 @@ footer {
 
 /*MEDIA QUERIES*/
 
-
-/*MEDIA QUERY FOR NOT HOVER READY DEIVES*/
-/*RESIZE OF CLICKABLE ELEMETS TO BE EASIER TO USE WITH TOUCH SCREEN DEVICES*/
-
-@media screen and (hover: none) {
-/*NAVIGATION*/
-
-    header nav li {
-        font-size: 1.25rem;
-    }
-
-
-/*WELCOME SECTION*/
-
-    .social-icons-welcome img {
-        width: 45px;
-    }
-
-    .tech-stack h3 {
-        font-size: 1.5rem;
-    }
-
-    .welcome-title > p {
-        font-size: 1.25rem;
-    }
-    
-    .stack-icons img {
-        width: 65px;
-    }
-    
-
-/*ABOUT SECTION*/
-
-    .about-text p {
-        font-size: 1.25rem;
-
-    }
-
-    .about-title a p {
-        font-size: 1.5rem;
-    }
-
-
-/*CONTACT SECTION*/
-
-    .name-email input {
-        font-size: 1.25rem;
-    }
-
-    .contact-container form textarea {
-        font-size: 1.25rem;
-    }
-
-    .contact-container form > input:last-child {
-        font-size: 1.5rem;
-    }
-
-
-/*FOOTER*/
-    .footer-social-icons img {
-        width: 45px;
-    }
-}
-
-/*END OF MEDIA QUERY FOR NOT HOVER READY DEVICES*/
-
-@media screen and (max-width: 335px) {
+/* @media screen and (max-width: 335px) {
     .welcome-title h3 img, .welcome-title p img {
        display: none;
     }
     
-}
+} */
+
+
+
 
 
 /*MEDIA QUERY FOR HOVER CAPABLE DEVICES*/
 
 @media screen and (hover: hover) {
-/*NAVIGATION*/
+  /* NAVIGATION BAR */
+  .navigation-bar__title:is(:hover, :focus-visible) {
+    color: var(--base-color-text-light);
+  }
 
-    header nav > a:hover h3 {
-        color: var(--color-text-light);
-        cursor: pointer;
-    }
+  .navigation-bar__link:is(:hover, :focus-visible),
+  .navigation-bar__menu-btn:is(:hover, :focus-visible) .navigation-bar__menu-icon {
+    color: var(--base-blue);
+  }
+  /* END OF NAVIGATION BAR */
 
-    header nav li:hover {
-        color: var(--navigation-hover);
-        cursor: pointer;
-    }
+
+
+
+
+
+
+
 
 
 /*WELCOME SECTION*/
@@ -856,7 +830,7 @@ footer {
 /*ABOUT SECTION*/
 
     .about-title a p:hover {
-        background-color: var(--button-color-hover);
+        background-color: var(--base-dark-blue);
     }
 
 
@@ -891,7 +865,7 @@ footer {
 
 /*CONTACT SECTION*/
     .contact-container form:valid > input:last-child:hover {
-        background-color: var(--button-color-hover);
+        background-color: var(--base-dark-blue);
         cursor: pointer;
     }
 }
@@ -900,13 +874,37 @@ footer {
 
 
 
+
+
+/* ACTIVE */
+  .navigation-bar__link:active,
+  .navigation-bar__menu-btn:is(:hover, :focus-visible) .navigation-bar__menu-icon:active {
+    transition: none;
+    color: var(--base-dark-blue);
+  }
+/* END OF ACTIVE */
+
+
+
+
+
+
+
 /*NAVIGATION AND WELCOME SECTION*/
 
 @media screen and (max-width: 900px) {
-/*NAVIGATION*/
-    header nav ul {
+  /* NAVIGATION BAR */
+    .navigation-bar__links-list {
         display: none;
     }
+
+    .navigation-bar__menu-btn {
+      display: initial;
+    }
+  /* END OF NAVIGATION BAR */
+
+
+
 
 
 /*WELCOME SECTION*/
@@ -953,7 +951,7 @@ footer {
     
     .tech-stack h3 {
         border-right: none;
-        border-bottom: 1px solid var(--color-text);
+        border-bottom: 1px solid var(--base-color-text);
         padding: 0 0 10px 0;
         margin: 0 0 30px 0;
         line-height: initial;
@@ -1163,4 +1161,3 @@ footer {
         grid-auto-columns: 50%;
     }
 }
-
