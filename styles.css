@@ -407,7 +407,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  /* object-position: center; */
 }
 
 .project__tooltip {
@@ -423,6 +423,7 @@ body {
   opacity: 1;
   transition: left 0.15s, right 0.15s, opacity var(--base-transition-duration);
   color: var(--base-color-text-dark);
+  pointer-events: none;
 }
 
 .project.original .project__tooltip {
@@ -542,13 +543,36 @@ body {
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: color var(--base-transition-duration);
+}
+
+.project__more-info-btn:is(:hover, :focus-visible) {
+  color: var(--base-color-text-light);
+}
+
+.project__more-info-btn:active {
+  transform: scale(1.05);
 }
 
 .project__info-close-btn {
   display: none;
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 20px;
+  z-index: 6;
+  background-color: var(--base-color-text-light);
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+}
+
+.project__more-info-icon {
+  width: 2.25rem;
+}
+
+.project__info-close-icon {
+  width: 1.7rem;
 }
 
 @media screen and (max-width: 1050px) {
@@ -567,20 +591,14 @@ body {
     display: flex;
   }
 
-  .project__more-info-icon {
-    width: 2.25rem;
-  }
-
   .project__info-close-btn {
-    display: inline-block;
-  }
-
-  .project__info-close-icon {
-    width: 2rem;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
   }
 
   .project__info-close-btn:hover {
-    color: #f9617a;
+    background-color: var(--skills-background-color);
   }
 
   .project__img-link {
@@ -604,6 +622,7 @@ body {
     scrollbar-gutter: stable both-edges;
     display: none;
   }
+
 }
 
 @media screen and (max-width: 575px) {
