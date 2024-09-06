@@ -8,6 +8,35 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
 </head>
 <body>
+  <div id="mobile-menu" class="mobile-menu">
+    <button id="mobile-menu__close-btn" class="mobile-menu__close-btn">
+      <svg aria-hidden="true" focusable="false" role="presentation" class="mobile-menu__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12"></path>
+      </svg>
+    </button>
+    <ul aria-label="Navigation links" class="mobile-menu__links-list">
+      <li>
+        <h2 class="mobile-menu__title">
+          <a class="mobile-menu__link" href="#home">Home</a>
+        </h2>
+      </li>
+      <li>
+        <h2 class="mobile-menu__title">
+          <a class="mobile-menu__link" href="#about">About</a>
+        </h2>
+      </li>
+      <li>
+        <h2 class="mobile-menu__title">
+          <a class="mobile-menu__link" href="#projects">Projects</a>
+        </h2>
+      </li>
+      <li>
+        <h2 class="mobile-menu__title">
+          <a class="mobile-menu__link" href="#contact">Contact</a>
+        </h2>
+      </li>
+    </ul>
+  </div>
   <!-- NAVIGATION BAR -->
     <header class="navigation-bar">
       <nav class="navigation-bar__nav">
@@ -38,7 +67,7 @@
             </h2>
           </li>
         </ul>
-        <button class="navigation-bar__menu-btn">
+        <button id="navigation-bar__menu-btn" class="navigation-bar__menu-btn">
           <svg class="navigation-bar__menu-icon" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fill="currentColor" d="M2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m0 6.032a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m1 5.033a1 1 0 1 0 0 2h18a1 1 0 0 0 0-2z" />
           </svg>

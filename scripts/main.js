@@ -1,4 +1,4 @@
-import { convertToKebabCase } from "./utils.js";
+import { convertToKebabCase, toggleModalFocus, toggleModalEvents } from "./utils.js";
 import { projectsData } from "./data/projects.js";
 
 const projectListLm = document.getElementById('project-list');
@@ -129,8 +129,72 @@ function toggleProjectInfoPanel(e) {
   }
 }
 
+// TODO Organize and review toggle mobile menu code
+
+const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
+const mobileMenuLm = document.getElementById('mobile-menu');
+const closeMobileMenuBtn = document.getElementById('mobile-menu__close-btn');
+const mobileMenuEventsHandler = {};
+
+let closeMobileMenuTimId = null;
+
+function closeMobileMenu() {
+
+  closeMobileMenuTimId = setTimeout(() => {
+    mobileMenuLm.style.display = 'none';
+    console.log(document.activeElement !== document.body)
+    // Only return focus if the user has not clicked any linke
+    if (document.activeElement !== document.body) {
+      toggleModalFocus('return', null, lastActiveLmBeforeMobileMenu)
+    }
+    setScrollBehavior();
+  }, 300)
+
+  mobileMenuLm.classList.remove('show')
+  toggleModalEvents(mobileMenuEventsHandler, 'remove', null, closeMobileMenuBtn, mobileMenuLm)
+}
+
+let lastActiveLmBeforeMobileMenu
+
+function openMobileMenu() {
+  clearTimeout(closeMobileMenuTimId)
+  mobileMenuLm.style.display = 'flex';
+  setTimeout(() => {
+    mobileMenuLm.classList.add('show');
+    lastActiveLmBeforeMobileMenu = toggleModalFocus('add', closeMobileMenuBtn);
+  }, 20);
+
+  // Add event listeners
+  toggleModalEvents(mobileMenuEventsHandler, 'add', closeMobileMenu, closeMobileMenuBtn, mobileMenuLm)
+}
+
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Function to set scroll-behavior based on user preference
+function setScrollBehavior() {
+  if (prefersReducedMotion) {
+    // User prefers reduced motion, so set scroll-behavior to 'auto'
+    document.documentElement.style.scrollBehavior = 'auto';
+  } 
+  else {
+    // User does not prefer reduced motion, so set scroll-behavior to 'smooth'
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }
+}
+
+mobileMenuLm.addEventListener('click', e => {
+  if (e.target.classList.contains('mobile-menu__link')) {
+    document.documentElement.style.scrollBehavior = 'auto';
+    closeMobileMenu()
+  }
+})
+
+
+
 // INITIAL FUNCTION CALL(S) 
 generateProjectList();
 
 // ADD EVENT LISTENERS
+navMenuBtn.addEventListener('click', openMobileMenu)
 projectListLm.addEventListener('click', toggleProjectInfoPanel);
