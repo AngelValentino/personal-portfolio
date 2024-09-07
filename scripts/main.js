@@ -1,8 +1,23 @@
-import { convertToKebabCase, toggleModalFocus, toggleModalEvents } from "./utils.js";
-import { projectsData } from "./data/projects.js";
+import { 
+  convertToKebabCase
+} from "./utils.js";
 
+import { 
+  openMobileMenu, 
+  closeMobileMenuAfterLinkClick
+} from "./menu.js";
+
+import { 
+  projectsData,
+  toggleProjectInfoPanel
+} from "./data/project.js";
+
+//* DOM REFERENCES
 const projectListLm = document.getElementById('project-list');
+const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
+const mobileMenuLm = document.getElementById('mobile-menu');
 
+//* GENERATE HTML FUNCTIONS
 function generateProjectLinkHTML(project) {
   return `
     <a class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
@@ -94,107 +109,13 @@ function generateProjectList() {
     .join('');
 }
 
-function toggleSiblingBtn(btn, className) {
-  const targetBtn = className === 'show' ? btn.nextElementSibling : btn.previousElementSibling;
-  targetBtn.classList.toggle(className);
-  targetBtn.focus();
-}
-
-function toggleProjectInfoPanel(e) {
-  const moreInfoBtn = e.target.closest('.project__more-info-btn');
-  const closePanelBtn = e.target.closest('.project__info-close-btn')
-  const projectLm = e.target.closest('.project');
-  const infoPanelLm = projectLm && projectLm.querySelector('.project__info')
-  const imgLinkLm = projectLm && projectLm.querySelector('.project__img-link')
-
-  if (moreInfoBtn) {
-    // Show info panel and scroll to top
-    infoPanelLm.classList.add('show');
-    infoPanelLm.scrollTo(0, 0);
-    // Show close panel button and add focus
-    toggleSiblingBtn(moreInfoBtn, 'show');
-
-    // Hide project image link and more info button
-    imgLinkLm.classList.add('hide');
-    moreInfoBtn.classList.add('hide');
-  }
-  else if (closePanelBtn) {
-    // Hide info panel and close info panel button
-    infoPanelLm.classList.remove('show');
-    closePanelBtn.classList.remove('show');
-
-    // Show project image link and more info button
-    imgLinkLm.classList.remove('hide');
-    toggleSiblingBtn(closePanelBtn, 'hide');
-  }
-}
-
-// TODO Organize and review toggle mobile menu code
-
-const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
-const mobileMenuLm = document.getElementById('mobile-menu');
-const closeMobileMenuBtn = document.getElementById('mobile-menu__close-btn');
-const mobileMenuEventsHandler = {};
-
-let closeMobileMenuTimId = null;
-
-function closeMobileMenu() {
-
-  closeMobileMenuTimId = setTimeout(() => {
-    mobileMenuLm.style.display = 'none';
-    console.log(document.activeElement !== document.body)
-    // Only return focus if the user has not clicked any linke
-    if (document.activeElement !== document.body) {
-      toggleModalFocus('return', null, lastActiveLmBeforeMobileMenu)
-    }
-    setScrollBehavior();
-  }, 300)
-
-  mobileMenuLm.classList.remove('show')
-  toggleModalEvents(mobileMenuEventsHandler, 'remove', null, closeMobileMenuBtn, mobileMenuLm)
-}
-
-let lastActiveLmBeforeMobileMenu
-
-function openMobileMenu() {
-  clearTimeout(closeMobileMenuTimId)
-  mobileMenuLm.style.display = 'flex';
-  setTimeout(() => {
-    mobileMenuLm.classList.add('show');
-    lastActiveLmBeforeMobileMenu = toggleModalFocus('add', closeMobileMenuBtn);
-  }, 20);
-
-  // Add event listeners
-  toggleModalEvents(mobileMenuEventsHandler, 'add', closeMobileMenu, closeMobileMenuBtn, mobileMenuLm)
-}
-
-
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-// Function to set scroll-behavior based on user preference
-function setScrollBehavior() {
-  if (prefersReducedMotion) {
-    // User prefers reduced motion, so set scroll-behavior to 'auto'
-    document.documentElement.style.scrollBehavior = 'auto';
-  } 
-  else {
-    // User does not prefer reduced motion, so set scroll-behavior to 'smooth'
-    document.documentElement.style.scrollBehavior = 'smooth';
-  }
-}
-
-mobileMenuLm.addEventListener('click', e => {
-  if (e.target.classList.contains('mobile-menu__link')) {
-    document.documentElement.style.scrollBehavior = 'auto';
-    closeMobileMenu()
-  }
-})
-
-
-
-// INITIAL FUNCTION CALL(S) 
+//* INITIAL FUNCTION CALL(S) 
 generateProjectList();
 
-// ADD EVENT LISTENERS
-navMenuBtn.addEventListener('click', openMobileMenu)
+//* ADD EVENT LISTENERS
+// MOBILE MENU
+navMenuBtn.addEventListener('click', openMobileMenu);
+mobileMenuLm.addEventListener('click', closeMobileMenuAfterLinkClick);
+
+// PROJECTS
 projectListLm.addEventListener('click', toggleProjectInfoPanel);

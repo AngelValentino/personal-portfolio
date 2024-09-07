@@ -1,3 +1,17 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Function to set scroll-behavior based on user preference
+export function setScrollBehavior() {
+  if (prefersReducedMotion) {
+    // User prefers reduced motion, so set scroll-behavior to 'auto'
+    document.documentElement.style.scrollBehavior = 'auto';
+  } 
+  else {
+    // User does not prefer reduced motion, so set scroll-behavior to 'smooth'
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }
+}
+
 export function convertToKebabCase(str) {
   return str
     .trim() // Remove wrapping white space if any
