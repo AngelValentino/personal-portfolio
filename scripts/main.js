@@ -13,7 +13,6 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
-//TODO Refactor footer
 //TODO Make form functionable
 
 //* DOM REFERENCES

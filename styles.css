@@ -802,54 +802,73 @@ body {
 
 /* END OF CONTACT SECTION */
 
-
-
-
-/*FOOTER*/
+/* FOOTER */
 
 footer {
-    background-color: var(--base-color-text);
-    color: #fff;
-    padding: 60px 40px;
+  background-color: var(--base-color-text);
+  color: #fff;
+  padding: 60px 40px;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 30px;
 }
 
-.footer-container > p {
-    font-weight: 600;
+.footer__text {
+  font-size: 1.125rem;
+  font-weight: 500;
 }
 
-.footer-social-icons {
-    display: flex;
-    gap: 10px;
-    user-select: none;
+.footer__text a {
+  font-size: 1.1em;
+  font-weight: 700;
+  text-underline-position: under;
 }
 
-.footer-social-icons a {
-    line-height: 0;
+.footer__text a:hover {
+  text-decoration: underline;
 }
 
-.footer-social-icons img {
-    width: 30px;
-    transition: transform 0.15s;
+.footer__social-links-list {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-
-.footer-social-icons img:hover {
-    transform: scale(1.15);
-    cursor: pointer;
+.footer__social-link-icon {
+  width: 2rem;
+  transition: color var(--base-transition-duration);
 }
 
+.footer__freecodecamp-icon {
+  width: 2.1rem;
+}
 
+.footer__github-icon {
+  width: 1.9rem;
+}
 
+.footer__social-link {
+  display: block;
+  line-height: 0;
+  transition: transform var(--base-transition-duration);
+  will-change: transform;
+}
+
+.footer__social-link:is(:hover, :focus-visible) {
+  transform: scale(1.1);
+}
+
+.footer__social-link:active {
+  transition: none;
+}
+
+/* END OF FOOTER */
 
 /** MEDIA QUERIES FOR HOVER CAPABLE DEVICES **/
 
@@ -898,10 +917,7 @@ footer {
     opacity: 1;
   }
 
-  .project__link:is(:hover, :focus-visible) .project__link-icon {
-    color: var(--base-light-blue);
-  }
-  
+  .project__link:is(:hover, :focus-visible) .project__link-icon,
   .project__link:is(:hover, :focus-visible) .project__link-title {
     color: var(--base-light-blue);
   }
@@ -933,7 +949,17 @@ footer {
 /** END OF MEDIA QUERY FOR HOVER CAPABLE DEVICES **/
 
 /** ACTIVE **/
-  /* NAVIGATION BAR*/
+  /* MOBILE MENU */
+  .mobile-menu__close-btn:active {
+    color: #808080;
+  }
+  .mobile-menu__link:active {
+    transition: none;
+    color: var(--base-dark-blue);
+  }
+  /* END OF MOBILE MENU */
+
+  /* NAVIGATION BAR */
   .navigation-bar__link:active,
   .navigation-bar__menu-btn:active .navigation-bar__menu-icon {
     transition: none;
@@ -964,6 +990,13 @@ footer {
   .project__info-close-btn:active {
     transform: scale(0.95);
   }
+  
+  .project__link:active .project__link-title,
+  .project__link:active .project__link-icon {
+    transition: none;
+    color: var(--base-blue);
+  }
+
   /* END OF PROJECTS SECTION */
   /* CONTACT SECTION */
   .contact__submit-btn:active {
@@ -1185,41 +1218,3 @@ footer {
 }
 
 /** END OF MEDIA QUERIES **/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*FOOTER*/
-
-/*FOOTER SECTION FOR MOBILE DEVICES*/ 
-@media screen and (max-width: 450px) {
-    footer {
-        padding: 60px 25px;
-    }
-}
-
-@media screen and (max-width: 350px) {
-    footer {
-        padding: 60px 15px;
-    }
-}
-
-
