@@ -1,5 +1,6 @@
 import { 
-  convertToKebabCase
+  convertToKebabCase,
+  throttle
 } from "./utils.js";
 
 import { 
@@ -16,8 +17,12 @@ import {
 const projectListLm = document.getElementById('project-list');
 const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
 const mobileMenuLm = document.getElementById('mobile-menu');
+const sliderLm = document.getElementById('slider__inner');
+const sliderProgressBarInnerLm = document.getElementById('slider__progress-bar-inner');
 
-//* GENERATE HTML FUNCTIONS
+//* FLAG VARIABLES
+let sliderGrabbed = false;
+
 function generateProjectLinkHTML(project) {
   return `
     <a class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
@@ -109,8 +114,18 @@ function generateProjectList() {
     .join('');
 }
 
-//* INITIAL FUNCTION CALL(S) 
+function getSliderScrollPercentage() {
+  const sliderContainerLm = sliderLm.parentElement;
+  return ((sliderContainerLm.scrollLeft / (sliderContainerLm.scrollWidth - sliderContainerLm.clientWidth)) * 100).toFixed(2);
+}
+
+function updateSliderProgressBar() {
+  sliderProgressBarInnerLm.style.width = `${getSliderScrollPercentage()}%`;
+}
+
+//* INITIAL FUNCTION CALLS
 generateProjectList();
+updateSliderProgressBar();
 
 //* ADD EVENT LISTENERS
 // MOBILE MENU
@@ -119,3 +134,31 @@ mobileMenuLm.addEventListener('click', closeMobileMenuAfterLinkClick);
 
 // PROJECTS
 projectListLm.addEventListener('click', toggleProjectInfoPanel);
+
+// SKILLS SLIDER
+sliderLm.parentElement.addEventListener('scroll', updateSliderProgressBar);
+
+sliderLm.addEventListener('mousedown', () => {
+  sliderGrabbed = true;
+  sliderLm.style.cursor = 'grabbing';
+});
+
+sliderLm.addEventListener('mouseup', () => {
+  sliderGrabbed = false;
+  sliderLm.style.cursor = 'grab';
+});
+
+sliderLm.addEventListener('mouseleave', () => {
+  sliderGrabbed = false;
+})
+
+sliderLm.addEventListener('mousemove', e => {
+  if (sliderGrabbed) sliderLm.parentElement.scrollLeft -= e.movementX;
+});
+
+sliderLm.addEventListener('wheel', e => {
+  e.preventDefault();
+  sliderLm.parentElement.scrollLeft += e.deltaY;
+});
+
+window.addEventListener('resize', throttle(updateSliderProgressBar, 100));

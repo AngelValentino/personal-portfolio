@@ -1,5 +1,23 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+export function throttle(fun, delay) {
+  // Variable to track the timestamp of the last function execution
+  let lastTime = 0;
+
+  /* Return a new function that ensures the given function is called 
+  at most once every specified delay interval */
+  return (...args) => {
+    // Get the current timestamp
+    const now = new Date().getTime();
+    // If the time elapsed since the last execution is less than `delay`, exit early
+    if (now - lastTime < delay) return;
+    // Update the last execution timestamp to the current time
+    lastTime = now;
+    // Call the original function with the provided arguments
+    fun(...args);
+  }
+}
+
 // Function to set scroll-behavior based on user preference
 export function setScrollBehavior() {
   if (prefersReducedMotion) {
