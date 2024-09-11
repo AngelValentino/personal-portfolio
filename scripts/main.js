@@ -13,6 +13,9 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
+//TODO Refactor footer
+//TODO Make form functionable
+
 //* DOM REFERENCES
 const projectListLm = document.getElementById('project-list');
 const navMenuBtn = document.getElementById('navigation-bar__menu-btn');

@@ -276,34 +276,29 @@
         </div>
       </section>
     <!-- END OF SKILLS SLIDER -->
-
-
-
-
-
-
+    <!-- CONTACT SECTION -->
       <section id="contact" class="contact">
-          <div class="contact-container">
-              <form>
-                  <h3>Contact Me</h3>
-                  <div class="name-email">
-                      <input required placeholder="Name*" type="text" name="name" id="name">
-                      <input required placeholder="Email*" type="email" name="emal" id="email">
-                  </div>
-                  <textarea required placeholder="Your message here*" name="message" id="message" rows="10"></textarea>
-                  <input type="submit" value="Send Message">
-              </form>
-              <div class="contact-image-text">
-                  <img src="images/contact-section/coffe-and-cookies.png" alt="coffe and cookies">
-                  <h3><span>How do you</span><br />take your coffee?</h3>
-              </div>
+        <form class="contact__form">
+          <h2 class="contact__form-title">Contact Me</h2>
+          <div class="contact__name-email-container">
+            <label for="contact__name-input" class="visually-hidden">Email</label>
+            <input id="contact__name-input" class="contact__name-input" autocomplete="name" required placeholder="Name*" type="text" name="name">
+            <label for="contact__email-input" class="visually-hidden">Name</label>
+            <input id="contact__email-input" class="contact__email-input" autocomplete="email" required placeholder="Email*" type="email" name="email">
           </div>
+          <label for="contact__message-textarea" class="visually-hidden">Type your message</label>
+          <textarea class="contact__message-textarea" id="contact__message-textarea" required placeholder="Your message here*" name="message"></textarea>
+          <button class="contact__submit-btn" type="submit">Send Message</button>
+        </form>
+        <div class="contact__image-container">
+          <img class="contact__image" src="images/contact-section/coffe-and-cookies.png" alt="Hot coffe and cookies.">
+          <h2 class="contact__title"><span>How do you</span><br />take your coffee?</h2>
+        </div>
       </section>
-
-
-
-
+    <!-- END OF CONTACT SECTION -->
   </main>
+
+
     <footer>
         <div class="footer-container">
             <p>Copyright © 2023. All rights are reserved</p>
@@ -320,6 +315,8 @@
             </div>
         </div>
     </footer>
+
+    
   <script src="scripts/main.js" type="module"></script>
 </body>
 </html>
