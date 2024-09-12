@@ -13,7 +13,7 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
-//TODO Make form functionable
+//TODO Add dark mode
 
 //* DOM REFERENCES
 const projectListLm = document.getElementById('project-list');

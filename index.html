@@ -283,13 +283,13 @@
         <form name="contact" netlify class="contact__form">
           <h2 class="contact__form-title">Contact Me</h2>
           <div class="contact__name-email-container">
-            <label for="contact__name-input" class="visually-hidden">Email</label>
-            <input id="contact__name-input" class="contact__name-input" autocomplete="name" required placeholder="Name*" type="text" name="name">
-            <label for="contact__email-input" class="visually-hidden">Name</label>
-            <input id="contact__email-input" class="contact__email-input" autocomplete="email" required placeholder="Email*" type="email" name="email">
+            <label for="contact__name-input" class="visually-hidden">Name</label>
+            <input id="contact__name-input" class="contact__name-input" autocomplete="name" placeholder="Name*" type="text" name="name" aria-required="true" required>
+            <label for="contact__email-input" class="visually-hidden">Email</label>
+            <input id="contact__email-input" class="contact__email-input" autocomplete="email" placeholder="Email*" type="email" name="email" aria-required="true" required>
           </div>
           <label for="contact__message-textarea" class="visually-hidden">Message</label>
-          <textarea class="contact__message-textarea" id="contact__message-textarea" required placeholder="Your message here*" name="message"></textarea>
+          <textarea class="contact__message-textarea" id="contact__message-textarea" placeholder="Your message here*" name="message" aria-required="true" required></textarea>
           <button class="contact__submit-btn" type="submit">Send Message</button>
         </form>
         <div class="contact__image-container">
