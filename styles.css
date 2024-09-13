@@ -195,7 +195,16 @@ body {
   top: 0;
   z-index: 50;
   height: 79px;
-  transition: background-color var(--base-transition-duration);
+  will-change: transform;
+  transition: background-color var(--base-transition-duration), transform 0.4s;
+}
+
+.scroll-down .navigation-bar {
+  transform: translateY(-90px);
+}
+
+.scroll-up .navigation-bar {
+  transform: translateY(0);
 }
 
 .navigation-bar__nav {
@@ -949,12 +958,24 @@ footer {
   will-change: transform;
 }
 
-.footer__social-link:is(:hover, :focus-visible) {
-  transform: scale(1.1);
+.footer__right-container {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
-.footer__social-link:active {
-  transition: none;
+.footer__scroll-to-top-btn {
+  line-height: 0;
+  will-change: transform;
+  transition: transform 0.15s;
+}
+
+.footer__scroll-to-top-icon {
+  width: 1.75rem;
+}
+
+.footer__scroll-to-top-btn:is(:hover, :focus-visible) {
+  transform: translateY(-5px);
 }
 
 /* END OF FOOTER */
@@ -1033,6 +1054,12 @@ footer {
     background-color: var(--contrast-color-tertiary);
   }
   /* END OF CONTACT SECTION */
+  
+  /* FOOTER */
+  .footer__social-link:is(:hover, :focus-visible) {
+    transform: scale(1.1);
+  }
+  /* END OF FOOTER */
 }
 
 /** END OF MEDIA QUERY FOR HOVER CAPABLE DEVICES **/

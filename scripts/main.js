@@ -152,7 +152,48 @@ toggleThemeBtn.addEventListener('click', () => {
     toggleThemeBtn.title = 'Switch to dark theme';
     toggleThemeBtn.ariaLabel = 'Switch to dark theme.';
   }
+});
+
+const bodyLm = document.body;
+const scrollToTopBtn = document.getElementById('footer__scroll-to-top-btn');
+// Initialize a variable to track the last scroll position, starting at 0 (top of the page)
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+
+  // Get the current vertical scroll position of the page (in pixels)
+	const currentScroll = window.scrollY;
+
+  // If the current scroll position is less than or equal to 375px
+	if (currentScroll <= 375) {
+    // Remove the 'scroll-up' class from the body if it exists
+		bodyLm.classList.remove("scroll-up");
+    // Exit the function early to prevent further class changes
+		return;
+	}
+
+  // If the user is scrolling down (current scroll is greater than the last scroll)
+  // AND the 'scroll-down' class is not already present add 'scroll-down' class
+	if (currentScroll > lastScroll && !bodyLm.classList.contains("scroll-down")) {
+    bodyLm.classList.remove("scroll-up");
+    bodyLm.classList.add("scroll-down");
+	} 
+  // If the user is scrolling up (current scroll is less than the last scroll)
+  // AND the 'scroll-down' class is currently present add 'scroll-up' class
+  else if (currentScroll < lastScroll && bodyLm.classList.contains("scroll-down")) {
+		bodyLm.classList.remove("scroll-down");
+		bodyLm.classList.add("scroll-up");
+	}
+  
+  // Update the last scroll position with the current scroll position
+  // This will be used in the next scroll event to determine the scroll direction
+	lastScroll = currentScroll;
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo(0, 0);
 })
+
 
 //* INITIAL FUNCTION CALLS
 generateProjectList();
