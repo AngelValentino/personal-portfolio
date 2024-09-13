@@ -13,8 +13,6 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
-//TODO Add dark mode
-
 //* DOM REFERENCES
 const projectListLm = document.getElementById('project-list');
 const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
@@ -124,6 +122,37 @@ function getSliderScrollPercentage() {
 function updateSliderProgressBar() {
   sliderProgressBarInnerLm.style.width = `${getSliderScrollPercentage()}%`;
 }
+
+const toggleThemeBtn = document.getElementById('navigation-bar__toggle-theme-btn');
+const coffeeImgLm = document.getElementById('contact__coffee-img');
+const coffeeSVGLm = document.getElementById('contact__coffee-icon');
+const lightThemeIconLm = document.getElementById('navigation-bar__light-theme-icon');
+const darkThemeIconLm = document.getElementById('navigation-bar__dark-theme-icon')
+
+
+
+//TODO Refactor this
+toggleThemeBtn.addEventListener('click', () => {
+  console.log('toggle theme button clicked');
+  document.documentElement.classList.toggle('dark-theme');
+
+  if (document.documentElement.classList.contains('dark-theme')) {
+    coffeeImgLm.style.display = 'none';
+    coffeeSVGLm.style.display = 'inline-block';
+    lightThemeIconLm.style.display = 'block';
+    darkThemeIconLm.style.display = 'none';
+    toggleThemeBtn.title = 'Switch to light theme';
+    toggleThemeBtn.ariaLabel = 'Switch to light theme.';
+  } 
+  else {
+    coffeeSVGLm.style.display = 'none'
+    coffeeImgLm.style.display = 'inline-block'
+    lightThemeIconLm.style.display = 'none';
+    darkThemeIconLm.style.display = 'block';
+    toggleThemeBtn.title = 'Switch to dark theme';
+    toggleThemeBtn.ariaLabel = 'Switch to dark theme.';
+  }
+})
 
 //* INITIAL FUNCTION CALLS
 generateProjectList();
