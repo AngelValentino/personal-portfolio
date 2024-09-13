@@ -23,6 +23,10 @@ const sliderProgressBarInnerLm = document.getElementById('slider__progress-bar-i
 //* FLAG VARIABLES
 let sliderGrabbed = false;
 
+//TODO Refactor toggle dark mode logic
+//TODO Add translate functionality
+//TODO Add a loader until the DOM finishes loading
+
 function generateProjectLinkHTML(project) {
   return `
     <a class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
@@ -129,9 +133,6 @@ const coffeeSVGLm = document.getElementById('contact__coffee-icon');
 const lightThemeIconLm = document.getElementById('navigation-bar__light-theme-icon');
 const darkThemeIconLm = document.getElementById('navigation-bar__dark-theme-icon')
 
-
-
-//TODO Refactor this
 toggleThemeBtn.addEventListener('click', () => {
   console.log('toggle theme button clicked');
   document.documentElement.classList.toggle('dark-theme');

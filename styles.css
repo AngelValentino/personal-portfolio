@@ -196,7 +196,7 @@ body {
   z-index: 50;
   height: 79px;
   will-change: transform;
-  transition: background-color var(--base-transition-duration), transform 0.4s;
+  transition: background-color var(--base-transition-duration), transform 0.425s ease-in-out;
 }
 
 .scroll-down .navigation-bar {
