@@ -13,6 +13,8 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
+import { translations } from "./data/languages.js";
+
 //* DOM REFERENCES
 const projectListLm = document.getElementById('project-list');
 const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
@@ -23,16 +25,26 @@ const sliderProgressBarInnerLm = document.getElementById('slider__progress-bar-i
 //* FLAG VARIABLES
 let sliderGrabbed = false;
 
-//TODO Refactor toggle dark mode logic
+//? SUNDAY
 //TODO Add translate functionality
+  //TODO Refactor translate projects logic code
+  //TODO Add dropdown menu
+  //TODO Add localStorage
+
+//? NEXT WEEK
+//TODO Refactor toggle dark mode logic
+//TODO Make download cv button functional
 //TODO Add a loader until the DOM finishes loading
+//TODO Improve and refactor styling
+//TODO Add parallax scrolling
+//TODO Portfolio review
 
 function generateProjectLinkHTML(project) {
   return `
-    <a class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
-      <img aria-hidden="true" role="presentation" class="project__img" src="images/projects-screenshots/${convertToKebabCase(project.title)}.jpg" alt="${project.title} screenshot">
+    <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-img-link" class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
+      <img aria-hidden="true" role="presentation" class="project__img" src="images/projects-screenshots/${convertToKebabCase(project.title)}.jpg" alt="">
       <div aria-hidden="true" role="presentation" class="project__tooltip">
-        <p class="project__tooltip-text">Live Demo</p>
+        <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-tooltip-text" class="project__tooltip-text">Live Demo</p>
         <svg aria-hidden="true" focusable="false" role="presentation" class="project__tooltip-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5" />
         </svg>
@@ -54,13 +66,13 @@ function generateProjectInfoHTML(project) {
   return `
     <div id="project__info-${project.id}" class="project__info">
       <h3 class="project__info-title">${project.title}</h3>
-      <p class="project__info-summary-text">${project.description}</p>
-      <ul aria-label="Project technologies." class="project__technologies-list">
+      <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-description" class="project__info-summary-text">${project.description.en}</p>
+      <ul data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-tech-list" aria-label="Project technologies." class="project__technologies-list">
         ${generateProjectTechIconsHTML(project.technologies)}
       </ul>
       <div class="project__links-container">
-        <a aria-label="Go to ${project.title} code repository." class="project__link project__code-link" target="_blank" href="${project.codeUrl}">
-          <p aria-hidden="true" class="project__link-title">Code</p>
+        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-link" aria-label="Go to ${project.title} code repository." class="project__link project__code-link" target="_blank" href="${project.codeUrl}">
+          <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-text" aria-hidden="true" class="project__link-title">Code</p>
           <svg class="project__link-code-icon project__link-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g fill="none">
               <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
@@ -68,8 +80,8 @@ function generateProjectInfoHTML(project) {
             </g>
           </svg>
         </a>
-        <a aria-label="Go to ${project.title} live demo." class="project__link project__demo-link" target="_blank" href="${project.demoUrl}">
-          <p aria-hidden="true" class="project__link-title">Live Demo</p>
+        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-link" aria-label="Go to ${project.title} live demo." class="project__link project__demo-link" target="_blank" href="${project.demoUrl}">
+          <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-text" aria-hidden="true" class="project__link-title">Live Demo</p>
           <svg class="project__link-demo-icon project__link-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5" />
           </svg>
@@ -94,15 +106,18 @@ function setProjectSymmetry(symmetry, project) {
   }
 }
 
+// generate project html
+// Translate elememnts and aria labels
+
 function generateProjectHTML(symmetry, project) {
   return `
     <li class="project ${symmetry === 'original' ? 'original' : 'mirrowed'}">
-      <button aria-label="Read more information about ${project.title}." aria-controls="project__info-${project.id}" title="More info" class="project__more-info-btn">
+      <button data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-more-info-btn" aria-label="Read more information about ${project.title}." aria-controls="project__info-${project.id}" title="More info" class="project__more-info-btn">
         <svg aria-hidden="true" focusable="false" role="presentation" class="project__more-info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path fill="currentColor" d="M17 5.5A2.5 2.5 0 0 0 14.5 3h-9A2.5 2.5 0 0 0 3 5.5v9A2.5 2.5 0 0 0 5.5 17h1.25A2.25 2.25 0 0 1 11 15.968a2.25 2.25 0 0 1 4 0a2.25 2.25 0 0 1 1.988-1.218q.012-.124.012-.25zM6 6.75c0-.414.316-.75.706-.75h6.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706C6.316 7.5 6 7.164 6 6.75m0 3c0-.414.316-.75.706-.75h3.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706c-.39 0-.706-.336-.706-.75M6.706 12h6.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706c-.39 0-.706-.336-.706-.75s.316-.75.706-.75m3.544 5a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0M13 18.25a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4 0a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5" />
         </svg>
       </button> 
-      <button title="Close more info" aria-label="Close more information about ${project.title}" aria-controls="project__info-${project.id}" class="project__info-close-btn">
+      <button data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-close-info-btn" title="Close more info" aria-label="Close more information about ${project.title}" aria-controls="project__info-${project.id}" class="project__info-close-btn">
         <svg aria-hidden="true" focusable="false" role="presentation" class="project__info-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12" />
         </svg>
@@ -193,12 +208,42 @@ window.addEventListener("scroll", () => {
 
 scrollToTopBtn.addEventListener('click', () => {
   window.scrollTo(0, 0);
-})
+});
+
+
+
+function changeLanguage(lang = 'en') {
+  document.documentElement.lang = lang;  // Update </html> lang attribute
+  const elements = document.querySelectorAll("[data-i18n-section]");
+
+  console.log(elements)
+
+  elements.forEach(element => {
+      // Get the section and value keys from the element
+      const section = element.getAttribute("data-i18n-section");
+      const elementName = element.getAttribute("data-i18n-element");
+
+      const elementValues = translations[lang][section][elementName]
+
+      for (let key in elementValues) {
+        if (elementValues[key]) {
+          element[key] = elementValues[key]
+        }
+      }
+  });
+
+  // Store selected language in localStorage
+  // localStorage.setItem("preferredLanguage", lang);
+}
+
+
 
 
 //* INITIAL FUNCTION CALLS
 generateProjectList();
 updateSliderProgressBar();
+
+changeLanguage('ro')
 
 //* ADD EVENT LISTENERS
 // MOBILE MENU
