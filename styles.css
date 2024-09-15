@@ -132,6 +132,94 @@ body {
   white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
 
+/* SELECT UI COMPONENT */
+
+.custom-select-container {
+  display: inline-block;
+  position: relative;
+  border-radius: 2px;
+}
+
+.custom-select-label {
+  display: flex;
+  align-items: center;
+  padding: 7px 36px 7px 10px;
+  border-radius: 2px;
+  border: 1px solid #e8e8e1;
+  cursor: pointer;
+  user-select: none;
+  gap: 8px;
+  width: 170px;
+  word-break: break-word;
+  font-size: 0.9rem;
+}
+
+.custom-select__arrow-icon {
+  width: 0.75rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  will-change: transform;
+  transition: transform 0.15s;
+  pointer-events: none;
+}
+
+.custom-select__arrow-icon.active {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.custom-select-label svg {
+  width: 1.5rem;
+}
+
+/* .custom-select-container:focus > .custom-select-label {
+
+} */
+
+.custom-select-options {
+  display: none;
+  position: absolute;
+  border: 1px solid #e8e8e1;
+  width: 100%;
+  overflow-y: auto; 
+  scrollbar-width: thin;
+  border-radius: 2px;
+  /* display: block; */
+  top: 50px;
+  background-color: white;
+  /* border-top: none; */
+  padding: 10px 0 10px; 
+  box-shadow: 4px 4px 5px 0 rgba(8, 15, 52, 0.025);
+ }
+
+.custom-select-options.show {
+  display: block;
+}
+
+.custom-select-option {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  /* font-size: 0.9rem; */
+}
+
+.custom-select-option svg {
+  width: 1.5rem;
+}
+
+.custom-select-option:hover {
+  color: red;
+}
+
+.custom-select-option.selected {
+  color: blue;
+}
+
+/* SELECT UI COMPONENT */
+
 /* MOBILE MENU */
 
 .mobile-menu {

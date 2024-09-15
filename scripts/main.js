@@ -13,6 +13,8 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
+import { Select } from "./Select.js";
+
 import { translations } from "./data/languages.js";
 
 //* DOM REFERENCES
@@ -25,18 +27,19 @@ const sliderProgressBarInnerLm = document.getElementById('slider__progress-bar-i
 //* FLAG VARIABLES
 let sliderGrabbed = false;
 
-//? SUNDAY
 //TODO Add translate functionality
-  //TODO Refactor translate projects logic code
-  //TODO Add dropdown menu
-  //TODO Add localStorage
+  //*Add Flags
+  //*Add localStorage
+  //*Add translation
+  //*Style dark mode
+  //*Add menu flags and hide navbar select on mobile
 
-//? NEXT WEEK
+//TODO Improve and refactor styling
+//TODO Add parallax scrolling
+
 //TODO Refactor toggle dark mode logic
 //TODO Make download cv button functional
 //TODO Add a loader until the DOM finishes loading
-//TODO Improve and refactor styling
-//TODO Add parallax scrolling
 //TODO Portfolio review
 
 function generateProjectLinkHTML(project) {
@@ -236,6 +239,52 @@ function changeLanguage(lang = 'en') {
   // localStorage.setItem("preferredLanguage", lang);
 }
 
+const data = [
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      English
+    `,
+    label: 'english',
+    value: 'en',
+  },
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      Spanish
+    `,
+    label: 'spanish', 
+    value: 'es', 
+  },
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      Romanian
+    `,
+    label: 'romanian', 
+    value: 'ro', 
+  },
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      Catalan
+    `,
+    label: 'catalan', 
+    value: 'ca', 
+  },
+]
+const customSelectLm = document.getElementById('custom-select-container');
+
+new Select(customSelectLm, data);
+
 
 
 
@@ -243,9 +292,18 @@ function changeLanguage(lang = 'en') {
 generateProjectList();
 updateSliderProgressBar();
 
-changeLanguage('ro')
+changeLanguage('en')
 
 //* ADD EVENT LISTENERS
+
+// Listen for the custo select 'change' event
+customSelectLm.addEventListener('onSelectChange', e => {
+  console.log('Custom select changed!', e.detail.value);
+  changeLanguage(e.detail.value)
+  // e.detail.value will give you the value of the selected option
+  // e.detail.option will give you the text of the selected option
+});
+
 // MOBILE MENU
 navMenuBtn.addEventListener('click', openMobileMenu);
 mobileMenuLm.addEventListener('click', closeMobileMenuAfterLinkClick);
