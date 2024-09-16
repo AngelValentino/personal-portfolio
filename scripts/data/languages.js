@@ -692,167 +692,90 @@ export const translations = {
   },
 };
 
+const projectLanguages = {
+  en: {
+    moreInfoBtnTitle: 'More info',
+    closeInfoBtnTitle: 'Close more info',
+    tooltipText: 'Live Demo',
+    demoText: 'Live Demo',
+    codeText: 'Code',
+    techListAriaLabel: 'Project technologies'
+  },
+  es: {
+    moreInfoBtnTitle: 'Más información',
+    closeInfoBtnTitle: 'Cerrar más información',
+    tooltipText: 'Demo en Vivo',
+    demoText: 'Demo en Vivo',
+    codeText: 'Código',
+    techListAriaLabel: 'Tecnologías del proyecto'
+  },
+  ro: {
+    moreInfoBtnTitle: 'Mai multe informații',
+    closeInfoBtnTitle: 'Închide mai multe informații',
+    tooltipText: 'Demo Live',
+    demoText: 'Demo Live',
+    codeText: 'Cod',
+    techListAriaLabel: 'Tehnologiile proiectului'
+  },
+  ca: {
+    moreInfoBtnTitle: 'Més informació',
+    closeInfoBtnTitle: 'Tanca més informació',
+    tooltipText: 'En Directe',
+    demoText: 'En Directe',
+    codeText: 'Codi',
+    techListAriaLabel: 'Tecnologies del projecte'
+  }
+};
 
-//TODO Refactor this
-projectsData.forEach(project => {
-  const projectTitle = convertToKebabCase(project.title)
+// Helper function to add translations
+function addProjectTranslations(project, langCode, translations) {
+  const projectTitle = convertToKebabCase(project.title);
 
   // Project controls
-  translations.en.projects[`${projectTitle}-more-info-btn`] = {
+  translations.projects[`${projectTitle}-more-info-btn`] = {
     ariaLabel: `Read more information about ${project.title}.`,
-    title: 'More info'
-  }
-  translations.en.projects[`${projectTitle}-close-info-btn`] = {
+    title: projectLanguages[langCode].moreInfoBtnTitle
+  };
+  translations.projects[`${projectTitle}-close-info-btn`] = {
     ariaLabel: `Close more information about ${project.title}.`,
-    title: 'Close more info'
-  }
+    title: projectLanguages[langCode].closeInfoBtnTitle
+  };
 
-  // Poject Link
-  translations.en.projects[`${projectTitle}-img-link`] = {
+  // Project link
+  translations.projects[`${projectTitle}-img-link`] = {
     ariaLabel: `Go to ${project.title} live demo.`
-  }
-  translations.en.projects[`${projectTitle}-tooltip-text`] = {
-    innerText: 'Live Demo'
-  }
+  };
+  translations.projects[`${projectTitle}-tooltip-text`] = {
+    innerText: projectLanguages[langCode].tooltipText
+  };
 
   // Project info
-  translations.en.projects[`${projectTitle}-description`] = {
-    innerText: `${project.description.en}`
-  }
-  translations.en.projects[`${projectTitle}-demo-text`] = {
-    innerText: 'Live Demo'
-  }
-  translations.en.projects[`${projectTitle}-demo-link`] = {
+  translations.projects[`${projectTitle}-description`] = {
+    innerText: project.description[langCode]
+  };
+  translations.projects[`${projectTitle}-demo-text`] = {
+    innerText: projectLanguages[langCode].demoText
+  };
+  translations.projects[`${projectTitle}-demo-link`] = {
     ariaLabel: `Go to ${project.title} live demo.`
-  }
-  translations.en.projects[`${projectTitle}-code-text`] = {
-    innerText: 'Code'
-  }
-  translations.en.projects[`${projectTitle}-code-link`] = {
+  };
+  translations.projects[`${projectTitle}-code-text`] = {
+    innerText: projectLanguages[langCode].codeText
+  };
+  translations.projects[`${projectTitle}-code-link`] = {
     ariaLabel: `Go to ${project.title} code repository.`
-  }
-  translations.en.projects[`${projectTitle}-tech-list`] = {
-    ariaLabel: 'Project technologies.'
-  }
+  };
+  translations.projects[`${projectTitle}-tech-list`] = {
+    ariaLabel: projectLanguages[langCode].techListAriaLabel
+  };
+}
 
-
-  //? es
-  translations.es.projects[`${projectTitle}-more-info-btn`] = {
-    ariaLabel: `Leer más información sobre ${project.title}.`,
-    title: 'Más información'
+projectsData.forEach(project => {
+  for (const lang in projectLanguages) {
+    if (!translations[lang].projects) {
+      console.error(`No 'projects' object found inside translations for language: ${lang}`);
+      return;
+    }
+    addProjectTranslations(project, lang, translations[lang]);
   }
-  translations.es.projects[`${projectTitle}-close-info-btn`] = {
-    ariaLabel: `Cerrar más información sobre ${project.title}.`,
-    title: 'Cerrar más información'
-  }
-
-  // Project Link
-  translations.es.projects[`${projectTitle}-img-link`] = {
-    ariaLabel: `Ir a la demo en vivo de ${project.title}.`
-  }
-  translations.es.projects[`${projectTitle}-tooltip-text`] = {
-    innerText: 'Demo en Vivo'
-  }
-
-  // Project info
-  translations.es.projects[`${projectTitle}-description`] = {
-    innerText: `${project.description.es}`
-  }
-  translations.es.projects[`${projectTitle}-demo-text`] = {
-    innerText: 'Demo en Vivo'
-  }
-  translations.es.projects[`${projectTitle}-demo-link`] = {
-    ariaLabel: `Ir a la demo en vivo de ${project.title}.`
-  }
-  translations.es.projects[`${projectTitle}-code-text`] = {
-      innerText: 'Código'
-  }
-  translations.es.projects[`${projectTitle}-code-link`] = {
-    ariaLabel: `Ir al repositorio de código de ${project.title}.`
-  }
-  translations.es.projects[`${projectTitle}-tech-list`] = {
-    ariaLabel: 'Tecnologías del proyecto.'
-  }
-
-
-  //? ro
-
-  translations.ro.projects[`${projectTitle}-more-info-btn`] = {
-    ariaLabel: `Citește mai multe informații despre ${project.title}.`,
-    title: 'Mai multe informații'
-  }
-  translations.ro.projects[`${projectTitle}-close-info-btn`] = {
-    ariaLabel: `Închide mai multe informații despre ${project.title}.`,
-    title: 'Închide mai multe informații'
-  }
-
-  // Project Link
-  translations.ro.projects[`${projectTitle}-img-link`] = {
-    ariaLabel: `Accesează demo-ul live al proiectului ${project.title}.`
-  }
-  translations.ro.projects[`${projectTitle}-tooltip-text`] = {
-    innerText: 'Demo Live'
-  }
-
-  // Project info
-  translations.ro.projects[`${projectTitle}-description`] = {
-    innerText: `${project.description.ro}`
-  }
-  translations.ro.projects[`${projectTitle}-demo-text`] = {
-    innerText: 'Demo Live'
-  }
-  translations.ro.projects[`${projectTitle}-demo-link`] = {
-    ariaLabel: `Accesează demo-ul live al proiectului ${project.title}.`
-  }
-  translations.ro.projects[`${projectTitle}-code-text`] = {
-    innerText: 'Cod'
-  }
-  translations.ro.projects[`${projectTitle}-code-link`] = {
-    ariaLabel: `Accesează depozitul de cod al proiectului ${project.title}.`
-  }
-  translations.ro.projects[`${projectTitle}-tech-list`] = {
-    ariaLabel: 'Tehnologiile proiectului.'
-  }
-
-  //? ca
-  translations.ca.projects[`${projectTitle}-more-info-btn`] = {
-    ariaLabel: `Llegeix més informació sobre ${project.title}.`,
-    title: 'Més informació'
-  }
-  translations.ca.projects[`${projectTitle}-close-info-btn`] = {
-    ariaLabel: `Tanca més informació sobre ${project.title}.`,
-    title: 'Tanca més informació'
-  }
-
-  // Project Link
-  translations.ca.projects[`${projectTitle}-img-link`] = {
-    ariaLabel: `Accedeix a la demo en directe del projecte ${project.title}.`
-  }
-  translations.ca.projects[`${projectTitle}-tooltip-text`] = {
-    innerText: 'En Directe'
-  }
-
-  // Project info
-  translations.ca.projects[`${projectTitle}-description`] = {
-    innerText: `${project.description.ca}`
-  }
-  translations.ca.projects[`${projectTitle}-demo-text`] = {
-    innerText: 'En Directe'
-  }
-  translations.ca.projects[`${projectTitle}-demo-link`] = {
-    ariaLabel: `Accedeix a la demo en directe del projecte ${project.title}.`
-  }
-  translations.ca.projects[`${projectTitle}-code-text`] = {
-    innerText: 'Codi'
-  }
-  translations.ca.projects[`${projectTitle}-code-link`] = {
-    ariaLabel: `Accedeix al repositori de codi del projecte ${project.title}.`
-  }
-  translations.ca.projects[`${projectTitle}-tech-list`] = {
-    ariaLabel: 'Tecnologies del projecte.'
-  }
-})
-
-
-
-console.log(translations.en)
+});

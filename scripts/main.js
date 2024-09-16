@@ -13,7 +13,7 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
-import { Select } from "./Select.js";
+import { Select, selectLanguageData } from "./Select.js";
 
 import { translations } from "./data/languages.js";
 
@@ -24,20 +24,32 @@ const mobileMenuLm = document.getElementById('mobile-menu');
 const sliderLm = document.getElementById('slider__inner');
 const sliderProgressBarInnerLm = document.getElementById('slider__progress-bar-inner');
 
+const toggleThemeBtn = document.getElementById('navigation-bar__toggle-theme-btn');
+const coffeeImgLm = document.getElementById('contact__coffee-img');
+const coffeeSVGLm = document.getElementById('contact__coffee-icon');
+const lightThemeIconLm = document.getElementById('navigation-bar__light-theme-icon');
+const darkThemeIconLm = document.getElementById('navigation-bar__dark-theme-icon');
+
+const customSelectLm = document.getElementById('custom-select-container');
+
+const bodyLm = document.body;
+const scrollToTopBtn = document.getElementById('footer__scroll-to-top-btn');
+
 //* FLAG VARIABLES
+const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
 let sliderGrabbed = false;
+// Initialize a variable to track the last scroll position, starting at 0 (top of the page)
+let lastScroll = 0;
 
 //TODO Add translate functionality
-  //*Add Flags
-  //*Add localStorage
-  //*Add translation
+  //*Add mobile menu select flags and hide navbar select on mobile
+  //*Add text translation
   //*Style dark mode
-  //*Add menu flags and hide navbar select on mobile
-
+  //*Add Flags images
+  
 //TODO Improve and refactor styling
 //TODO Add parallax scrolling
 
-//TODO Refactor toggle dark mode logic
 //TODO Make download cv button functional
 //TODO Add a loader until the DOM finishes loading
 //TODO Portfolio review
@@ -145,12 +157,89 @@ function updateSliderProgressBar() {
   sliderProgressBarInnerLm.style.width = `${getSliderScrollPercentage()}%`;
 }
 
-const toggleThemeBtn = document.getElementById('navigation-bar__toggle-theme-btn');
-const coffeeImgLm = document.getElementById('contact__coffee-img');
-const coffeeSVGLm = document.getElementById('contact__coffee-icon');
-const lightThemeIconLm = document.getElementById('navigation-bar__light-theme-icon');
-const darkThemeIconLm = document.getElementById('navigation-bar__dark-theme-icon')
+function changeLanguage(lang = 'en', elementsToBeTranslated) {
+  //TODO Also change the meta description
+  document.documentElement.lang = lang;  // Update </html> lang attribute
 
+  elementsToBeTranslated.forEach(element => {
+      // Get the section and value keys from the element
+      const section = element.getAttribute("data-i18n-section");
+      const elementName = element.getAttribute("data-i18n-element");
+
+      const elementValues = translations[lang][section][elementName];
+
+      for (let key in elementValues) {
+        if (elementValues[key]) {
+          element[key] = elementValues[key];
+        }
+      }
+  });
+
+  // Store selected language in localStorage
+  localStorage.setItem("preferredLanguage", lang);
+}
+
+
+
+
+//TODO INITIAL FUNCTION CALLS
+
+generateProjectList();
+const elementsToBeTranslated = document.querySelectorAll("[data-i18n-section]");
+updateSliderProgressBar();
+
+const select = new Select(customSelectLm, selectLanguageData);
+
+//TODO ADD EVENT LISTENERS
+
+//* HIDE OR SHOW NAVBAR ON SCROLL
+window.addEventListener("scroll", () => {
+  // Get the current vertical scroll position of the page (in pixels)
+	const currentScroll = window.scrollY;
+
+  // If the current scroll position is less than or equal to 375px
+	if (currentScroll <= 375) {
+    // Remove the 'scroll-up' class from the body if it exists
+		bodyLm.classList.remove("scroll-up");
+    // Exit the function early to prevent further class changes
+		return;
+	}
+
+  // If the user is scrolling down (current scroll is greater than the last scroll)
+  // AND the 'scroll-down' class is not already present add 'scroll-down' class
+	if (currentScroll > lastScroll && !bodyLm.classList.contains("scroll-down")) {
+    bodyLm.classList.remove("scroll-up");
+    bodyLm.classList.add("scroll-down");
+    select.hideOptions();
+	} 
+  // If the user is scrolling up (current scroll is less than the last scroll)
+  // AND the 'scroll-down' class is currently present add 'scroll-up' class
+  else if (currentScroll < lastScroll && bodyLm.classList.contains("scroll-down")) {
+		bodyLm.classList.remove("scroll-down");
+		bodyLm.classList.add("scroll-up");
+	}
+  
+  // Update the last scroll position with the current scroll position
+  // This will be used in the next scroll event to determine the scroll direction
+	lastScroll = currentScroll;
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo(0, 0);
+});
+
+//* CHANGE LANGUAGE
+// Listen for the custom select 'change' event
+customSelectLm.addEventListener('onSelectChange', e => {
+  console.log('Custom select changed!', e.detail.value);
+  changeLanguage(e.detail.value, elementsToBeTranslated);
+});
+
+// If preferred language is not english set a new select value
+select.setActiveOption(null, preferredLanguage, true);
+
+//* TOGGLE DARK THEME
+//TODO Refactor this and add translation support
 toggleThemeBtn.addEventListener('click', () => {
   console.log('toggle theme button clicked');
   document.documentElement.classList.toggle('dark-theme');
@@ -173,145 +262,14 @@ toggleThemeBtn.addEventListener('click', () => {
   }
 });
 
-const bodyLm = document.body;
-const scrollToTopBtn = document.getElementById('footer__scroll-to-top-btn');
-// Initialize a variable to track the last scroll position, starting at 0 (top of the page)
-let lastScroll = 0;
-
-window.addEventListener("scroll", () => {
-
-  // Get the current vertical scroll position of the page (in pixels)
-	const currentScroll = window.scrollY;
-
-  // If the current scroll position is less than or equal to 375px
-	if (currentScroll <= 375) {
-    // Remove the 'scroll-up' class from the body if it exists
-		bodyLm.classList.remove("scroll-up");
-    // Exit the function early to prevent further class changes
-		return;
-	}
-
-  // If the user is scrolling down (current scroll is greater than the last scroll)
-  // AND the 'scroll-down' class is not already present add 'scroll-down' class
-	if (currentScroll > lastScroll && !bodyLm.classList.contains("scroll-down")) {
-    bodyLm.classList.remove("scroll-up");
-    bodyLm.classList.add("scroll-down");
-	} 
-  // If the user is scrolling up (current scroll is less than the last scroll)
-  // AND the 'scroll-down' class is currently present add 'scroll-up' class
-  else if (currentScroll < lastScroll && bodyLm.classList.contains("scroll-down")) {
-		bodyLm.classList.remove("scroll-down");
-		bodyLm.classList.add("scroll-up");
-	}
-  
-  // Update the last scroll position with the current scroll position
-  // This will be used in the next scroll event to determine the scroll direction
-	lastScroll = currentScroll;
-});
-
-scrollToTopBtn.addEventListener('click', () => {
-  window.scrollTo(0, 0);
-});
-
-
-
-function changeLanguage(lang = 'en') {
-  document.documentElement.lang = lang;  // Update </html> lang attribute
-  const elements = document.querySelectorAll("[data-i18n-section]");
-
-  console.log(elements)
-
-  elements.forEach(element => {
-      // Get the section and value keys from the element
-      const section = element.getAttribute("data-i18n-section");
-      const elementName = element.getAttribute("data-i18n-element");
-
-      const elementValues = translations[lang][section][elementName]
-
-      for (let key in elementValues) {
-        if (elementValues[key]) {
-          element[key] = elementValues[key]
-        }
-      }
-  });
-
-  // Store selected language in localStorage
-  // localStorage.setItem("preferredLanguage", lang);
-}
-
-const data = [
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      English
-    `,
-    label: 'english',
-    value: 'en',
-  },
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      Spanish
-    `,
-    label: 'spanish', 
-    value: 'es', 
-  },
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      Romanian
-    `,
-    label: 'romanian', 
-    value: 'ro', 
-  },
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      Catalan
-    `,
-    label: 'catalan', 
-    value: 'ca', 
-  },
-]
-const customSelectLm = document.getElementById('custom-select-container');
-
-new Select(customSelectLm, data);
-
-
-
-
-//* INITIAL FUNCTION CALLS
-generateProjectList();
-updateSliderProgressBar();
-
-changeLanguage('en')
-
-//* ADD EVENT LISTENERS
-
-// Listen for the custo select 'change' event
-customSelectLm.addEventListener('onSelectChange', e => {
-  console.log('Custom select changed!', e.detail.value);
-  changeLanguage(e.detail.value)
-  // e.detail.value will give you the value of the selected option
-  // e.detail.option will give you the text of the selected option
-});
-
-// MOBILE MENU
+//* MOBILE MENU
 navMenuBtn.addEventListener('click', openMobileMenu);
 mobileMenuLm.addEventListener('click', closeMobileMenuAfterLinkClick);
 
-// PROJECTS
+//* PROJECTS
 projectListLm.addEventListener('click', toggleProjectInfoPanel);
 
-// SKILLS SLIDER
+//* SKILLS SLIDER
 sliderLm.parentElement.addEventListener('scroll', updateSliderProgressBar);
 
 sliderLm.addEventListener('mousedown', () => {

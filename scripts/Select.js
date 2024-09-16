@@ -1,3 +1,46 @@
+export const selectLanguageData = [
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      English
+    `,
+    label: 'english',
+    value: 'en',
+  },
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      Spanish
+    `,
+    label: 'spanish', 
+    value: 'es', 
+  },
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      Romanian
+    `,
+    label: 'romanian', 
+    value: 'ro', 
+  },
+  { 
+    content: `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+      </svg>
+      Catalan
+    `,
+    label: 'catalan', 
+    value: 'ca', 
+  },
+];
+
 export class Select {
   constructor(root, data) {
     root.innerHTML = Select.generateSelect(data);
@@ -100,9 +143,15 @@ export class Select {
     this.lms.selectLm.dispatchEvent(changeEvent);
   }
 
-  setActiveOption(currentOption) {
+  setActiveOption(currentOption, preferredLanguage, isEventDispatched) {
+    if (preferredLanguage && !currentOption) {
+      const matchedOption = this.lms.optionLms.find(option => option.dataset.value === preferredLanguage);
+      currentOption = matchedOption;
+    }
+
     // Check if the current option is different from the previous option
     if (currentOption !== this.selectedOption) {
+      console.log('not the same, set it')
       // Remove active state from the last selected option
       this.selectedOption.classList.remove('selected');
 
@@ -113,6 +162,14 @@ export class Select {
 
       // Update selected option
       this.selectedOption = currentOption;
+    }
+
+    if (isEventDispatched && (this.previousOption !== this.selectedOption)) {
+      this.dispatchEvent(currentOption);
+      console.log('manual dispatch')
+        
+      // Update previous option after event dispatch
+      this.previousOption = this.selectedOption;
     }
   }
 
@@ -143,9 +200,6 @@ export class Select {
     const matchingOption = this.lms.optionLms.find(option => 
       option.dataset.label.toLowerCase().startsWith(this.typedCharacters)
     );
-
-    console.log(this.typedCharacters)
-    console.log(matchingOption)
   
     if (matchingOption) {
       this.setActiveOption(matchingOption);
