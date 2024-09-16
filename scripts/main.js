@@ -42,13 +42,12 @@ let sliderGrabbed = false;
 // Initialize a variable to track the last scroll position, starting at 0 (top of the page)
 let lastScroll = 0;
 
+//TODO Improve and refactor styling
+//TODO Add parallax scrolling
 //TODO Add translate functionality
   //*Add text translation
   //*Style dark mode
   //*Add Flags images
-  
-//TODO Improve and refactor styling
-//TODO Add parallax scrolling
 
 //TODO Make download cv button functional
 //TODO Add a loader until the DOM finishes loading

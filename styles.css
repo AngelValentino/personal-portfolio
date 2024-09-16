@@ -158,6 +158,10 @@ body {
   font-size: 0.9rem;
 }
 
+.mobile-menu__custom-select-container .custom-select-label {
+  font-size: 1rem;
+}
+
 .custom-select__arrow-icon {
   width: 0.75rem;
   position: absolute;
@@ -176,8 +180,6 @@ body {
 .custom-select-label svg {
   width: 1.5rem;
 }
-
-
 
 .custom-select-options {
   display: none;
@@ -250,7 +252,6 @@ body {
   justify-content: center;
   transition: transform 0.3s ease-in-out;
   display: none;
-  border: 2px dashed cadetblue;
 }
 
 .mobile-menu.show {
