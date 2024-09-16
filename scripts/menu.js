@@ -4,6 +4,8 @@ import {
   setScrollBehavior 
 } from "./utils.js";
 
+import { navbarSelect, mobileMenuSelect } from "./main.js";
+
 
 const mobileMenuLm = document.getElementById('mobile-menu');
 const closeMobileMenuBtn = document.getElementById('mobile-menu__close-btn');
@@ -14,6 +16,8 @@ let hideMobileMenuOverflowTimId = null;
 let lastActiveLmBeforeMobileMenu = null;
 
 function closeMobileMenu() {
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+  navbarSelect.setActiveOption(null, preferredLanguage, null, true);
   // Clear any existing timeouts
   clearTimeout(hideMobileMenuOverflowTimId);
   // Set overflow back to normal
@@ -38,6 +42,8 @@ function closeMobileMenu() {
 }
 
 export function openMobileMenu() {
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+  mobileMenuSelect.setActiveOption(null, preferredLanguage, null, true);
   // Clear any existing timeout
   clearTimeout(hideMobileMenuTimId);
   // Show menu

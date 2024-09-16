@@ -30,7 +30,8 @@ const coffeeSVGLm = document.getElementById('contact__coffee-icon');
 const lightThemeIconLm = document.getElementById('navigation-bar__light-theme-icon');
 const darkThemeIconLm = document.getElementById('navigation-bar__dark-theme-icon');
 
-const customSelectLm = document.getElementById('custom-select-container');
+const navbarSelectLangLm = document.getElementById('navigation-bar__custom-select-container');
+const mobileMenuSelectLangLm = document.getElementById('mobile-menu__custom-select-container');
 
 const bodyLm = document.body;
 const scrollToTopBtn = document.getElementById('footer__scroll-to-top-btn');
@@ -42,7 +43,6 @@ let sliderGrabbed = false;
 let lastScroll = 0;
 
 //TODO Add translate functionality
-  //*Add mobile menu select flags and hide navbar select on mobile
   //*Add text translation
   //*Style dark mode
   //*Add Flags images
@@ -188,7 +188,9 @@ generateProjectList();
 const elementsToBeTranslated = document.querySelectorAll("[data-i18n-section]");
 updateSliderProgressBar();
 
-const select = new Select(customSelectLm, selectLanguageData);
+export const navbarSelect = new Select(navbarSelectLangLm, selectLanguageData);
+
+export const mobileMenuSelect = new Select(mobileMenuSelectLangLm, selectLanguageData);
 
 //TODO ADD EVENT LISTENERS
 
@@ -210,7 +212,7 @@ window.addEventListener("scroll", () => {
 	if (currentScroll > lastScroll && !bodyLm.classList.contains("scroll-down")) {
     bodyLm.classList.remove("scroll-up");
     bodyLm.classList.add("scroll-down");
-    select.hideOptions();
+    navbarSelect.hideOptions();
 	} 
   // If the user is scrolling up (current scroll is less than the last scroll)
   // AND the 'scroll-down' class is currently present add 'scroll-up' class
@@ -228,15 +230,35 @@ scrollToTopBtn.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });
 
+
+//? If menu is open set the active section from local storage, else 
+//? if is closed set navbar select from local storage
+//? better than the mayhem of setting each time the users select a value
 //* CHANGE LANGUAGE
 // Listen for the custom select 'change' event
-customSelectLm.addEventListener('onSelectChange', e => {
-  console.log('Custom select changed!', e.detail.value);
+navbarSelectLangLm.addEventListener('onSelectChange', e => {
+  console.log('Navbar select changed!', e.detail.value);
   changeLanguage(e.detail.value, elementsToBeTranslated);
 });
 
-// If preferred language is not english set a new select value
-select.setActiveOption(null, preferredLanguage, true);
+mobileMenuSelectLangLm.addEventListener('onSelectChange', e => {
+  console.log('Mobile menu select changed!', e.detail.value);
+  changeLanguage(e.detail.value, elementsToBeTranslated);
+});
+
+
+// Check which select is visble at page load
+if (navbarSelectLangLm.offsetParent) {
+  // Navbar is visible, set the first lang select value from localStorage
+  navbarSelect.setActiveOption(null, preferredLanguage, true);
+} 
+else {
+  // Mobile menu is visible, set the first lang select value from localStorage
+  mobileMenuSelect.setActiveOption(null, preferredLanguage, true);
+}
+
+
+
 
 //* TOGGLE DARK THEME
 //TODO Refactor this and add translation support

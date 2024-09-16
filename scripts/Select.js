@@ -68,6 +68,11 @@ export class Select {
     })
 
     this.lms.selectLm.addEventListener('keydown', e => {
+      e.stopPropagation();
+      // Prevent scrolling behavior for specific keys, but allow others (like Tab)
+      if (["Space", "ArrowUp", "ArrowDown"].includes(e.code)) {
+        e.preventDefault();  // Prevent scrolling for Space, ArrowUp, and ArrowDown
+      }
       switch (e.code) {
         case "Space":
           this.toggleOptions();
@@ -143,7 +148,7 @@ export class Select {
     this.lms.selectLm.dispatchEvent(changeEvent);
   }
 
-  setActiveOption(currentOption, preferredLanguage, isEventDispatched) {
+  setActiveOption(currentOption, preferredLanguage, isEventDispatched, isToggleMenu) {
     if (preferredLanguage && !currentOption) {
       const matchedOption = this.lms.optionLms.find(option => option.dataset.value === preferredLanguage);
       currentOption = matchedOption;
@@ -162,11 +167,14 @@ export class Select {
 
       // Update selected option
       this.selectedOption = currentOption;
-    }
+    } 
+
+    // Update previous section withou dispatching an event
+    if (isToggleMenu) this.previousOption = this.selectedOption;
 
     if (isEventDispatched && (this.previousOption !== this.selectedOption)) {
       this.dispatchEvent(currentOption);
-      console.log('manual dispatch')
+      console.log('manual dispatch');
         
       // Update previous option after event dispatch
       this.previousOption = this.selectedOption;
@@ -175,20 +183,11 @@ export class Select {
 
   closeOptions(currentOption) {
     // Set the active option without dispatching the event if the value hasn't changed
-    this.setActiveOption(currentOption);
-
-    // Only dispatch the event if the selected option is different from the previous one
-    if (this.previousOption !== this.selectedOption) {
-      this.dispatchEvent(this.selectedOption);
-    }
-
-    // Update previous option after event dispatch
-    this.previousOption = this.selectedOption;
-
+    this.setActiveOption(currentOption, null, true);
     // Hide options list
     this.hideOptions();
   }
-
+  
   handleSearch(char) {
     // Reset the typing timer
     clearTimeout(this.typingTimer);
