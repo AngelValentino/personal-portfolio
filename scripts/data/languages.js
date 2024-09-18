@@ -3,6 +3,10 @@ import { convertToKebabCase } from "../utils.js";
 
 export const translations = {
   en: {
+    html: {
+      title: 'Angel Valentino / Web Developer',
+      'meta-description': "Hi, my name is Angel, and I'm a self-taught software engineer who focuses on developing responsible and accessible user interfaces."
+    },
     'mobile-menu': {
       'close-btn': {
         ariaLabel: 'Close menu.',
@@ -25,6 +29,9 @@ export const translations = {
       },
       'section-label': {
         innerText: 'English'
+      },
+      'select-options-list': {
+        ariaLabel: 'Languages available in your preferred language.'
       },
       'english-select-option': {
         innerHTML: 'English'
@@ -65,6 +72,9 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contact'
+      },
+      'select-options-list': {
+        ariaLabel: 'Languages available in your preferred language.'
       },
       'section-label': {
         innerText: 'English'
@@ -205,6 +215,10 @@ export const translations = {
     }
   },
   es: {
+    html: {
+      title: 'Angel Valentino / Desarrollador Web',
+      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se centra en desarrollar interfaces de usuario responsables y accesibles."
+    },
     'mobile-menu': {
       'close-btn': {
         ariaLabel: 'Cerrar menú.',
@@ -227,6 +241,9 @@ export const translations = {
       },
       'section-label': {
         innerText: 'Español'
+      },
+      'select-options-list': {
+        ariaLabel: 'Idiomas disponibles en tu idioma preferido.'
       },
       'english-select-option': {
         innerHTML: 'Inglés'
@@ -270,6 +287,9 @@ export const translations = {
       },
       'section-label': {
         innerText: 'Español'
+      },
+      'select-options-list': {
+        ariaLabel: 'Idiomas disponibles en tu idioma preferido.'
       },
       'english-select-option': {
         innerHTML: 'Inglés'
@@ -407,6 +427,10 @@ export const translations = {
     }
   },
   ro: {
+    html: {
+      title: 'Angel Valentino / Dezvoltator Web',
+      'meta-description': "Bună, numele meu este Angel și sunt un inginer software autodidact care se concentrează pe dezvoltarea interfețelor de utilizator responsabile și accesibile."
+    },
     'mobile-menu': {
       'close-btn': {
         ariaLabel: 'Închide meniul.',
@@ -429,6 +453,9 @@ export const translations = {
       },
       'section-label': {
         innerText: 'Română'
+      },
+      'select-options-list': {
+        ariaLabel: 'Limbile disponibile în limba ta preferată.'
       },
       'english-select-option': {
         innerHTML: 'Engleză'
@@ -472,6 +499,9 @@ export const translations = {
       },
       'section-label': {
         innerText: 'Română'
+      },
+      'select-options-list': {
+        ariaLabel: 'Limbile disponibile în limba ta preferată.'
       },
       'english-select-option': {
         innerHTML: 'Engleză'
@@ -609,6 +639,10 @@ export const translations = {
     }
   },
   ca: {
+    html: {
+      title: 'Angel Valentino / Desenvolupador Web',
+      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se centra en desarrollar interfaces de usuario responsables y accesibles."
+    },
     'mobile-menu': {
       'close-btn': {
         ariaLabel: 'Tancar el menú.',
@@ -631,6 +665,9 @@ export const translations = {
       },
       'section-label': {
         innerText: 'Català'
+      },
+      'select-options-list': {
+        ariaLabel: 'Idiomes disponibles en el teu idioma preferit.'
       },
       'english-select-option': {
         innerHTML: 'Anglès'
@@ -674,6 +711,9 @@ export const translations = {
       },
       'section-label': {
         innerText: 'Català'
+      },
+      'select-options-list': {
+        ariaLabel: 'Idiomes disponibles en el teu idioma preferit.'
       },
       'english-select-option': {
         innerHTML: 'Anglès'

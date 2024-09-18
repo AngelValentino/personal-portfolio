@@ -54,7 +54,7 @@ export function trapFocus(e, element) {
   }
 
   if (e.shiftKey) /* shift + tab */ {
-    if (document.activeElement === firstFocusableLm ) {
+    if (document.activeElement === firstFocusableLm) {
       // If 'Shift + Tab' is pressed and focus is on the first element, move focus to the last element
       lastFocusableLm.focus();
       e.preventDefault();

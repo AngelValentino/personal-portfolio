@@ -4,9 +4,7 @@ export function generateLangSelectData(section) {
   return [
     { 
       content: `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-        </svg>
+        <img src="./images/flag-icons/united-states-flag.png">
         <span data-i18n-section="${section}" data-i18n-element="english-select-option">English</span>
       `,
       label: 'english',
@@ -14,9 +12,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-        </svg>
+        <img src="./images/flag-icons/spain-flag.png">
         <span data-i18n-section="${section}" data-i18n-element="spanish-select-option">Spanish</span>
       `,
       label: 'spanish', 
@@ -24,9 +20,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-        </svg>
+        <img src="./images/flag-icons/romania-flag.png">
         <span data-i18n-section="${section}" data-i18n-element="romanian-select-option">Romanian</span>
       `,
       label: 'romanian', 
@@ -34,9 +28,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-        </svg>
+        <img src="./images/flag-icons/catalonia-flag.png">
         <span data-i18n-section="${section}" data-i18n-element="catalan-select-option">Catalan</span>
       `,
       label: 'catalan', 
@@ -54,7 +46,7 @@ export class LangSelect {
     this.lms = {
       selectLm: root,
       labelLm: root.querySelector('.custom-select-label'),
-      chevronLm: root.querySelector('.custom-select__arrow-icon'),
+      chevronLm: root.querySelector('.custom-select__chevron-icon'),
       optionsListLm: root.querySelector('.custom-select__options'),
       optionLms: [...root.querySelectorAll('.custom-select__option')]
     }
@@ -239,7 +231,7 @@ export class LangSelect {
   }
 
   // Static method to generate options
-  static generateOptions(data, section) {
+  static generateOptions(data) {
     return data.map(({ label, value, content }, i) => `
       <li data-value="${value}" data-label="${label}" class="custom-select__option${i === 0 ? ' selected' : ''}">${content}</li>
     `).join('');
@@ -249,8 +241,10 @@ export class LangSelect {
   static generateSelectHTML(data, section) {
     return `
       <span class="custom-select-label"></span>
-      <svg class="custom-select__arrow-icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
-      <ul data-i18n-section="${section}" data-i18n-element="${section}-select-list" class="custom-select__options">
+      <svg class="custom-select__chevron-icon" aria-hidden="true" focusable="false" role="presentation" class="accordion__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path fill="currentColor" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+      </svg>
+      <ul aria-label="Languages Available in Your Preferred Language." data-i18n-section="${section}" data-i18n-element="select-options-list" class="custom-select__options">
         ${this.generateOptions(data, section)}
       </ul>
     `;

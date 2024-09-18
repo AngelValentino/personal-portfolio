@@ -33,6 +33,7 @@ const darkThemeIconLm = document.getElementById('navigation-bar__dark-theme-icon
 const navbarSelectLangLm = document.getElementById('navigation-bar__custom-select-container');
 const mobileMenuSelectLangLm = document.getElementById('mobile-menu__custom-select-container');
 
+const metaDescription = document.querySelector('meta[name="description"]');
 const bodyLm = document.body;
 const scrollToTopBtn = document.getElementById('footer__scroll-to-top-btn');
 
@@ -44,10 +45,6 @@ let lastScroll = 0;
 
 //TODO Improve and refactor styling
 //TODO Add parallax scrolling
-//TODO Add translate functionality
-  //*Add Flags images
-  //*Style dark mode
-
 //TODO Make download cv button functional
 //TODO Add a loader until the DOM finishes loading
 //TODO Portfolio review
@@ -156,16 +153,22 @@ function updateSliderProgressBar() {
 }
 
 function changeLanguage(lang = 'en', elementsToBeTranslated) {
-  //TODO Also change the meta description
-  document.documentElement.lang = lang;  // Update </html> lang attribute
+  // Set the lang HTML attribute to the curent language
+  document.documentElement.setAttribute('lang', lang);
+  // Set the current title
+  document.title = translations[lang].html.title;
+  // Set the meta description to the current language
+  metaDescription.setAttribute('content', translations[lang].html['meta-description']);
 
   elementsToBeTranslated.forEach(element => {
       // Get the section and value keys from the element
       const section = element.getAttribute("data-i18n-section");
       const elementName = element.getAttribute("data-i18n-element");
 
+      // Get the attributes that need to be translated
       const elementValues = translations[lang][section][elementName];
 
+      // Change specified attributes lanuage
       for (let key in elementValues) {
         if (elementValues[key]) {
           element[key] = elementValues[key];
@@ -180,6 +183,7 @@ function changeLanguage(lang = 'en', elementsToBeTranslated) {
 
 
 
+
 //TODO INITIAL FUNCTION AND CONSTRUCTOR CALLS
 
 export const navbarSelect = new LangSelect(navbarSelectLangLm, generateLangSelectData('navbar'), 'navbar');
@@ -188,6 +192,7 @@ export const mobileMenuSelect = new LangSelect(mobileMenuSelectLangLm, generateL
 generateProjectList();
 const elementsToBeTranslated = document.querySelectorAll("[data-i18n-section]");
 updateSliderProgressBar();
+
 
 //TODO ADD EVENT LISTENERS
 
@@ -228,9 +233,7 @@ scrollToTopBtn.addEventListener('click', () => {
 });
 
 
-//? If menu is open set the active section from local storage, else 
-//? if is closed set navbar select from local storage
-//? better than the mayhem of setting each time the users select a value
+
 //* CHANGE LANGUAGE
 // Listen for the custom select 'change' event
 navbarSelectLangLm.addEventListener('onSelectChange', e => {
@@ -253,8 +256,6 @@ else {
   // Mobile menu is visible, set the first lang select value from localStorage
   mobileMenuSelect.setActiveOption(null, preferredLanguage, true);
 }
-
-
 
 
 //* TOGGLE DARK THEME
