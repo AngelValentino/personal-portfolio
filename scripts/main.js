@@ -43,10 +43,11 @@ let sliderGrabbed = false;
 // Initialize a variable to track the last scroll position, starting at 0 (top of the page)
 let lastScroll = 0;
 
+//TODO Add a loader until the DOM finishes loading and the text is fully translated
 //TODO Improve and refactor styling
-//TODO Add parallax scrolling
-//TODO Make download cv button functional
-//TODO Add a loader until the DOM finishes loading
+//TODO Make download CV button functional
+//TODO Add progressive image loading
+//TODO? Add parallax scrolling
 //TODO Portfolio review
 
 function generateProjectLinkHTML(project) {

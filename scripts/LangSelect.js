@@ -64,7 +64,6 @@ export class LangSelect {
     })
 
     this.lms.selectLm.addEventListener('keydown', e => {
-      e.stopPropagation();
       // Prevent scrolling behavior for specific keys, but allow others (like Tab)
       if (["Space", "ArrowUp", "ArrowDown"].includes(e.code)) {
         e.preventDefault();  // Prevent scrolling for Space, ArrowUp, and ArrowDown
@@ -91,6 +90,7 @@ export class LangSelect {
         case "Escape":
           if (this.lms.optionsListLm.classList.contains('show')) {
             this.closeOptions(this.selectedOption);
+            e.stopPropagation(); // Prevents closing the mobile menu when closing the select options with 'Escape' key
           }
           break;
         default:

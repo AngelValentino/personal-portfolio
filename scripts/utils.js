@@ -40,7 +40,7 @@ export function convertToKebabCase(str) {
 // Traps focus within a specified element
 export function trapFocus(e, element) {
   // Select all focusable elements within the given element
-  const focusableLms = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+  const focusableLms = element.querySelectorAll('div[tabindex]:not([tabindex="-1"]),a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
   // Get the first and last focusable elements
   const firstFocusableLm = focusableLms[0]; 
   const lastFocusableLm = focusableLms[focusableLms.length - 1];
