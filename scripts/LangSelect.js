@@ -1,49 +1,53 @@
-export const selectLanguageData = [
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      English
-    `,
-    label: 'english',
-    value: 'en',
-  },
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-	      <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      Spanish
-    `,
-    label: 'spanish', 
-    value: 'es', 
-  },
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      Romanian
-    `,
-    label: 'romanian', 
-    value: 'ro', 
-  },
-  { 
-    content: `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
-      </svg>
-      Catalan
-    `,
-    label: 'catalan', 
-    value: 'ca', 
-  },
-];
+import { translations } from "./data/languages.js";
 
-export class Select {
-  constructor(root, data) {
-    root.innerHTML = Select.generateSelect(data);
+export function generateLangSelectData(section) {
+  return [
+    { 
+      content: `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+        </svg>
+        <span data-i18n-section="${section}" data-i18n-element="english-select-option">English</span>
+      `,
+      label: 'english',
+      value: 'en',
+    },
+    { 
+      content: `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+        </svg>
+        <span data-i18n-section="${section}" data-i18n-element="spanish-select-option">Spanish</span>
+      `,
+      label: 'spanish', 
+      value: 'es', 
+    },
+    { 
+      content: `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+        </svg>
+        <span data-i18n-section="${section}" data-i18n-element="romanian-select-option">Romanian</span>
+      `,
+      label: 'romanian', 
+      value: 'ro', 
+    },
+    { 
+      content: `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
+        </svg>
+        <span data-i18n-section="${section}" data-i18n-element="catalan-select-option">Catalan</span>
+      `,
+      label: 'catalan', 
+      value: 'ca', 
+    },
+  ];
+}
+
+export class LangSelect {
+  constructor(root, data, section) {
+    root.innerHTML = LangSelect.generateSelectHTML(data, section);
     this.typedCharacters = ''; // To store the characters typed by the user
     this.typingTimer = null; // Timer to reset the search
 
@@ -51,8 +55,8 @@ export class Select {
       selectLm: root,
       labelLm: root.querySelector('.custom-select-label'),
       chevronLm: root.querySelector('.custom-select__arrow-icon'),
-      optionsListLm: root.querySelector('.custom-select-options'),
-      optionLms: [...root.querySelectorAll('.custom-select-option')]
+      optionsListLm: root.querySelector('.custom-select__options'),
+      optionLms: [...root.querySelectorAll('.custom-select__option')]
     }
 
     this.selectedOption = this.lms.optionLms[0];
@@ -104,7 +108,7 @@ export class Select {
     })
 
     this.lms.optionsListLm.addEventListener('click', e => {
-      const clickedOption = e.target.closest('.custom-select-option');
+      const clickedOption = e.target.closest('.custom-select__option');
 
       if (clickedOption) {
         this.closeOptions(clickedOption);
@@ -134,7 +138,30 @@ export class Select {
   }
 
   updateLabel(currentOption) {
-    this.lms.labelLm.innerHTML = currentOption.innerHTML;
+    // Clone current options to modify it
+    const currentOptionClone = currentOption.cloneNode(true)
+    // Get the </span> element with the option text 
+    const spanLm = currentOptionClone.querySelector('span')
+
+    // Delete option translate data attribute
+    delete spanLm.dataset.i18nElement
+    // Add label translate attribute
+    spanLm.dataset.i18nElement = 'section-label'
+
+    // Tranlslate the the with the current option language
+    const section = spanLm.getAttribute("data-i18n-section");
+    const elementName = spanLm.getAttribute("data-i18n-element");
+
+    const elementValues = translations[currentOption.dataset.value][section][elementName];
+
+    for (const key in elementValues) {
+      if (elementValues[key]) {
+        spanLm[key] = elementValues[key];
+      }
+    }
+
+    // Add it to the label
+    this.lms.labelLm.innerHTML = currentOptionClone.innerHTML;
   }
 
   dispatchEvent(currentOption) {
@@ -212,19 +239,19 @@ export class Select {
   }
 
   // Static method to generate options
-  static generateOptions(data) {
+  static generateOptions(data, section) {
     return data.map(({ label, value, content }, i) => `
-      <li data-value="${value}" data-label="${label}" class="custom-select-option${i === 0 ? ' selected' : ''}">${content}</li>
+      <li data-value="${value}" data-label="${label}" class="custom-select__option${i === 0 ? ' selected' : ''}">${content}</li>
     `).join('');
   }
 
   // Static method to generate the select element
-  static generateSelect(data) {
+  static generateSelectHTML(data, section) {
     return `
       <span class="custom-select-label"></span>
       <svg class="custom-select__arrow-icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
-      <ul class="custom-select-options">
-        ${this.generateOptions(data)}
+      <ul data-i18n-section="${section}" data-i18n-element="${section}-select-list" class="custom-select__options">
+        ${this.generateOptions(data, section)}
       </ul>
     `;
   }

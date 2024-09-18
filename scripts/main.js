@@ -13,7 +13,7 @@ import {
   toggleProjectInfoPanel
 } from "./data/project.js";
 
-import { Select, selectLanguageData } from "./Select.js";
+import { LangSelect, generateLangSelectData} from "./LangSelect.js";
 
 import { translations } from "./data/languages.js";
 
@@ -45,9 +45,8 @@ let lastScroll = 0;
 //TODO Improve and refactor styling
 //TODO Add parallax scrolling
 //TODO Add translate functionality
-  //*Add text translation
-  //*Style dark mode
   //*Add Flags images
+  //*Style dark mode
 
 //TODO Make download cv button functional
 //TODO Add a loader until the DOM finishes loading
@@ -181,15 +180,14 @@ function changeLanguage(lang = 'en', elementsToBeTranslated) {
 
 
 
-//TODO INITIAL FUNCTION CALLS
+//TODO INITIAL FUNCTION AND CONSTRUCTOR CALLS
+
+export const navbarSelect = new LangSelect(navbarSelectLangLm, generateLangSelectData('navbar'), 'navbar');
+export const mobileMenuSelect = new LangSelect(mobileMenuSelectLangLm, generateLangSelectData('mobile-menu'), 'mobile-menu');
 
 generateProjectList();
 const elementsToBeTranslated = document.querySelectorAll("[data-i18n-section]");
 updateSliderProgressBar();
-
-export const navbarSelect = new Select(navbarSelectLangLm, selectLanguageData);
-
-export const mobileMenuSelect = new Select(mobileMenuSelectLangLm, selectLanguageData);
 
 //TODO ADD EVENT LISTENERS
 

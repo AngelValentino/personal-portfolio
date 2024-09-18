@@ -22,6 +22,21 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contact'
+      },
+      'section-label': {
+        innerText: 'English'
+      },
+      'english-select-option': {
+        innerHTML: 'English'
+      },
+      'spanish-select-option': {
+        innerText: 'Spanish'
+      },
+      'romanian-select-option': {
+        innerText: 'Romanian'
+      },
+      'catalan-select-option': {
+        innerText: 'Catalan'
       }
     },
     navbar: {
@@ -50,14 +65,29 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contact'
+      },
+      'section-label': {
+        innerText: 'English'
+      },
+      'english-select-option': {
+        innerText: 'English'
+      },
+      'spanish-select-option': {
+        innerText: 'Spanish'
+      },
+      'romanian-select-option': {
+        innerText: 'Romanian'
+      },
+      'catalan-select-option': {
+        innerText: 'Catalan'
       }
     },
     hero: {
       title: {
-        innerHTML: 'Front-End<br />Developer<img class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="waving hand icon">'
+        innerHTML: 'Front-End<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
-      'description': {
-        innerHTML: `Hi, I'm Angel Valentino. A passionate Front-End Developer based in Spain.<img class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="location pin">`
+      description: {
+        innerHTML: `Hi, I'm Angel Valentino. A passionate Front-End Developer based in Spain.<img class="hero__title-location-img" aria-hidden="true" role="presentation" src="images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Angel Valentino's social links."
@@ -194,6 +224,21 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contacto'
+      },
+      'section-label': {
+        innerText: 'Español'
+      },
+      'english-select-option': {
+        innerHTML: 'Inglés'
+      },
+      'spanish-select-option': {
+        innerText: 'Español'
+      },
+      'romanian-select-option': {
+        innerText: 'Rumano'
+      },
+      'catalan-select-option': {
+        innerText: 'Catalán'
       }
     },
     navbar: {
@@ -222,14 +267,29 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contacto'
+      },
+      'section-label': {
+        innerText: 'Español'
+      },
+      'english-select-option': {
+        innerHTML: 'Inglés'
+      },
+      'spanish-select-option': {
+        innerText: 'Español'
+      },
+      'romanian-select-option': {
+        innerText: 'Rumano'
+      },
+      'catalan-select-option': {
+        innerText: 'Catalán'
       }
     },
     hero: {
       title: {
-        innerHTML: 'Desarrollador<br />Front-End<img class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="icono de mano saludando">'
+        innerHTML: 'Desarrollador<br />Front-End<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
-      'description': {
-        innerHTML: `Hola, soy Angel Valentino. Un apasionado Desarrollador Front-End basado en España.<img class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="pin de ubicación">`
+      description: {
+        innerHTML: `Hola, soy Angel Valentino. Un apasionado Desarrollador Front-End basado en España.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Enlaces sociales de Angel Valentino."
@@ -366,6 +426,21 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contact'
+      },
+      'section-label': {
+        innerText: 'Română'
+      },
+      'english-select-option': {
+        innerHTML: 'Engleză'
+      },
+      'spanish-select-option': {
+        innerText: 'Spaniolă'
+      },
+      'romanian-select-option': {
+        innerText: 'Română'
+      },
+      'catalan-select-option': {
+        innerText: 'Catalan'
       }
     },
     navbar: {
@@ -394,14 +469,29 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contact'
+      },
+      'section-label': {
+        innerText: 'Română'
+      },
+      'english-select-option': {
+        innerHTML: 'Engleză'
+      },
+      'spanish-select-option': {
+        innerText: 'Spaniolă'
+      },
+      'romanian-select-option': {
+        innerText: 'Română'
+      },
+      'catalan-select-option': {
+        innerText: 'Catalan'
       }
     },
     hero: {
       title: {
-        innerHTML: 'Front-End<br />Developer<img class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="iconă mână care salută">'
+        innerHTML: 'Dezvoltator<br />Front-End<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
-      'description': {
-        innerHTML: 'Bună, sunt Angel Valentino. Un dezvoltator Front-End pasionat, bazat în Spania.<img class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="Pin de locație.">'
+      description: {
+        innerHTML: 'Bună, sunt Angel Valentino. Un dezvoltator Front-End pasionat, bazat în Spania.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">'
       },
       'social-list': {
         ariaLabel: "Linkuri sociale ale lui Angel Valentino."
@@ -538,6 +628,21 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contacte'
+      },
+      'section-label': {
+        innerText: 'Català'
+      },
+      'english-select-option': {
+        innerHTML: 'Anglès'
+      },
+      'spanish-select-option': {
+        innerText: 'Espanyol'
+      },
+      'romanian-select-option': {
+        innerText: 'Romanès'
+      },
+      'catalan-select-option': {
+        innerText: 'Català'
       }
     },
     navbar: {
@@ -566,14 +671,29 @@ export const translations = {
       },
       'contact-link': {
         innerText: 'Contacte'
+      },
+      'section-label': {
+        innerText: 'Català'
+      },
+      'english-select-option': {
+        innerHTML: 'Anglès'
+      },
+      'spanish-select-option': {
+        innerText: 'Espanyol'
+      },
+      'romanian-select-option': {
+        innerText: 'Romanès'
+      },
+      'catalan-select-option': {
+        innerText: 'Català'
       }
     },
     hero: {
       title: {
-        innerHTML: 'Front-End<br />Developer<img class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="icona de mà onada">'
+        innerHTML: 'Front-End<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
-      'description': {
-        innerHTML: `Hola, sóc Angel Valentino. Un apassionat desenvolupador Front-End basat a Espanya.<img class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="pin de localització">`
+      description: {
+        innerHTML: `Hola, sóc Angel Valentino. Un apassionat desenvolupador Front-End basat a Espanya.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Enllaços socials d'Angel Valentino."
