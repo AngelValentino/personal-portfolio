@@ -44,9 +44,9 @@ let sliderGrabbed = false;
 let lastScroll = 0;
 
 //TODO Add a loader until the DOM finishes loading and the text is fully translated
-//TODO Improve and refactor styling
-//TODO Make download CV button functional
 //TODO Add progressive image loading
+//TODO Make download CV button functional
+//TODO Improve and refactor styling
 //TODO? Add parallax scrolling
 //TODO Portfolio review
 
