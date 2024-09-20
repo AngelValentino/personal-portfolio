@@ -68,6 +68,7 @@ html {
   --base-content-vertical-padding: 100px;
   --base-section-title-font-size: 2.15rem;
   --max-content-width: 1000px;
+  --blur-img-loader-bg-color: rgba(0, 0, 0 , 0.05);
   
   --text-color: #2d2e32;
   --text-color-secondary: #555;
@@ -264,7 +265,7 @@ body {
   position: fixed;
   inset: 0;
   transform: translateX(-100vw);
-  z-index: 100;
+  z-index: 80;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease-in-out;
@@ -487,6 +488,7 @@ body {
   height: 350px;
   overflow: hidden;
   border-radius: 50%;
+  background-color: var(--blur-img-loader-bg-color);
 }
 
 .hero__avatar {
@@ -544,9 +546,12 @@ body {
 
 .about__image-container {
   max-width: 400px;
-  max-height: 600px;
+  max-height: 540px;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   border-radius: 5px;
+  background-color: var(--blur-img-loader-bg-color);
 }
 
 .about__image {
@@ -681,6 +686,12 @@ body {
 
 .project.mirrowed .project__img-link {
   box-shadow: -5px 0 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+.project__img-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blur-img-loader-bg-color);
 }
 
 .project__img {
@@ -1005,17 +1016,27 @@ body {
   text-align: center;
 }
 
-.contact__coffee-img {
-  width: 75%;
+.contact__coffee-img-container {
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  width: 75%;
+  height: 75%;
+  display: inline-block;
   margin: 0 0 20px;
+
+}
+
+.contact__coffee-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
 }
 
 .contact__coffee-icon {
   width: 75%;
-  margin: 0 0 20px;
   display: none;
+  margin: 0 0 20px;
 }
 
 .contact__title {
@@ -1512,3 +1533,110 @@ footer {
 }
 
 /** END OF MEDIA QUERIES **/
+
+/** LOADERS **/
+
+/* BOUNCING BALLS LOADER */
+
+.bouncer-container {
+  position: fixed;
+  background-color: #fff;
+  inset: 0;
+  z-index: 100;
+  transition: background-color 0.5s;
+}
+
+.bouncer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  padding-top: 100px;
+  gap: 0.4rem;
+  transition: opacity var(--base-transition-duration);
+}
+
+.bouncer div {
+  --bounce-animation-duration: 0.5s;
+  width: 1.35rem;
+  height: 1.35rem;
+  background: #0077ff;
+  border-radius: 50%;
+  animation: 
+    bounce var(--bounce-animation-duration) cubic-bezier(.19,.57,.3,.98) infinite alternate 0.5s, 
+    fallDown var(--bounce-animation-duration) cubic-bezier(.67,.11,1,.43);
+}
+
+.bouncer div:nth-child(2) {
+  opacity: 0.8;
+  animation-delay: 0.6s, 0s;
+  animation-duration: var(--bounce-animation-duration), 0.6s;
+}
+
+.bouncer div:nth-child(3) {
+  opacity: 0.6;
+  animation-delay: 0.7s, 0s;
+  animation-duration: var(--bounce-animation-duration), 0.7s;
+}
+
+.bouncer div:nth-child(4) {
+  opacity: 0.4;
+  animation-delay: 0.8s, 0s;
+  animation-duration: var(--bounce-animation-duration), 0.8s;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0) }
+  to { transform: translateY(-100px) }
+}
+
+@keyframes fallDown {
+  from { transform: translateY(-100px) }
+  to { transform: translateY(0) }
+}
+
+/* END OF BOUNCING BALLS LOADER */
+
+/* BLUR IMAGE PROGRESSIVE LOADER */
+
+.blur-img-loader {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.blur-img-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: pulse 2s infinite ease-in-out alternate;
+}
+
+.blur-img-loader.loaded::before {
+  content: none;
+}
+
+.blur-img-loader img {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blur-img-loader.loaded img {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  from {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* END OF BLUR IMAGE PROGRESSIVE LOADER */
+
+/** END OF LOADERS **/

@@ -1,6 +1,7 @@
 import { 
   convertToKebabCase,
-  throttle
+  throttle,
+  addProgressiveLoading
 } from "./utils.js";
 
 import { 
@@ -25,7 +26,7 @@ const sliderLm = document.getElementById('slider__inner');
 const sliderProgressBarInnerLm = document.getElementById('slider__progress-bar-inner');
 
 const toggleThemeBtn = document.getElementById('navigation-bar__toggle-theme-btn');
-const coffeeImgLm = document.getElementById('contact__coffee-img');
+const coffeeImgContainerLm = document.getElementById('contact__coffee-img-container');
 const coffeeSVGLm = document.getElementById('contact__coffee-icon');
 const lightThemeIconLm = document.getElementById('navigation-bar__light-theme-icon');
 const darkThemeIconLm = document.getElementById('navigation-bar__dark-theme-icon');
@@ -53,7 +54,9 @@ let lastScroll = 0;
 function generateProjectLinkHTML(project) {
   return `
     <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-img-link" class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
-      <img aria-hidden="true" role="presentation" class="project__img" src="images/projects-screenshots/${convertToKebabCase(project.title)}.jpg" alt="">
+      <div class="project__img-container blur-img-loader" style="background-image: url(images/projects-screenshots/${convertToKebabCase(project.title)}-low-res.jpg)">
+        <img aria-hidden="true" role="presentation" class="project__img" src="images/projects-screenshots/${convertToKebabCase(project.title)}.jpg" alt="">
+      </div>
       <div aria-hidden="true" role="presentation" class="project__tooltip">
         <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-tooltip-text" class="project__tooltip-text">Live Demo</p>
         <svg aria-hidden="true" focusable="false" role="presentation" class="project__tooltip-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -117,9 +120,6 @@ function setProjectSymmetry(symmetry, project) {
   }
 }
 
-// generate project html
-// Translate elememnts and aria labels
-
 function generateProjectHTML(symmetry, project) {
   return `
     <li class="project ${symmetry === 'original' ? 'original' : 'mirrowed'}">
@@ -181,10 +181,6 @@ function changeLanguage(lang = 'en', elementsToBeTranslated) {
   localStorage.setItem("preferredLanguage", lang);
 }
 
-
-
-
-
 //TODO INITIAL FUNCTION AND CONSTRUCTOR CALLS
 
 export const navbarSelect = new LangSelect(navbarSelectLangLm, generateLangSelectData('navbar'), 'navbar');
@@ -193,6 +189,8 @@ export const mobileMenuSelect = new LangSelect(mobileMenuSelectLangLm, generateL
 generateProjectList();
 const elementsToBeTranslated = document.querySelectorAll("[data-i18n-section]");
 updateSliderProgressBar();
+
+addProgressiveLoading(document.querySelectorAll('.blur-img-loader'))
 
 
 //TODO ADD EVENT LISTENERS
@@ -266,7 +264,7 @@ toggleThemeBtn.addEventListener('click', () => {
   document.documentElement.classList.toggle('dark-theme');
 
   if (document.documentElement.classList.contains('dark-theme')) {
-    coffeeImgLm.style.display = 'none';
+    coffeeImgContainerLm.style.display = 'none';
     coffeeSVGLm.style.display = 'inline-block';
     lightThemeIconLm.style.display = 'block';
     darkThemeIconLm.style.display = 'none';
@@ -275,7 +273,7 @@ toggleThemeBtn.addEventListener('click', () => {
   } 
   else {
     coffeeSVGLm.style.display = 'none'
-    coffeeImgLm.style.display = 'inline-block'
+    coffeeImgContainerLm.style.display = 'inline-block'
     lightThemeIconLm.style.display = 'none';
     darkThemeIconLm.style.display = 'block';
     toggleThemeBtn.title = 'Switch to dark theme';
@@ -317,3 +315,22 @@ sliderLm.addEventListener('wheel', e => {
 });
 
 window.addEventListener('resize', throttle(updateSliderProgressBar, 100));
+
+// Event listener for DOMContentLoaded to ensure the DOM is fully loaded before manipulating it
+document.addEventListener('DOMContentLoaded', () => {
+  // Get references to loader elements
+  const bouncerLoaderContainerLm = document.getElementById('bouncer-container');
+  const bouncerLoaderLm = document.getElementById('bouncer-loader');
+  
+  // Annouce that the element has stopped loading
+  bouncerLoaderContainerLm.ariaBusy = 'false';
+  // Hide the loader by setting its opacity to 0
+  bouncerLoaderContainerLm.style.backgroundColor = 'transparent';
+  bouncerLoaderLm.style.opacity = 0;
+
+  // Set loader dispay to none
+  setTimeout(() => {
+
+    bouncerLoaderContainerLm.style.display = 'none';
+  }, 500);
+});

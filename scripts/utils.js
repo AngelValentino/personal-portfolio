@@ -1,5 +1,30 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+export function addProgressiveLoading(elements) {
+  elements.forEach(imgContainerLm => {
+    const thumbnailImg = imgContainerLm.querySelector('img');
+  
+    function loaded() {
+      imgContainerLm.classList.add('loaded');
+      thumbnailImg.ariaBusy = 'false';
+       setTimeout(() => {
+          // Remove the low-resolution background image
+          imgContainerLm.style.backgroundImage = 'none';
+          // Remove blur img container loader background color 
+          imgContainerLm.style.backgroundColor = 'transparent';
+       }, 250);
+    }
+  
+    if (thumbnailImg.complete) {
+      loaded();
+    } 
+    else {
+      thumbnailImg.addEventListener('load', loaded);
+      thumbnailImg.ariaBusy = 'true';
+    }
+  });
+}
+
 export function throttle(fun, delay) {
   // Variable to track the timestamp of the last function execution
   let lastTime = 0;
