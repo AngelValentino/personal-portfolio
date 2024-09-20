@@ -51,8 +51,14 @@ export const translations = {
         title: 'Home'
       },
       'toggle-theme-btn': {
-        ariaLabel: 'Switch to dark theme',
-        title: 'Switch to dark theme'
+        light: {
+          ariaLabel: 'Switch to dark theme',
+          title: 'Switch to dark theme'
+        },
+        dark: {
+          ariaLabel: 'Switch to light theme',
+          title: 'Switch to light theme'
+        }
       },
       'toggle-menu-btn': {
         ariaLabel: 'Open menu.',
@@ -263,8 +269,14 @@ export const translations = {
         title: 'Inicio'
       },
       'toggle-theme-btn': {
-        ariaLabel: 'Cambiar al tema oscuro',
-        title: 'Cambiar al tema oscuro'
+        light: {
+          ariaLabel: 'Cambiar al tema oscuro',
+          title: 'Cambiar al tema oscuro'
+        },
+        dark: {
+          ariaLabel: 'Cambiar al tema claro',
+          title: 'Cambiar al tema claro'
+        }
       },
       'toggle-menu-btn': {
         ariaLabel: 'Abrir menú.',
@@ -475,8 +487,14 @@ export const translations = {
         title: 'Acasă'
       },
       'toggle-theme-btn': {
-        ariaLabel: 'Comută la tema întunecată',
-        title: 'Comută la tema întunecată'
+        light: {
+          ariaLabel: 'Comută la tema întunecată',
+          title: 'Comută la tema întunecată'
+        },
+        dark: {
+          ariaLabel: 'Comută la tema luminoasă',
+          title: 'Comută la tema luminoasă'
+        }
       },
       'toggle-menu-btn': {
         ariaLabel: 'Deschide meniul.',
@@ -687,8 +705,14 @@ export const translations = {
         title: 'Inici'
       },
       'toggle-theme-btn': {
-        ariaLabel: 'Canviar al tema fosc',
-        title: 'Canviar al tema fosc'
+        light: {
+          ariaLabel: 'Canvia al tema fosc',
+          title: 'Canvia al tema fosc'
+        },
+        dark: {
+          ariaLabel: 'Canvia al tema clar',
+          title: 'Canvia al tema clar'
+        }
       },
       'toggle-menu-btn': {
         ariaLabel: 'Obrir menú.',

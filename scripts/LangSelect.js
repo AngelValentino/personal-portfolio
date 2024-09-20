@@ -131,14 +131,14 @@ export class LangSelect {
 
   updateLabel(currentOption) {
     // Clone current options to modify it
-    const currentOptionClone = currentOption.cloneNode(true)
+    const currentOptionClone = currentOption.cloneNode(true);
     // Get the </span> element with the option text 
-    const spanLm = currentOptionClone.querySelector('span')
+    const spanLm = currentOptionClone.querySelector('span');
 
     // Delete option translate data attribute
-    delete spanLm.dataset.i18nElement
+    delete spanLm.dataset.i18nElement;
     // Add label translate attribute
-    spanLm.dataset.i18nElement = 'section-label'
+    spanLm.dataset.i18nElement = 'section-label';
 
     // Tranlslate the the with the current option language
     const section = spanLm.getAttribute("data-i18n-section");

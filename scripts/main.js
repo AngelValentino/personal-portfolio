@@ -40,12 +40,12 @@ const scrollToTopBtn = document.getElementById('footer__scroll-to-top-btn');
 
 //* FLAG VARIABLES
 const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+const preferredTheme = localStorage.getItem('preferredTheme') || 'light';
 let sliderGrabbed = false;
 // Initialize a variable to track the last scroll position, starting at 0 (top of the page)
 let lastScroll = 0;
 
-//TODO Add a loader until the DOM finishes loading and the text is fully translated
-//TODO Add progressive image loading
+
 //TODO Make download CV button functional
 //TODO Improve and refactor styling
 //TODO? Add parallax scrolling
@@ -153,6 +153,7 @@ function updateSliderProgressBar() {
   sliderProgressBarInnerLm.style.width = `${getSliderScrollPercentage()}%`;
 }
 
+//TODO This logic needs to be refactored
 function changeLanguage(lang = 'en', elementsToBeTranslated) {
   // Set the lang HTML attribute to the curent language
   document.documentElement.setAttribute('lang', lang);
@@ -161,14 +162,19 @@ function changeLanguage(lang = 'en', elementsToBeTranslated) {
   // Set the meta description to the current language
   metaDescription.setAttribute('content', translations[lang].html['meta-description']);
 
+  //TODO Especially this, is being used in other functions
   elementsToBeTranslated.forEach(element => {
       // Get the section and value keys from the element
       const section = element.getAttribute("data-i18n-section");
       const elementName = element.getAttribute("data-i18n-element");
 
       // Get the attributes that need to be translated
-      const elementValues = translations[lang][section][elementName];
+      let elementValues = translations[lang][section][elementName];
 
+      if (element.classList.contains('navigation-bar__toggle-theme-btn')) {
+        console.log('toggle theme btn')
+        elementValues = translations[lang][section][elementName][localStorage.getItem('preferredTheme') || 'light']
+      }
       // Change specified attributes lanuage
       for (let key in elementValues) {
         if (elementValues[key]) {
@@ -178,7 +184,42 @@ function changeLanguage(lang = 'en', elementsToBeTranslated) {
   });
 
   // Store selected language in localStorage
-  localStorage.setItem("preferredLanguage", lang);
+  localStorage.setItem('preferredLanguage', lang);
+}
+
+function setTheme(theme) {
+  function updateToggleBtnAttrsLang(choosedTheme) {
+    // Get the section and value keys from the element
+    const section = toggleThemeBtn.getAttribute("data-i18n-section");
+    const elementName = toggleThemeBtn.getAttribute("data-i18n-element");
+
+    // Get the attributes that need to be translated
+    let elementValues = translations[localStorage.getItem('preferredLanguage') || 'en'][section][elementName][choosedTheme];
+
+    // Change specified attributes lanuage
+    for (let key in elementValues) {
+      if (elementValues[key]) {
+      toggleThemeBtn[key] = elementValues[key];
+      }
+    }
+  }
+
+  const applyThemeStyles = (isDark) => {
+    document.documentElement.classList.toggle('dark-theme', isDark);
+    
+    coffeeSVGLm.style.display = isDark ? 'inline-block' : 'none';
+    coffeeImgContainerLm.style.display = isDark ? 'none' : 'inline-block';
+    
+    lightThemeIconLm.style.display = isDark ? 'block' : 'none';
+    darkThemeIconLm.style.display = isDark ? 'none' : 'block';
+    
+    updateToggleBtnAttrsLang(isDark ? 'dark' : 'light');
+  };
+
+  const isDarkTheme = theme === 'dark';
+  applyThemeStyles(isDarkTheme);
+  
+  localStorage.setItem('preferredTheme', theme);
 }
 
 //TODO INITIAL FUNCTION AND CONSTRUCTOR CALLS
@@ -188,10 +229,11 @@ export const mobileMenuSelect = new LangSelect(mobileMenuSelectLangLm, generateL
 
 generateProjectList();
 const elementsToBeTranslated = document.querySelectorAll("[data-i18n-section]");
+setTheme(preferredTheme);
 updateSliderProgressBar();
+addProgressiveLoading(document.querySelectorAll('.blur-img-loader'));
 
-addProgressiveLoading(document.querySelectorAll('.blur-img-loader'))
-
+//TODO END OF INITIAL FUNCTION AND CONSTRUCTOR CALLS
 
 //TODO ADD EVENT LISTENERS
 
@@ -231,8 +273,6 @@ scrollToTopBtn.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });
 
-
-
 //* CHANGE LANGUAGE
 // Listen for the custom select 'change' event
 navbarSelectLangLm.addEventListener('onSelectChange', e => {
@@ -245,7 +285,6 @@ mobileMenuSelectLangLm.addEventListener('onSelectChange', e => {
   changeLanguage(e.detail.value, elementsToBeTranslated);
 });
 
-
 // Check which select is visble at page load
 if (navbarSelectLangLm.offsetParent) {
   // Navbar is visible, set the first lang select value from localStorage
@@ -256,29 +295,10 @@ else {
   mobileMenuSelect.setActiveOption(null, preferredLanguage, true);
 }
 
-
 //* TOGGLE DARK THEME
-//TODO Refactor this and add translation support
 toggleThemeBtn.addEventListener('click', () => {
-  console.log('toggle theme button clicked');
-  document.documentElement.classList.toggle('dark-theme');
-
-  if (document.documentElement.classList.contains('dark-theme')) {
-    coffeeImgContainerLm.style.display = 'none';
-    coffeeSVGLm.style.display = 'inline-block';
-    lightThemeIconLm.style.display = 'block';
-    darkThemeIconLm.style.display = 'none';
-    toggleThemeBtn.title = 'Switch to light theme';
-    toggleThemeBtn.ariaLabel = 'Switch to light theme.';
-  } 
-  else {
-    coffeeSVGLm.style.display = 'none'
-    coffeeImgContainerLm.style.display = 'inline-block'
-    lightThemeIconLm.style.display = 'none';
-    darkThemeIconLm.style.display = 'block';
-    toggleThemeBtn.title = 'Switch to dark theme';
-    toggleThemeBtn.ariaLabel = 'Switch to dark theme.';
-  }
+  const isDarkTheme = document.documentElement.classList.toggle("dark-theme");
+  setTheme(isDarkTheme ? 'dark' : 'light');
 });
 
 //* MOBILE MENU
@@ -330,7 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set loader dispay to none
   setTimeout(() => {
-
     bouncerLoaderContainerLm.style.display = 'none';
   }, 500);
 });
+
+//TODO END OF ADD EVENT LISTENERS

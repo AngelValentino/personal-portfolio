@@ -100,6 +100,7 @@ html {
   --text-color-secondary: #d0d0d5;
   --text-color-tertiary: #ffffff;
   --contrast-text-color: #2d2e32;
+  --blur-img-loader-bg-color: rgba(59, 59, 79, 0.25);
 
   --bg-color: #1b1b32;
   --bg-color-secondary: #0a0a23;
@@ -1165,10 +1166,10 @@ footer {
     color: var(--contrast-color);
   }
 
-  .navigation-bar__toggle-theme-btn:is(:hover, :focus-visible) {
+  /* .navigation-bar__toggle-theme-btn:is(:hover, :focus-visible) {
     transition: color var(--base-transition-duration);
     color: var(--text-color-secondary);
-  }
+  } */
   /* END OF NAVIGATION BAR */
 
   /* HERO HEADER */
@@ -1540,7 +1541,7 @@ footer {
 
 .bouncer-container {
   position: fixed;
-  background-color: #fff;
+  background-color: var(--bg-color-secondary);
   inset: 0;
   z-index: 100;
   transition: background-color 0.5s;
@@ -1561,7 +1562,7 @@ footer {
   --bounce-animation-duration: 0.5s;
   width: 1.35rem;
   height: 1.35rem;
-  background: #0077ff;
+  background: var(--contrast-color);
   border-radius: 50%;
   animation: 
     bounce var(--bounce-animation-duration) cubic-bezier(.19,.57,.3,.98) infinite alternate 0.5s, 
