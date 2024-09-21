@@ -2,7 +2,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   * {
-      scroll-behavior: smooth;
+    scroll-behavior: smooth;
   }
 }
 
@@ -77,7 +77,7 @@ html {
 
   --bg-color: #f9f9f9;
   --bg-color-secondary: #fff;
-  --bg-color-tertiary: #ced4da;
+  --bg-color-tertiary: #eceff3;
 
   --contrast-color: #147efb;
   --contrast-color-secondary: #0098e0;
@@ -134,6 +134,8 @@ body {
   scroll-margin-top: 79px;
 }
 
+/** UI COMPONENTS AND USEFUL CLASSES **/
+
 .visually-hidden { 
   border: 0;
   padding: 0;
@@ -147,6 +149,97 @@ body {
   clip-path: inset(50%); /* modern browsers, clip-path works inwards from each corner */
   white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
+
+.no-wrap {
+  white-space: nowrap
+}
+
+.slide-in-and-out,
+.slide-in-and-back,
+.slide-middle-out,
+.appear-bg-from-center {
+  position: relative;
+}
+
+.slide-in-and-out::after,
+.slide-in-and-out.underline::before,
+.slide-in-and-back::after,
+.slide-in-and-back.underline::before,
+.slide-middle-out::after,
+.slide-middle-out.underline::before,
+.appear-bg-from-center::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: currentColor;
+  border-radius: 5px;
+  transform: scaleX(0);
+}
+
+.slide-in-and-out::after,
+.slide-in-and-back::after,
+.slide-middle-out::after,
+.appear-bg-from-center::after {
+  transition: transform 0.3s, height 0.3s, background-color var(--base-transition-duration);
+  will-change: transform, height;
+}
+
+.slide-in-and-out::after {
+  transform-origin: right;
+}
+
+.slide-in-and-back::after {
+  transform-origin: left;
+}
+
+.slide-middle-out::after {
+  transform-origin: center;
+}
+
+.appear-bg-from-center::after {
+  border-radius: 2px;
+  top: 50%;
+  transform: scaleX(0) translateY(-50%);
+  background-color: var(--bg-color-tertiary);
+  z-index: -1;
+}
+
+.appear-bg-from-center.rounded::after {
+  border-radius: 50%;
+}
+
+
+.slide-in-and-out.underline::before,
+.slide-in-and-back.underline::before,
+.slide-middle-out.underline::before {
+  transform: scaleX(1);
+  opacity: 0.3;
+}
+
+@media screen and (hover: hover) {
+  .slide-in-and-out:is(:hover, :focus-visible)::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .slide-in-and-back:is(:hover, :focus-visible)::after {
+    transform: scaleX(1);
+  }
+  
+  .slide-middle-out:is(:hover, :focus-visible)::after {
+    transform: scaleX(1);
+  }
+
+  .appear-bg-from-center:is(:hover, :focus-visible)::after {
+    height: 100%;
+    transform: scaleX(1) translateY(-50%);
+  }
+}
+
+/** END OF UI COMPONENTS AND USEFUL CALASSES **/
 
 /** LANGUAGE SELECT UI COMPONENT **/
 
@@ -279,10 +372,11 @@ body {
 
 .mobile-menu__close-btn {
   position: absolute;
-  top: 30px;
-  right: 40px;
+  top: 27px;
+  right: 37px;
+  padding: 3px;
   line-height: 0;
-  transition: opacity var(--base-transition-duration);
+  border-radius: 50%;
 }
 
 .mobile-menu__close-icon {
@@ -290,7 +384,7 @@ body {
 }
 
 .mobile-menu__custom-select-container {
-  position: absolute;
+  position: absolute !important;
   left: 30px;
   bottom: 40px;
 }
@@ -363,9 +457,9 @@ body {
 }
 
 .navigation-bar__title-link {
-  padding: 3px;
   color: var(--text-color-tertiary);
   transition: color var(--base-transition-duration);
+  padding: 3px;
 }
 
 .navigation-bar__links-list h2 {
@@ -394,6 +488,8 @@ body {
   line-height: 0;
   border-radius: 50%;
   transition: color 1s;
+  padding: 3px;
+  margin: 0 -3px;
 }
 
 .navigation-bar__light-theme-icon {
@@ -579,7 +675,7 @@ body {
   transition: color var(--base-transition-duration);
 }
 
-.underline {
+.about__title-underline {
   position: absolute;
   width: 2.5em;
   height: 0.1165em;
@@ -758,6 +854,12 @@ body {
   transition: color var(--base-transition-duration);
 }
 
+/* Make sure the underline does not become to thin at HTML font-size resize */
+.project__info-summary-text .slide-in-and-back.underline::before,
+.project__info-summary-text .slide-in-and-back::after {
+  height: 2px;
+}
+
 .project__technologies-list {
   display: flex;
   justify-content: center;
@@ -786,6 +888,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: inherit;
 }
 
 .project__link-title {
@@ -793,13 +896,11 @@ body {
   font-size: 1.125rem;
   color: var(--text-color-secondary);
   transition: color var(--base-transition-duration);
-  will-change: color;
 }
 
 .project__link-icon {
   width: 1.675rem;
   transition: color var(--base-transition-duration);
-  will-change: color;
 }
 
 .project__more-info-btn {
@@ -970,7 +1071,7 @@ body {
 .contact__name-input, 
 .contact__email-input,
 .contact__message-textarea {
-  border: 1px solid var(--bg-color-tertiary);
+  border: 1px solid var(--contact-input-border);
   border-radius: 5px;
   background-color: var(--contact-form-input-bg);
   transition: border var(--base-transition-duration), background-color var(--base-transition-duration), color var(--base-transition-duration);
@@ -1077,16 +1178,17 @@ footer {
 .footer__text {
   font-size: 1.125rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-.footer__text a {
+.footer__text-link {
   font-size: 1.1em;
   font-weight: 700;
-  text-underline-position: under;
+  white-space: wrap;
 }
 
-.footer__text a:hover {
-  text-decoration: underline;
+.footer__text-link-line-break {
+  display: none;
 }
 
 .footer__social-links-list {
@@ -1131,10 +1233,6 @@ footer {
   width: 1.75rem;
 }
 
-.footer__scroll-to-top-btn:is(:hover, :focus-visible) {
-  transform: translateY(-5px);
-}
-
 /** END OF FOOTER **/
 
 /** MEDIA QUERIES FOR HOVER CAPABLE DEVICES **/
@@ -1150,26 +1248,13 @@ footer {
   .mobile-menu__link:is(:hover, :focus-visible) {
     color: var(--contrast-color);
   }
-  
-  .mobile-menu__close-btn:is(:hover, :focus-visible) {
-    opacity: 0.7;
-  }
   /* END OF MOBILE MENU */
 
   /* NAVIGATION BAR */
-  .navigation-bar__title-link:is(:hover, :focus-visible) {
-    color: var(--text-color-secondary);
-  }
-
   .navigation-bar__link:is(:hover, :focus-visible),
   .navigation-bar__menu-btn:is(:hover, :focus-visible) {
     color: var(--contrast-color);
   }
-
-  /* .navigation-bar__toggle-theme-btn:is(:hover, :focus-visible) {
-    transition: color var(--base-transition-duration);
-    color: var(--text-color-secondary);
-  } */
   /* END OF NAVIGATION BAR */
 
   /* HERO HEADER */
@@ -1195,8 +1280,11 @@ footer {
     opacity: 1;
   }
 
-  .project__link:is(:hover, :focus-visible) .project__link-icon,
   .project__link:is(:hover, :focus-visible) .project__link-title {
+    color: inherit;
+  }
+  
+  .project__link:is(:hover, :focus-visible) {
     color: var(--contrast-color-secondary);
   }
 
@@ -1227,6 +1315,10 @@ footer {
   .footer__social-link:is(:hover, :focus-visible) {
     transform: scale(1.1);
   }
+
+  .footer__scroll-to-top-btn:is(:hover, :focus-visible) {
+    transform: translateY(-5px);
+  }
   /* END OF FOOTER */
 }
 
@@ -1236,7 +1328,7 @@ footer {
 
   /* MOBILE MENU */
   .mobile-menu__close-btn:active {
-    color: #808080;
+    opacity: 0.7;
   }
   .mobile-menu__link:active {
     transition: none;
@@ -1276,12 +1368,19 @@ footer {
     transform: scale(0.95);
   }
   
-  .project__link:active .project__link-title,
+  .project__link:active .project__link-title {
+    transition: none;
+    color: inherit;
+  }
+
   .project__link:active .project__link-icon {
+    transition: none;
+  }
+  
+  .project__link:active {
     transition: none;
     color: var(--contrast-color);
   }
-
   /* END OF PROJECTS SECTION */
 
   /* CONTACT SECTION */
@@ -1470,6 +1569,12 @@ footer {
   }
 }
 
+@media screen and (max-width: 540px) {
+  .footer__text-link-line-break {
+    display: initial;
+  }
+}
+
 @media screen and (max-width: 500px) {
   :root {
     --base-content-horizontal-padding: 20px;
@@ -1530,6 +1635,12 @@ footer {
 
   .contact__title {
     font-size: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .footer__text a.slide-in-and-out.underline::before {
+    display: none;
   }
 }
 

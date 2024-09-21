@@ -46,10 +46,12 @@ let sliderGrabbed = false;
 let lastScroll = 0;
 
 
+//TODO Improve styling
+  //*CV and Send message buttons
 //TODO Make download CV button functional
-//TODO Improve and refactor styling
+//TODO Add accessibility to LangSelect UI component
 //TODO? Add parallax scrolling
-//TODO Portfolio review
+//TODO Portfolio and accessibility review
 
 function generateProjectLinkHTML(project) {
   return `
@@ -85,7 +87,7 @@ function generateProjectInfoHTML(project) {
         ${generateProjectTechIconsHTML(project.technologies)}
       </ul>
       <div class="project__links-container">
-        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-link" aria-label="Go to ${project.title} code repository." class="project__link project__code-link" target="_blank" href="${project.codeUrl}">
+        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-link" aria-label="Go to ${project.title} code repository." class="project__link project__code-link slide-in-and-back" target="_blank" href="${project.codeUrl}">
           <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-text" aria-hidden="true" class="project__link-title">Code</p>
           <svg class="project__link-code-icon project__link-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g fill="none">
@@ -94,7 +96,7 @@ function generateProjectInfoHTML(project) {
             </g>
           </svg>
         </a>
-        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-link" aria-label="Go to ${project.title} live demo." class="project__link project__demo-link" target="_blank" href="${project.demoUrl}">
+        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-link" aria-label="Go to ${project.title} live demo." class="project__link project__demo-link slide-in-and-back" target="_blank" href="${project.demoUrl}">
           <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-text" aria-hidden="true" class="project__link-title">Live Demo</p>
           <svg class="project__link-demo-icon project__link-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5" />

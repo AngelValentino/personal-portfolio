@@ -200,7 +200,7 @@ export const translations = {
     },
     footer: {
       text: {
-        innerHTML: `Created by <a aria-label="Go to Angel Valentino's GitHub profile." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>`
+        innerHTML: `Created by <br class="footer__text-link-line-break"><a class="footer__text-link slide-in-and-out underline" aria-label="Go to Angel Valentino's GitHub profile." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>`
       },
       'social-list': {
         ariaLabel: "Angel Valentino's social links."
@@ -418,7 +418,7 @@ export const translations = {
     },
     footer: {
       text: {
-        innerHTML: `Creado por <a aria-label="Ir al perfil de GitHub de Angel Valentino." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>`
+        innerHTML: `Creado por <br class="footer__text-link-line-break"><a class="footer__text-link slide-in-and-out underline" aria-label="Ir al perfil de GitHub de Angel Valentino." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>`
       },
       'social-list': {
         ariaLabel: "Enlaces sociales de Angel Valentino."
@@ -636,7 +636,7 @@ export const translations = {
     },
     footer: {
       text: {
-        innerHTML: 'Creat de <a aria-label="Accesează profilul lui Angel Valentino de pe GitHub." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>'
+        innerHTML: 'Creat de <br class="footer__text-link-line-break"><a class="footer__text-link slide-in-and-out underline" aria-label="Accesează profilul lui Angel Valentino de pe GitHub." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>'
       },
       'social-list': {
         ariaLabel: "Linkuri sociale ale lui Angel Valentino."
@@ -854,7 +854,7 @@ export const translations = {
     },
     footer: {
       text: {
-        innerHTML: `Creat per <a aria-label="Vés al perfil de GitHub d'Angel Valentino." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>`
+        innerHTML: `Creat per <br class="footer__text-link-line-break"><a class="footer__text-link slide-in-and-out underline" aria-label="Vés al perfil de GitHub d'Angel Valentino." target="_blank" href="https://github.com/AngelValentino">Angel Valentino</a>`
       },
       'social-list': {
         ariaLabel: "Enllaços socials d'Angel Valentino."
@@ -935,7 +935,7 @@ function addProjectTranslations(project, langCode, translations) {
 
   // Project info
   translations.projects[`${projectTitle}-description`] = {
-    innerText: project.description[langCode]
+    innerHTML: project.description[langCode]
   };
   translations.projects[`${projectTitle}-demo-text`] = {
     innerText: projectLanguages[langCode].demoText
