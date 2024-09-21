@@ -144,7 +144,8 @@ export const translations = {
         innerText: "Currently, I'm expanding my skills by learning back-end development with PHP and SQL."
       },
       'download-button': {
-        innerText: 'Download CV'
+        innerText: 'Download CV',
+        href: 'documents/resume-en.pdf'
       }
     },
     projects: {
@@ -362,7 +363,8 @@ export const translations = {
         innerText: "Actualmente, estoy ampliando mis habilidades aprendiendo desarrollo back-end con PHP y SQL."
       },
       'download-button': {
-        innerText: 'Descargar CV'
+        innerText: 'Descargar CV',
+        href: 'documents/resume-es.pdf'
       }
     },
     projects: {
@@ -580,7 +582,8 @@ export const translations = {
         innerText: "În prezent, îmi extind abilitățile învățând dezvoltare back-end cu PHP și SQL."
       },
       'download-button': {
-        innerText: 'Descarcă CV'
+        innerText: 'Descarcă CV',
+        href: 'documents/resume-en.pdf'
       }
     },
     projects: {
@@ -798,7 +801,8 @@ export const translations = {
         innerText: "Actualment, estic ampliant les meves habilitats aprenent desenvolupament back-end amb PHP i SQL."
       },
       'download-button': {
-        innerText: 'Descarregar CV'
+        innerText: 'Descarregar CV',
+        href: 'documents/resume-es.pdf'
       }
     },
     projects: {
