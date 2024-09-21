@@ -6,7 +6,7 @@ import {
 
 import { navbarSelect, mobileMenuSelect } from "./main.js";
 
-
+const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
 const mobileMenuLm = document.getElementById('mobile-menu');
 const closeMobileMenuBtn = document.getElementById('mobile-menu__close-btn');
 const mobileMenuEventsHandler = {};
@@ -25,6 +25,7 @@ function closeMobileMenu() {
 
   // Transition element visiblity to none
   mobileMenuLm.classList.remove('show');
+  navMenuBtn.ariaExpanded = false;
 
   // Hide mobile menu
   hideMobileMenuTimId = setTimeout(() => {
@@ -48,6 +49,7 @@ export function openMobileMenu() {
   clearTimeout(hideMobileMenuTimId);
   // Show menu
   mobileMenuLm.style.display = 'flex';
+  navMenuBtn.ariaExpanded = true;
   // Transition menu
   setTimeout(() => {
     mobileMenuLm.classList.add('show');

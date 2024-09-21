@@ -58,7 +58,7 @@
           </li>
         </ul>
       </nav>
-      <div role="listbox" id="mobile-menu__custom-select-container" class="custom-select-container mobile-menu__custom-select-container slide-in-and-out" tabindex="0"></div>
+      <div data-i18n-section="mobile-menu" data-i18n-element="lang-select-element" id="mobile-menu__custom-select-container" class="custom-select-container mobile-menu__custom-select-container slide-in-and-out" role="combobox" aria-controls="mobile-menu__custom-select-options" aria-expanded="false" aria-haspopup="listbox" aria-label="Languages available in your preferred language." tabindex="0"></div>
     </div>
   <!-- END OF MOBILE MENU -->
   <!-- NAVIGATION BAR -->
@@ -70,7 +70,7 @@
           </a>
         </h2>
         <div class="navigation-bar__right-container">
-          <div role="listbox" id="navigation-bar__custom-select-container" class="custom-select-container navigation-bar__custom-select-container slide-in-and-out" tabindex="0"></div>
+          <div data-i18n-section="navbar" data-i18n-element="lang-select-element" id="navigation-bar__custom-select-container" class="custom-select-container navigation-bar__custom-select-container slide-in-and-out" role="combobox" aria-controls="navigation-bar__custom-select-options" aria-expanded="false" aria-haspopup="listbox" aria-label="Languages available in your preferred language." tabindex="0"></div>
           <button data-i18n-section="navbar" data-i18n-element="toggle-theme-btn" aria-label="Switch to dark theme" title="Switch to dark theme" id="navigation-bar__toggle-theme-btn" class="navigation-bar__toggle-theme-btn appear-bg-from-center rounded">
             <svg aria-hidden="true" focusable="false" role="presentation" id="navigation-bar__light-theme-icon" class="navigation-bar__light-theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g fill="none" stroke="currentColor" stroke-width="2">
@@ -82,12 +82,12 @@
               <path fill="currentColor" d="M12.09 20.66a9 9 0 0 1-1.09-.07A8.8 8.8 0 0 1 3.41 13a8.71 8.71 0 0 1 6.83-9.67a1.23 1.23 0 0 1 1.27.48a1.27 1.27 0 0 1 .05 1.4a5.3 5.3 0 0 0-.66 3.47a5.24 5.24 0 0 0 4.38 4.38a5.2 5.2 0 0 0 3.47-.67a1.27 1.27 0 0 1 1.4.07a1.21 1.21 0 0 1 .48 1.26a8.7 8.7 0 0 1-8.54 6.94M10 5a7.25 7.25 0 1 0 9 9a6.74 6.74 0 0 1-9.61-5A6.75 6.75 0 0 1 10 5" />
             </svg>
           </button>
-          <button data-i18n-section="navbar" data-i18n-element="toggle-menu-btn" aria-label="Open menu." title="Open menu" id="navigation-bar__menu-btn" class="navigation-bar__menu-btn">
+          <button data-i18n-section="navbar" data-i18n-element="toggle-menu-btn" aria-label="Open menu." title="Open menu" aria-expanded="false" aria-controls="mobile-menu" id="navigation-bar__menu-btn" class="navigation-bar__menu-btn">
             <svg aria-hidden="true" focusable="false" role="presentation" class="navigation-bar__menu-icon" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path fill="currentColor" d="M2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m0 6.032a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m1 5.033a1 1 0 1 0 0 2h18a1 1 0 0 0 0-2z" />
             </svg>
           </button>
-          <ul aria-label="Header navigation links." class="navigation-bar__links-list">
+          <ul data-i18n-section="navbar" data-i18n-element="navigation-links-list" aria-label="Header navigation links." class="navigation-bar__links-list">
             <li>
               <h2>
                 <a data-i18n-section="navbar" data-i18n-element="home-link" class="navigation-bar__link slide-middle-out" href="#home">Home</a>

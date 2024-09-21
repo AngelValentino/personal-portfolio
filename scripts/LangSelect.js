@@ -4,7 +4,7 @@ export function generateLangSelectData(section) {
   return [
     { 
       content: `
-        <img src="./images/flag-icons/united-states-flag.png">
+        <img aria-hidden="true" role="presentation" src="./images/flag-icons/united-states-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="english-select-option">English</span>
       `,
       label: 'english',
@@ -12,7 +12,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <img src="./images/flag-icons/spain-flag.png">
+        <img aria-hidden="true" role="presentation" src="./images/flag-icons/spain-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="spanish-select-option">Spanish</span>
       `,
       label: 'spanish', 
@@ -20,7 +20,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <img src="./images/flag-icons/romania-flag.png">
+        <img aria-hidden="true" role="presentation" src="./images/flag-icons/romania-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="romanian-select-option">Romanian</span>
       `,
       label: 'romanian', 
@@ -28,7 +28,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <img src="./images/flag-icons/catalonia-flag.png">
+        <img aria-hidden="true" role="presentation" src="./images/flag-icons/catalonia-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="catalan-select-option">Catalan</span>
       `,
       label: 'catalan', 
@@ -45,7 +45,7 @@ export class LangSelect {
 
     this.lms = {
       selectLm: root,
-      labelLm: root.querySelector('.custom-select-label'),
+      labelLm: root.querySelector('.custom-select__label-container'),
       chevronLm: root.querySelector('.custom-select__chevron-icon'),
       optionsListLm: root.querySelector('.custom-select__options'),
       optionLms: [...root.querySelectorAll('.custom-select__option')]
@@ -53,6 +53,7 @@ export class LangSelect {
 
     this.selectedOption = this.lms.optionLms[0];
     this.previousOption = this.selectedOption;
+    this.lms.selectLm.setAttribute('aria-activedescendant', this.selectedOption.id);
     this.updateLabel(this.selectedOption);
 
     this.lms.labelLm.addEventListener("click", () => {
@@ -114,19 +115,24 @@ export class LangSelect {
 
   toggleOptions() {
     this.lms.optionsListLm.classList.toggle("show");
+    // Open options list
     if (this.lms.optionsListLm.classList.contains("show")) {
       // Scroll to the selected option when the dropdown opens
       this.selectedOption.scrollIntoView({ block: "nearest" });
       this.lms.chevronLm.classList.add('active');
+      this.lms.selectLm.ariaExpanded = true;
     } 
+    // Close options list
     else {
       this.lms.chevronLm.classList.remove('active');
+      this.lms.selectLm.ariaExpanded = false;
     }
   }
 
   hideOptions() {
-    this.lms.optionsListLm.classList.remove("show");
+    this.lms.optionsListLm.classList.remove('show');
     this.lms.chevronLm.classList.remove('active');
+    this.lms.selectLm.ariaExpanded = false;
   }
 
   updateLabel(currentOption) {
@@ -138,7 +144,7 @@ export class LangSelect {
     // Delete option translate data attribute
     delete spanLm.dataset.i18nElement;
     // Add label translate attribute
-    spanLm.dataset.i18nElement = 'section-label';
+    spanLm.dataset.i18nElement = 'lang-select-label';
 
     // Tranlslate the the with the current option language
     const section = spanLm.getAttribute("data-i18n-section");
@@ -178,11 +184,15 @@ export class LangSelect {
       console.log('not the same, set it')
       // Remove active state from the last selected option
       this.selectedOption.classList.remove('selected');
+      this.selectedOption.ariaSelected = false;
 
       // Add active state to the current selected option
       currentOption.classList.add('selected');
+      currentOption.ariaSelected = true;
       currentOption.scrollIntoView({ block: "nearest" }); // Scroll into view
       this.updateLabel(currentOption);
+      // Set aria-activedescendant to the id of the current option
+      this.lms.selectLm.setAttribute('aria-activedescendant', currentOption.id);
 
       // Update selected option
       this.selectedOption = currentOption;
@@ -231,20 +241,20 @@ export class LangSelect {
   }
 
   // Static method to generate options
-  static generateOptions(data) {
+  static generateOptions(data, section) {
     return data.map(({ label, value, content }, i) => `
-      <li data-value="${value}" data-label="${label}" class="custom-select__option${i === 0 ? ' selected' : ''}">${content}</li>
+      <li id="${section === 'navbar' ? 'navigation-bar' : section}__${label}-option" role="option" aria-selected="${i === 0}" data-value="${value}" data-label="${label}" class="custom-select__option${i === 0 ? ' selected' : ''}">${content}</li>
     `).join('');
   }
 
   // Static method to generate the select element
   static generateSelectHTML(data, section) {
     return `
-      <span class="custom-select-label"></span>
+      <span class="custom-select__label-container"></span>
       <svg class="custom-select__chevron-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <path fill="currentColor" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
       </svg>
-      <ul aria-label="Languages Available in Your Preferred Language." data-i18n-section="${section}" data-i18n-element="select-options-list" class="custom-select__options">
+      <ul role="listbox" id="${section === 'navbar' ? 'navigation-bar' : section}__custom-select-options" class="custom-select__options">
         ${this.generateOptions(data, section)}
       </ul>
     `;

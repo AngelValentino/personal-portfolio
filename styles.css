@@ -286,7 +286,7 @@ body {
   border-radius: 2px;
 }
 
-.custom-select-label {
+.custom-select__label-container {
   display: flex;
   align-items: center;
   padding: 7px 36px 7px 10px;
@@ -301,15 +301,15 @@ body {
   transition: color var(--base-transition-duration), border var(--base-transition-duration);
 }
 
-.mobile-menu__custom-select-container .custom-select-label {
+.mobile-menu__custom-select-container .custom-select__label-container {
   font-size: 1.075rem;
 }
 
-.custom-select-label img {
+.custom-select__label-container img {
   width: 1.5rem;
 }
 
-.mobile-menu__custom-select-container .custom-select-label img {
+.mobile-menu__custom-select-container .custom-select__label-container img {
   width: 1.55rem;
 }
 

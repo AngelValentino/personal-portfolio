@@ -27,11 +27,11 @@ export const translations = {
       'contact-link': {
         innerText: 'Contact'
       },
-      'section-label': {
-        innerText: 'English'
-      },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Languages available in your preferred language.'
+      },
+      'lang-select-label': {
+        innerText: 'English'
       },
       'english-select-option': {
         innerHTML: 'English'
@@ -79,10 +79,10 @@ export const translations = {
       'contact-link': {
         innerText: 'Contact'
       },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Languages available in your preferred language.'
       },
-      'section-label': {
+      'lang-select-label': {
         innerText: 'English'
       },
       'english-select-option': {
@@ -246,11 +246,11 @@ export const translations = {
       'contact-link': {
         innerText: 'Contacto'
       },
-      'section-label': {
-        innerText: 'Español'
-      },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Idiomas disponibles en tu idioma preferido.'
+      },
+      'lang-select-label': {
+        innerText: 'Español'
       },
       'english-select-option': {
         innerHTML: 'Inglés'
@@ -298,11 +298,11 @@ export const translations = {
       'contact-link': {
         innerText: 'Contacto'
       },
-      'section-label': {
-        innerText: 'Español'
-      },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Idiomas disponibles en tu idioma preferido.'
+      },
+      'lang-select-label': {
+        innerText: 'Español'
       },
       'english-select-option': {
         innerHTML: 'Inglés'
@@ -465,11 +465,11 @@ export const translations = {
       'contact-link': {
         innerText: 'Contact'
       },
-      'section-label': {
-        innerText: 'Română'
-      },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Limbile disponibile în limba ta preferată.'
+      },
+      'lang-select-label': {
+        innerText: 'Română'
       },
       'english-select-option': {
         innerHTML: 'Engleză'
@@ -517,11 +517,11 @@ export const translations = {
       'contact-link': {
         innerText: 'Contact'
       },
-      'section-label': {
-        innerText: 'Română'
-      },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Limbile disponibile în limba ta preferată.'
+      },
+      'lang-select-label': {
+        innerText: 'Română'
       },
       'english-select-option': {
         innerHTML: 'Engleză'
@@ -684,11 +684,11 @@ export const translations = {
       'contact-link': {
         innerText: 'Contacte'
       },
-      'section-label': {
-        innerText: 'Català'
-      },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Idiomes disponibles en el teu idioma preferit.'
+      },
+      'lang-select-label': {
+        innerText: 'Català'
       },
       'english-select-option': {
         innerHTML: 'Anglès'
@@ -722,7 +722,7 @@ export const translations = {
         title: 'Obrir menú'
       },
       'navigation-links-list': {
-        ariaLabel: 'Enllaços de navegació del capçalera.'
+        ariaLabel: 'Enllaços de navegació de la capçalera.'
       },
       'home-link': {
         innerText: 'Inici'
@@ -736,11 +736,11 @@ export const translations = {
       'contact-link': {
         innerText: 'Contacte'
       },
-      'section-label': {
-        innerText: 'Català'
-      },
-      'select-options-list': {
+      'lang-select-element': {
         ariaLabel: 'Idiomes disponibles en el teu idioma preferit.'
+      },
+      'lang-select-label': {
+        innerText: 'Català'
       },
       'english-select-option': {
         innerHTML: 'Anglès'

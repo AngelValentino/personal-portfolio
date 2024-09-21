@@ -46,11 +46,6 @@ let sliderGrabbed = false;
 let lastScroll = 0;
 
 
-//TODO Improve styling
-  //*CV and Send message buttons
-//TODO Make download CV button functional
-//TODO Add accessibility to LangSelect UI component
-//TODO? Add parallax scrolling
 //TODO Portfolio and accessibility review
 
 function generateProjectLinkHTML(project) {
