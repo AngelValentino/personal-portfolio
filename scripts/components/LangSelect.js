@@ -1,5 +1,5 @@
-import { translations } from "./data/translations.js";
-import { checkTranslateError } from "./language.js";
+import { translations } from "../data/translations.js";
+import { checkTranslateError } from "../language.js";
 
 export function generateLangSelectData(section) {
   return [

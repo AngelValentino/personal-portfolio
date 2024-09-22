@@ -6,10 +6,10 @@ export const projectsData = [
     id: 1,
     title: 'Racing Spirit',
     description: {
-      en: '<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://racing-spirit.pages.dev/">Racing Spirit</a> is an e-commerce single-page application (SPA), featuring a JSON mock back-end, developed from scratch using HTML, CSS, JavaScript and React. Inspired by <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> design and featuring product images from <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      es: '<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://racing-spirit.pages.dev/">Racing Spirit</a> es una aplicación de una sola página (SPA) de comercio electrónico, que cuenta con un back-end simulado en JSON, desarrollada desde cero utilizando HTML, CSS, JavaScript y React. Inspirada en el diseño de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> y con imágenes de productos de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      ro: '<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://racing-spirit.pages.dev/">Racing Spirit</a> este o aplicație de tip single-page (SPA) de comerț electronic, care include un back-end simulat în JSON, dezvoltată de la zero folosind HTML, CSS, JavaScript și React. Inspirată de designul <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> și cu imagini de produse de la <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      ca: `<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://racing-spirit.pages.dev/">Racing Spirit</a> és una aplicació d'una sola pàgina (SPA) de comerç electrònic, que compta amb un back-end simulat en JSON, desenvolupada des de zero utilitzant HTML, CSS, JavaScript i React. Inspirada en el disseny de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> i amb imatges de productes d'<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.`
+      en: 'Racing Spirit is an e-commerce single-page application (SPA), featuring a JSON mock back-end, developed from scratch using HTML, CSS, JavaScript and React. Inspired by <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> design and featuring product images from <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      es: 'Racing Spirit es una aplicación de una sola página (SPA) de comercio electrónico, que cuenta con un back-end simulado en JSON, desarrollada desde cero utilizando HTML, CSS, JavaScript y React. Inspirada en el diseño de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> y con imágenes de productos de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      ro: 'Racing Spirit este o aplicație de tip single-page (SPA) de comerț electronic, care include un back-end simulat în JSON, dezvoltată de la zero folosind HTML, CSS, JavaScript și React. Inspirată de designul <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> și cu imagini de produse de la <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      ca: `Racing Spirit és una aplicació d'una sola pàgina (SPA) de comerç electrònic, que compta amb un back-end simulat en JSON, desenvolupada des de zero utilitzant HTML, CSS, JavaScript i React. Inspirada en el disseny de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> i amb imatges de productes d'<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.`
     },
     technologies: [
       'html',
@@ -41,10 +41,10 @@ export const projectsData = [
     id: 3,
     title: 'TaskFlow',
     description: {
-      en: '<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://taskflow1.pages.dev/">TaskFlow</a> is your go-to app for effortless productivity. Easily manage tasks, set reminders, and track your progress. All with a clean, user-friendly and accessible design that helps you stay organized and focused.',
-      es: '<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://taskflow1.pages.dev/">TaskFlow</a> es tu aplicación ideal para una productividad sin esfuerzo. Gestiona tareas fácilmente, configura recordatorios y sigue tu progreso. Todo con un diseño limpio, amigable y accesible que te ayuda a mantenerte organizado y enfocado.',
-      ro: '<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://taskflow1.pages.dev/">TaskFlow</a> este aplicația ta de bază pentru o productivitate fără efort. Gestionează sarcinile cu ușurință, setează memento-uri și urmărește-ți progresul. Totul cu un design curat, prietenos și accesibil care te ajută să rămâi organizat și concentrat.',
-      ca: `<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://taskflow1.pages.dev/" és l'aplicació ideal per a una productivitat sense esforç. Gestiona les tasques amb facilitat, configura recordatoris i fes un seguiment del teu progrés. Tot amb un disseny net, intuïtiu i accessible que t'ajuda a mantenir-te organitzat i centrat.`
+      en: 'TaskFlow is your go-to app for effortless productivity. Easily manage tasks, set reminders, and track your progress. All with a clean, user-friendly and accessible design that helps you stay organized and focused.',
+      es: 'TaskFlow es tu aplicación ideal para una productividad sin esfuerzo. Gestiona tareas fácilmente, configura recordatorios y sigue tu progreso. Todo con un diseño limpio, amigable y accesible que te ayuda a mantenerte organizado y enfocado.',
+      ro: 'TaskFlow este aplicația ta de bază pentru o productivitate fără efort. Gestionează sarcinile cu ușurință, setează memento-uri și urmărește-ți progresul. Totul cu un design curat, prietenos și accesibil care te ajută să rămâi organizat și concentrat.',
+      ca: `TaskFlow és l'aplicació ideal per a una productivitat sense esforç. Gestiona les tasques amb facilitat, configura recordatoris i fes un seguiment del teu progrés. Tot amb un disseny net, intuïtiu i accessible que t'ajuda a mantenir-te organitzat i centrat.`
     },
     technologies: [
       'html',
@@ -84,13 +84,17 @@ function generateProjectTechIconsHTML(techTitles) {
 function generateProjectInfoHTML(project) {
   return `
     <div id="project__info-${project.id}" class="project__info">
-      <h3 class="project__info-title">${project.title}</h3>
+      <h3 class="project__info-title">
+        <a class="project__info-link appear-bg-from-center" target="_blank" href="${project.demoUrl}">
+          ${project.title}
+        </a>
+      </h3>
       <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-description" class="project__info-summary-text">${project.description.en}</p>
       <ul data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-tech-list" aria-label="Project technologies." class="project__technologies-list">
         ${generateProjectTechIconsHTML(project.technologies)}
       </ul>
       <div class="project__links-container">
-        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-link" aria-label="Go to ${project.title} code repository." class="project__link project__code-link slide-in-and-back" target="_blank" href="${project.codeUrl}">
+        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-link" aria-label="Go to ${project.title} code repository." class="project__link project__code-link slide-in-and-out" target="_blank" href="${project.codeUrl}">
           <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-code-text" aria-hidden="true" class="project__link-title">Code</p>
           <svg class="project__link-code-icon project__link-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g fill="none">
@@ -99,7 +103,7 @@ function generateProjectInfoHTML(project) {
             </g>
           </svg>
         </a>
-        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-link" aria-label="Go to ${project.title} live demo." class="project__link project__demo-link slide-in-and-back" target="_blank" href="${project.demoUrl}">
+        <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-link" aria-label="Go to ${project.title} live demo." class="project__link project__demo-link slide-in-and-out" target="_blank" href="${project.demoUrl}">
           <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-demo-text" aria-hidden="true" class="project__link-title">Live Demo</p>
           <svg class="project__link-demo-icon project__link-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5" />

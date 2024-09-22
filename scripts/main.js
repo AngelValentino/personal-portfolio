@@ -19,7 +19,7 @@ import {
 import { 
   LangSelect, 
   generateLangSelectData
-} from "./LangSelect.js";
+} from "./components/LangSelect.js";
 
 import { 
   handleLangSelectChange,

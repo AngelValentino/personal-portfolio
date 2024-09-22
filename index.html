@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <script>
-      const preferredTheme = localStorage.getItem('preferredTheme') || 'light';
-
-      if (preferredTheme === 'dark') {
+      if ((localStorage.getItem('preferredTheme') || 'light') === 'dark') {
         document.documentElement.classList.add('dark-theme');
       }
     </script>
