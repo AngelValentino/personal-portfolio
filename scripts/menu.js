@@ -4,7 +4,14 @@ import {
   setScrollBehavior 
 } from "./utils.js";
 
-import { navbarSelect, mobileMenuSelect } from "./main.js";
+import { 
+  navbarSelect,
+  mobileMenuSelect 
+} from "./main.js";
+
+import { 
+  getPreferredLanguage 
+} from "./language.js";
 
 const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
 const mobileMenuLm = document.getElementById('mobile-menu');
@@ -16,8 +23,7 @@ let hideMobileMenuOverflowTimId = null;
 let lastActiveLmBeforeMobileMenu = null;
 
 function closeMobileMenu() {
-  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-  navbarSelect.setActiveOption(null, preferredLanguage, null, true);
+  navbarSelect.setActiveOption(null, getPreferredLanguage(), null, true);
   // Clear any existing timeouts
   clearTimeout(hideMobileMenuOverflowTimId);
   // Set overflow back to normal
@@ -43,8 +49,7 @@ function closeMobileMenu() {
 }
 
 export function openMobileMenu() {
-  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-  mobileMenuSelect.setActiveOption(null, preferredLanguage, null, true);
+  mobileMenuSelect.setActiveOption(null, getPreferredLanguage(), null, true);
   // Clear any existing timeout
   clearTimeout(hideMobileMenuTimId);
   // Show menu
@@ -58,7 +63,7 @@ export function openMobileMenu() {
   }, 20);
 
   // Set a timeout to hide the body overflow
-  hideMobileMenuOverflowTimId =  setTimeout(() => {
+  hideMobileMenuOverflowTimId = setTimeout(() => {
     document.body.style.overflow = "hidden";
   }, 300);
 
