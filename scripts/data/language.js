@@ -1,5 +1,6 @@
 import { projectsData } from "./project.js";
 import { convertToKebabCase } from "../utils.js";
+import { getPreferredTheme } from "../main.js";
 
 export const translations = {
   en: {
@@ -140,7 +141,7 @@ export const translations = {
       'second-paragraph': {
         innerText: "I firmly believe that mastering the basics is essential for a deep understanding of any craft. Whether it's sewing or coding, the best way to learn is by diving in without training wheels. That's why I emphasize working with HTML/CSS and vanilla JavaScript, even though I'm proficient with libraries and frameworks such as React or Bootstrap."
       },
-      'third-paragaph': {
+      'third-paragraph': {
         innerText: "Currently, I'm expanding my skills by learning back-end development with PHP and SQL."
       },
       'download-button': {
@@ -877,7 +878,7 @@ export const translations = {
         title: 'Desplaçar-se fins a dalt'
       }
     }
-  },
+  }
 };
 
 const projectLanguages = {
@@ -916,17 +917,23 @@ const projectLanguages = {
 };
 
 // Helper function to add translations
-function addProjectTranslations(project, langCode, translations) {
+function addProjectTranslations(project, lang = 'en', translations) {
+  // Check if the project has a title
+  if (!project.title) {
+    console.error('Project title is missing. Could not translate the project object.');
+    return;
+  }
+  
   const projectTitle = convertToKebabCase(project.title);
 
   // Project controls
   translations.projects[`${projectTitle}-more-info-btn`] = {
     ariaLabel: `Read more information about ${project.title}.`,
-    title: projectLanguages[langCode].moreInfoBtnTitle
+    title: projectLanguages[lang].moreInfoBtnTitle
   };
   translations.projects[`${projectTitle}-close-info-btn`] = {
     ariaLabel: `Close more information about ${project.title}.`,
-    title: projectLanguages[langCode].closeInfoBtnTitle
+    title: projectLanguages[lang].closeInfoBtnTitle
   };
 
   // Project link
@@ -934,36 +941,148 @@ function addProjectTranslations(project, langCode, translations) {
     ariaLabel: `Go to ${project.title} live demo.`
   };
   translations.projects[`${projectTitle}-tooltip-text`] = {
-    innerText: projectLanguages[langCode].tooltipText
+    innerText: projectLanguages[lang].tooltipText
   };
 
   // Project info
   translations.projects[`${projectTitle}-description`] = {
-    innerHTML: project.description[langCode]
+    innerHTML: project.description[lang]
   };
   translations.projects[`${projectTitle}-demo-text`] = {
-    innerText: projectLanguages[langCode].demoText
+    innerText: projectLanguages[lang].demoText
   };
   translations.projects[`${projectTitle}-demo-link`] = {
     ariaLabel: `Go to ${project.title} live demo.`
   };
   translations.projects[`${projectTitle}-code-text`] = {
-    innerText: projectLanguages[langCode].codeText
+    innerText: projectLanguages[lang].codeText
   };
   translations.projects[`${projectTitle}-code-link`] = {
     ariaLabel: `Go to ${project.title} code repository.`
   };
   translations.projects[`${projectTitle}-tech-list`] = {
-    ariaLabel: projectLanguages[langCode].techListAriaLabel
+    ariaLabel: projectLanguages[lang].techListAriaLabel
   };
 }
 
-projectsData.forEach(project => {
-  for (const lang in projectLanguages) {
-    if (!translations[lang].projects) {
-      console.error(`No 'projects' object found inside translations for language: ${lang}`);
-      return;
+// Handles adding translations to the translation object based on the available language
+function handleProjectTranslations() {
+  // Iterate over each project in projectData
+  projectsData.forEach(project => {
+    // Iterate over each language in projectLanguages
+    for (const lang in projectLanguages) {
+      // Check for any language errors; skip if an error exists
+      if (checkLanguageError(lang)) continue;
+
+      // Warn if the 'projects' object is not found in translations for the current language
+      if (!translations[lang].projects) {
+        console.warn(`No 'projects' object found inside translations for language: ${lang}. Could not add project translation to the translations object.`);
+        continue; // Skip to the next language
+      }
+
+      // Add translations for the current project in the specified language
+      addProjectTranslations(project, lang, translations[lang]);
     }
-    addProjectTranslations(project, lang, translations[lang]);
+  });
+}
+
+// Retrieves the user's preferred language from localStorage, defaults to 'en' if not set
+export function getPreferredLanguage() {
+  return localStorage.getItem('preferredLanguage') || 'en';
+}
+
+// Checks if the specified language exists in the translations object
+export function checkLanguageError(lang) {
+  if (!translations[lang]) {
+    console.error(`No language: '${lang}' has been found in the translations object. Could not translate the selected elements.`);
+    return true;
+  } 
+}
+
+// Checks for translation errors related to a specific, ready to be translated, element 
+export function checkTranslateError(elementName, lang, section, element) {
+  // Check if the language exists
+  if (checkLanguageError(lang)) return true;
+  
+  // Warn if the element name does not exist and return true to indicate an error
+  if (!elementName) {
+    console.warn(`No 'data-i18n-element' attribute has been found inside: ${element.outerHTML}`);
+    return true;
   }
-});
+  // Warn if the specified section does not exist for the given language
+  else if (!translations[lang][section]) {
+    console.warn(`No section: '${section}' has been found in language: '${lang}'`);
+    return true;
+  } 
+  // Warn if the specified element does not exist within the section
+  else if (!translations[lang][section][elementName]) {
+    console.warn(`No element: '${elementName}' has been found inside section: '${section}'`);
+    return true;
+  } 
+
+  // No errors found
+  return false;
+}
+
+// Translates a single element based on the specified language and theme
+export function translateElement(lang, element, currentTheme) {
+  // Get the section and and translations element key from the current element
+  const section = element.getAttribute("data-i18n-section"); // There will always be a section attribute as this is how the element array is being queried
+  const elementName = element.getAttribute("data-i18n-element");
+
+  // Check for translation errors before proceeding
+  if (checkTranslateError(elementName, lang, section, element)) return;
+
+  // Access the translation values for the specified element
+  let elementValues = translations[lang][section][elementName]; // Get the attributes that need to be translated
+
+  // Handle the theme toggle button based on the current theme
+  if (element.classList.contains('navigation-bar__toggle-theme-btn')) {
+    currentTheme = currentTheme || getPreferredTheme(); // Get the preferred theme if not provided
+    elementValues = elementValues[currentTheme]; // Get theme-specific theme values
+  }
+
+ // Update the element attributes and content with the translated values
+  for (let key in elementValues) {
+    if (elementValues[key]) {
+      element[key] = elementValues[key]; // Update the element's attribute or content(innerText or innerHTML)
+    }
+  }
+}
+
+// Changes the website language and updates relevant elements
+export function changeLanguage(lang = 'en', elementsToBeTranslated) {
+  const metaDescription = document.querySelector('meta[name="description"]');
+  
+  // Check for language errors; if found, stop code execution
+  if (checkLanguageError(lang)) return;
+
+  // Set the lang HTML attribute to the curent language
+  document.documentElement.setAttribute('lang', lang);
+
+  // Check if the metaDescription element exists
+  if (!metaDescription) {
+    console.warn(`Meta description element not found. Unable to update description for language: '${lang}'.`);
+  }
+  // Check if translations exist for the current language
+  else if (!translations[lang].html) {
+    console.warn(`No 'html' key has been found for language: '${lang}'. Unable to update document title and meta description.`);
+  } 
+  else {
+    // Update the document title to the current language's title
+    document.title = translations[lang].html.title || document.title; // Preserve current title if not found
+    // Update the meta description for the current language
+    metaDescription.setAttribute('content', translations[lang].html['meta-description'] || "Hi, my name is Angel, and I'm a self-taught software engineer who focuses on developing responsible and accessible user interfaces."); // Default to english if not found 
+  }
+
+  // Translate each element that needs to be translated
+  for (const element of elementsToBeTranslated) {
+    translateElement(lang, element);
+  }
+
+  // Store selected language in localStorage
+  localStorage.setItem('preferredLanguage', lang);
+}
+
+//* Add project translations to translations object
+handleProjectTranslations();

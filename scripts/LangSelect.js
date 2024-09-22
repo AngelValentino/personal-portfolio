@@ -1,4 +1,5 @@
-import { translations } from "./data/languages.js";
+import { translations } from "./data/language.js";
+import { checkTranslateError } from "./data/language.js";
 
 export function generateLangSelectData(section) {
   return [
@@ -150,6 +151,10 @@ export class LangSelect {
     const section = spanLm.getAttribute("data-i18n-section");
     const elementName = spanLm.getAttribute("data-i18n-element");
 
+    // Check for translation errors before accessing the element and updating the label
+    if (checkTranslateError(elementName, currentOption.dataset.value, section)) return;
+
+    // Access the element values and translate it if there is no error
     const elementValues = translations[currentOption.dataset.value][section][elementName];
 
     for (const key in elementValues) {
