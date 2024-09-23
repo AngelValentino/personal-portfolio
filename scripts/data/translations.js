@@ -884,36 +884,140 @@ export const translations = {
 // Object containing translations for project elements in multiple languages
 const projectLanguages = {
   en: {
-    moreInfoBtnTitle: 'More info',
-    closeInfoBtnTitle: 'Close more info',
-    tooltipText: 'Live Demo',
-    demoText: 'Live Demo',
-    codeText: 'Code',
-    techListAriaLabel: 'Project technologies'
+    imageLink: {
+      ariaLabel: 'Go to the live demo of'
+    },
+    image: {
+      alt: 'Screenhsot of'
+    },
+    moreInfoBtn: {
+      title: 'More info',
+      ariaLabel: 'More info about'
+    },
+    closeInfoBtn: {
+      title: 'Close more info',
+      ariaLabel: 'Close more information about'
+    },
+    tooltip: {
+      innerText: 'Live Demo'
+    },
+    demoLink: {
+      ariaLabel: 'Go to the live demo of'
+    },
+    demoText: {
+      innerText: 'Live Demo'
+    },
+    codeLink: {
+      ariaLabel: 'Go to the code repository of'
+    },
+    codeText: {
+      innerText: 'Code'
+    },
+    techList: {
+      ariaLabel: 'project technologies'
+    }
   },
   es: {
-    moreInfoBtnTitle: 'Más información',
-    closeInfoBtnTitle: 'Cerrar más información',
-    tooltipText: 'Demo en Vivo',
-    demoText: 'Demo en Vivo',
-    codeText: 'Código',
-    techListAriaLabel: 'Tecnologías del proyecto'
+    imageLink: {
+      ariaLabel: 'Ve a la demostración en vivo de'
+    },
+    image: {
+      alt: 'Captura de pantalla de'
+    },
+    moreInfoBtn: {
+      title: 'Más información',
+      ariaLabel: 'Más información sobre'
+    },
+    closeInfoBtn: {
+      title: 'Cerrar más información',
+      ariaLabel: 'Cerrar más información sobre'
+    },
+    tooltip: {
+      innerText: 'Demo en Vivo'
+    },
+    demoLink: {
+      ariaLabel: 'Ve a la demostración en vivo de'
+    },
+    demoText: {
+      innerText: 'Demo en Vivo'
+    },
+    codeLink: {
+      ariaLabel: 'Ve al repositorio de código de'
+    },
+    codeText: {
+      innerText: 'Código'
+    },
+    techList: {
+      ariaLabel: 'Tecnologías del proyecto'
+    }
   },
   ro: {
-    moreInfoBtnTitle: 'Mai multe informații',
-    closeInfoBtnTitle: 'Închide mai multe informații',
-    tooltipText: 'Demo Live',
-    demoText: 'Demo Live',
-    codeText: 'Cod',
-    techListAriaLabel: 'Tehnologiile proiectului'
+    imageLink: {
+      ariaLabel: 'Mergi la demonstrația live de'
+    },
+    image: {
+      alt: 'Captură de ecran de'
+    },
+    moreInfoBtn: {
+      title: 'Mai multe informații',
+      ariaLabel: 'Mai multe informații despre'
+    },
+    closeInfoBtn: {
+      title: 'Închide mai multe informații',
+      ariaLabel: 'Închide mai multe informații despre'
+    },
+    tooltip: {
+      innerText: 'Demo Live'
+    },
+    demoLink: {
+      ariaLabel: 'Mergi la demonstrația live de'
+    },
+    demoText: {
+      innerText: 'Demo Live'
+    },
+    codeLink: {
+      ariaLabel: 'Mergi la repository-ul de cod al'
+    },
+    codeText: {
+      innerText: 'Cod'
+    },
+    techList: {
+      ariaLabel: 'Tehnologiile proiectului'
+    }
   },
   ca: {
-    moreInfoBtnTitle: 'Més informació',
-    closeInfoBtnTitle: 'Tanca més informació',
-    tooltipText: 'En Directe',
-    demoText: 'En Directe',
-    codeText: 'Codi',
-    techListAriaLabel: 'Tecnologies del projecte'
+    imageLink: {
+      ariaLabel: 'Ves a la demostració en viu de'
+    },
+    image: {
+      alt: 'Captura de pantalla de'
+    },
+    moreInfoBtn: {
+      title: 'Més informació',
+      ariaLabel: 'Més informació sobre'
+    },
+    closeInfoBtn: {
+      title: 'Tanca més informació',
+      ariaLabel: 'Tanca més informació sobre'
+    },
+    tooltip: {
+      innerText: 'En Directe'
+    },
+    demoLink: {
+      ariaLabel: 'Ves a la demostració en viu de'
+    },
+    demoText: {
+      innerText: 'En Directe'
+    },
+    codeLink: {
+      ariaLabel: 'Ves al repositori de codi de'
+    },
+    codeText: {
+      innerText: 'Codi'
+    },
+    techList: {
+      ariaLabel: 'Tecnologies del projecte'
+    }
   }
 };
 
@@ -926,46 +1030,49 @@ function addProjectTranslations(project, lang = 'en', translations) {
   }
   
   // Convert the project title to kebab case (lowercase and hyphens)
-  const projectTitle = convertToKebabCase(project.title);
+  const kebabCaseProjectTitle = convertToKebabCase(project.title);
 
   // Add translations for "More Info" and "Close Info" buttons
-  translations.projects[`${projectTitle}-more-info-btn`] = {
-    ariaLabel: `Read more information about ${project.title}.`,
-    title: projectLanguages[lang].moreInfoBtnTitle
+  translations.projects[`${kebabCaseProjectTitle}-more-info-btn`] = {
+    ariaLabel: `${projectLanguages[lang].moreInfoBtn.ariaLabel} ${project.title}.`,
+    title: projectLanguages[lang].moreInfoBtn.title
   };
-  translations.projects[`${projectTitle}-close-info-btn`] = {
-    ariaLabel: `Close more information about ${project.title}.`,
-    title: projectLanguages[lang].closeInfoBtnTitle
+  translations.projects[`${kebabCaseProjectTitle}-close-info-btn`] = {
+    ariaLabel: `${projectLanguages[lang].closeInfoBtn.ariaLabel} ${project.title}.`,
+    title: projectLanguages[lang].closeInfoBtn.title
   };
 
-  // Add translations for the live demo image link and tooltip text
-  translations.projects[`${projectTitle}-img-link`] = {
-    ariaLabel: `Go to ${project.title} live demo.`
+  // Add translations for the live demo image link, image and tooltip text
+  translations.projects[`${kebabCaseProjectTitle}-img-link`] = {
+    ariaLabel: `${projectLanguages[lang].imageLink.ariaLabel} ${project.title}`
   };
-  translations.projects[`${projectTitle}-tooltip-text`] = {
-    innerText: projectLanguages[lang].tooltipText
+  translations.projects[`${kebabCaseProjectTitle}-img`] = {
+    alt: `${projectLanguages[lang].image.alt} ${project.title}`
+  };
+  translations.projects[`${kebabCaseProjectTitle}-tooltip-text`] = {
+    innerText: projectLanguages[lang].tooltip.innerText
   };
 
   // Add translations for the project description, demo, and code repository link
-  translations.projects[`${projectTitle}-description`] = {
+  translations.projects[`${kebabCaseProjectTitle}-description`] = {
     innerHTML: project.description[lang]
   };
-  translations.projects[`${projectTitle}-demo-text`] = {
-    innerText: projectLanguages[lang].demoText
+  translations.projects[`${kebabCaseProjectTitle}-demo-text`] = {
+    innerText: projectLanguages[lang].demoText.innerText
   };
-  translations.projects[`${projectTitle}-demo-link`] = {
-    ariaLabel: `Go to ${project.title} live demo.`
+  translations.projects[`${kebabCaseProjectTitle}-demo-link`] = {
+    ariaLabel: `${projectLanguages[lang].demoLink.ariaLabel} ${project.title}.`
   };
-  translations.projects[`${projectTitle}-code-text`] = {
-    innerText: projectLanguages[lang].codeText
+  translations.projects[`${kebabCaseProjectTitle}-code-text`] = {
+    innerText: projectLanguages[lang].codeText.innerText
   };
-  translations.projects[`${projectTitle}-code-link`] = {
-    ariaLabel: `Go to ${project.title} code repository.`
+  translations.projects[`${kebabCaseProjectTitle}-code-link`] = {
+    ariaLabel: `${projectLanguages[lang].codeLink.ariaLabel} ${project.title}.`
   };
 
   // Add translations for the list of technologies used in the project
-  translations.projects[`${projectTitle}-tech-list`] = {
-    ariaLabel: projectLanguages[lang].techListAriaLabel
+  translations.projects[`${kebabCaseProjectTitle}-tech-list`] = {
+    ariaLabel: projectLanguages[lang].techList.ariaLabel
   };
 }
 
