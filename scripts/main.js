@@ -184,9 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Annouce that the element has stopped loading
   bouncerLoaderContainerLm.ariaBusy = 'false';
-  // Hide the loader by setting its opacity to 0
+  // Hide the loader
   bouncerLoaderContainerLm.style.backgroundColor = 'transparent';
   bouncerLoaderLm.style.opacity = 0;
+  // Reset the loader title
+  bouncerLoaderContainerLm.title = '';
 
   // After 500ms, completely hide the loader
   setTimeout(() => {
