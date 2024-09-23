@@ -1,13 +1,20 @@
+// Detect if the user prefers reduced motion settings
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function addProgressiveLoading(elements) {
   elements.forEach(imgContainerLm => {
+    // Select the thumbnail image within the container
     const thumbnailImg = imgContainerLm.querySelector('img');
   
+    // Function to handle actions once the image is fully loaded
     function loaded() {
+      // Add the 'loaded' class to the container, indicating the image has loaded
       imgContainerLm.classList.add('loaded');
+      // Set the image's 'aria-busy' attribute indicating that has finished loading
       thumbnailImg.ariaBusy = 'false';
-       setTimeout(() => {
+
+      // Delay to smoothly transition from low-res to full-res image
+      setTimeout(() => {
           // Remove the low-resolution background image
           imgContainerLm.style.backgroundImage = 'none';
           // Remove blur img container loader background color 
@@ -15,11 +22,14 @@ export function addProgressiveLoading(elements) {
        }, 250);
     }
   
+    // If the image has already been fully loaded, trigger the loaded function immediately
     if (thumbnailImg.complete) {
       loaded();
     } 
+    // Otherwise, add an event listener to handle the image load event
     else {
       thumbnailImg.addEventListener('load', loaded);
+      // Mark the image as loadeing via 'aria-busy' attribute
       thumbnailImg.ariaBusy = 'true';
     }
   });
@@ -43,23 +53,24 @@ export function throttle(fun, delay) {
   }
 }
 
-// Function to set scroll-behavior based on user preference
+// Sets the scroll behavior for the document based on user preferences for motion
 export function setScrollBehavior() {
   if (prefersReducedMotion) {
-    // User prefers reduced motion, so set scroll-behavior to 'auto'
+    // If the user prefers reduced motion, disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
   } 
   else {
-    // User does not prefer reduced motion, so set scroll-behavior to 'smooth'
+    // If reduced motion is not preferred, enable smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
   }
 }
 
+// Converts a string to kebab-case (lowercase words separated by hyphens)
 export function convertToKebabCase(str) {
   return str
-    .trim() // Remove wrapping white space if any
+    .trim() // Remove any leading or trailing whitespace
     .toLowerCase() // Convert the entire string to lowercase
-    .replace(/\s+/g, '-'); // Replace spaces with hyphens
+    .replace(/\s+/g, '-'); // Replace all spaces with hyphens
 }
 
 // Traps focus within a specified element
@@ -96,7 +107,7 @@ export function trapFocus(e, element) {
 
 // Event handler function for closing modal on Escape key
 const handleModalCloseAtEscapeKey = closeFun => e => {
-  // Close the modal if Escape is pressed
+  // Close the modal if 'Escape' is pressed
   if (e.key === 'Escape') closeFun();
 };
 

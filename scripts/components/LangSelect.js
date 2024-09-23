@@ -1,6 +1,7 @@
 import { translations } from "../data/translations.js";
 import { checkTranslateError } from "../language.js";
 
+// Function to generate language selection options based on a section identifier
 export function generateLangSelectData(section) {
   return [
     { 
@@ -38,12 +39,14 @@ export function generateLangSelectData(section) {
   ];
 }
 
+// Class to create a language selector component
 export class LangSelect {
   constructor(root, data, section) {
-    root.innerHTML = LangSelect.generateSelectHTML(data, section);
-    this.typedCharacters = ''; // To store the characters typed by the user
-    this.typingTimer = null; // Timer to reset the search
+    root.innerHTML = LangSelect.generateSelectHTML(data, section); // Generate the HTML for the select element
+    this.typedCharacters = ''; // Store the characters typed by the user
+    this.typingTimer = null; // Timer to reset the search input
 
+    // Store references to DOM elements
     this.lms = {
       selectLm: root,
       labelLm: root.querySelector('.custom-select__label-container'),
@@ -52,19 +55,23 @@ export class LangSelect {
       optionLms: [...root.querySelectorAll('.custom-select__option')]
     }
 
-    this.selectedOption = this.lms.optionLms[0];
-    this.previousOption = this.selectedOption;
-    this.lms.selectLm.setAttribute('aria-activedescendant', this.selectedOption.id);
-    this.updateLabel(this.selectedOption);
+    // Initialize the selected and previous options
+    this.selectedOption = this.lms.optionLms[0]; // Default selected option
+    this.previousOption = this.selectedOption; // Previous selected option
+    this.lms.selectLm.setAttribute('aria-activedescendant', this.selectedOption.id); // Set ARIA attribute for accessibility
+    this.updateLabel(this.selectedOption); // Update the label to match the selected option
 
+    // Toggle options at label click
     this.lms.labelLm.addEventListener("click", () => {
       this.toggleOptions();
     });
 
+    // Close options when focus is lost
     this.lms.selectLm.addEventListener("blur", () => {
       this.closeOptions(this.selectedOption);
     })
 
+    // Keydown event listener for keyboard navigation
     this.lms.selectLm.addEventListener('keydown', e => {
       // Prevent scrolling behavior for specific keys, but allow others (like Tab)
       if (["Space", "ArrowUp", "ArrowDown"].includes(e.code)) {
@@ -72,26 +79,26 @@ export class LangSelect {
       }
       switch (e.code) {
         case "Space":
-          this.toggleOptions();
+          this.toggleOptions(); // Toggle options on Space key
           break
         case "ArrowUp": {
-          const prevOption = this.lms.optionLms[this.selectedOptionIndex - 1]
+          const prevOption = this.lms.optionLms[this.selectedOptionIndex - 1]; // Get previous option
           if (prevOption) {
-            this.setActiveOption(prevOption);
+            this.setActiveOption(prevOption); // Set it as active
           }
           break;
         }
         case "ArrowDown": {
-          const nextOption = this.lms.optionLms[this.selectedOptionIndex + 1]
+          const nextOption = this.lms.optionLms[this.selectedOptionIndex + 1]; // Get next option
           if (nextOption) {
-            this.setActiveOption(nextOption);
+            this.setActiveOption(nextOption); // Set it as active
           }
           break;
         }
         case "Enter":
         case "Escape":
           if (this.lms.optionsListLm.classList.contains('show')) {
-            this.closeOptions(this.selectedOption);
+            this.closeOptions(this.selectedOption); // Close options on Enter/Escape
             e.stopPropagation(); // Prevents closing the mobile menu when closing the select options with 'Escape' key
           }
           break;
@@ -101,72 +108,77 @@ export class LangSelect {
       }
     })
 
+    // Click event listener for selecting an option
     this.lms.optionsListLm.addEventListener('click', e => {
       const clickedOption = e.target.closest('.custom-select__option');
 
       if (clickedOption) {
-        this.closeOptions(clickedOption);
+        this.closeOptions(clickedOption); // Close options and select the clicked option
       }
     });
   }
 
+  // Get the index of the currently selected option
   get selectedOptionIndex() {
     return this.lms.optionLms.indexOf(this.selectedOption);
   }
 
+  // Toggle the visibility of the options list
   toggleOptions() {
-    this.lms.optionsListLm.classList.toggle("show");
+    this.lms.optionsListLm.classList.toggle("show"); // Toggle "show" class for visibility
     // Open options list
     if (this.lms.optionsListLm.classList.contains("show")) {
       // Scroll to the selected option when the dropdown opens
       this.selectedOption.scrollIntoView({ block: "nearest" });
-      this.lms.chevronLm.classList.add('active');
-      this.lms.selectLm.ariaExpanded = true;
+      this.lms.chevronLm.classList.add('active'); // Add active class to chevron
+      this.lms.selectLm.ariaExpanded = true; // Update ARIA attribute
     } 
     // Close options list
     else {
-      this.lms.chevronLm.classList.remove('active');
-      this.lms.selectLm.ariaExpanded = false;
+      this.lms.chevronLm.classList.remove('active'); // Remove active class from chevron
+      this.lms.selectLm.ariaExpanded = false; // Update ARIA attribute
     }
   }
 
+  // Hide the options list
   hideOptions() {
-    this.lms.optionsListLm.classList.remove('show');
-    this.lms.chevronLm.classList.remove('active');
-    this.lms.selectLm.ariaExpanded = false;
+    this.lms.optionsListLm.classList.remove('show'); // Remove "show" class
+    this.lms.chevronLm.classList.remove('active'); // Remove active class from chevron
+    this.lms.selectLm.ariaExpanded = false; // Update ARIA attribute
   }
 
+  // Update the label based on the currently selected option
   updateLabel(currentOption) {
     // Clone current options to modify it
     const currentOptionClone = currentOption.cloneNode(true);
     // Get the </span> element with the option text 
     const spanLm = currentOptionClone.querySelector('span');
 
-    // Delete option translate data attribute
+    // Remove the existing translate data attribute
     delete spanLm.dataset.i18nElement;
-    // Add label translate attribute
+    // Set new label translate attribute
     spanLm.dataset.i18nElement = 'lang-select-label';
 
-    // Tranlslate the the with the current option language
-    const section = spanLm.getAttribute("data-i18n-section");
-    const elementName = spanLm.getAttribute("data-i18n-element");
+    const section = spanLm.getAttribute("data-i18n-section"); // Get the section for translation
+    const elementName = spanLm.getAttribute("data-i18n-element"); // Get the element name for translation
 
     // Check for translation errors before accessing the element and updating the label
     if (checkTranslateError(elementName, currentOption.dataset.value, section)) return;
 
-    // Access the element values and translate it if there is no error
+    // Access the element values and translate it if there are no errors
     const elementValues = translations[currentOption.dataset.value][section][elementName];
 
     for (const key in elementValues) {
       if (elementValues[key]) {
-        spanLm[key] = elementValues[key];
+        spanLm[key] = elementValues[key]; // Update the span with the translated values
       }
     }
 
-    // Add it to the label
+    // Update the label with the new content
     this.lms.labelLm.innerHTML = currentOptionClone.innerHTML;
   }
 
+  // Dispatch a custom event when the selected option changes
   dispatchEvent(currentOption) {
     const changeEvent = new CustomEvent('onSelectChange', {
       detail: {
@@ -175,18 +187,18 @@ export class LangSelect {
         content: currentOption.innerHTML
       }
     });
-    this.lms.selectLm.dispatchEvent(changeEvent);
+    this.lms.selectLm.dispatchEvent(changeEvent); // Dispatch the event
   }
 
-  setActiveOption(currentOption, preferredLanguage, isEventDispatched, isToggleMenu) {
+  // Set the active option
+  setActiveOption(currentOption, preferredLanguage, isEventDispatched, isMobileMenu) {
     if (preferredLanguage && !currentOption) {
       const matchedOption = this.lms.optionLms.find(option => option.dataset.value === preferredLanguage);
-      currentOption = matchedOption;
+      currentOption = matchedOption; // Set the current option to the preferred language
     }
 
     // Check if the current option is different from the previous option
     if (currentOption !== this.selectedOption) {
-      console.log('not the same, set it')
       // Remove active state from the last selected option
       this.selectedOption.classList.remove('selected');
       this.selectedOption.ariaSelected = false;
@@ -195,26 +207,25 @@ export class LangSelect {
       currentOption.classList.add('selected');
       currentOption.ariaSelected = true;
       currentOption.scrollIntoView({ block: "nearest" }); // Scroll into view
-      this.updateLabel(currentOption);
-      // Set aria-activedescendant to the id of the current option
-      this.lms.selectLm.setAttribute('aria-activedescendant', currentOption.id);
+      this.updateLabel(currentOption); // Update the label for the selected option
+      this.lms.selectLm.setAttribute('aria-activedescendant', currentOption.id); // Set select element's aria-activedescendant to the id of the current option
 
       // Update selected option
       this.selectedOption = currentOption;
     } 
 
-    // Update previous section withou dispatching an event
-    if (isToggleMenu) this.previousOption = this.selectedOption;
+    // Update previous section without dispatching an event if "isMobileMenu" is true
+    if (isMobileMenu) this.previousOption = this.selectedOption;
 
+    // Dispatch change event if the selected option has changed
     if (isEventDispatched && (this.previousOption !== this.selectedOption)) {
       this.dispatchEvent(currentOption);
-      console.log('manual dispatch');
-        
       // Update previous option after event dispatch
       this.previousOption = this.selectedOption;
     }
   }
 
+  // Close the options list
   closeOptions(currentOption) {
     // Set the active option without dispatching the event if the value hasn't changed
     this.setActiveOption(currentOption, null, true);
@@ -222,6 +233,7 @@ export class LangSelect {
     this.hideOptions();
   }
   
+  // Handle search input in the options list
   handleSearch(char) {
     // Reset the typing timer
     clearTimeout(this.typingTimer);
@@ -235,24 +247,32 @@ export class LangSelect {
     );
   
     if (matchingOption) {
-      this.setActiveOption(matchingOption);
-      matchingOption.scrollIntoView({ block: "nearest" });
+      this.setActiveOption(matchingOption); // Set the matched option as active
+      matchingOption.scrollIntoView({ block: "nearest" }); // Scroll into view
     }
   
-    // Set a timer to reset the typedCharacters after 1 second of no typing
+    // Set a timer to reset the "typedCharacters" after 1 second of no typing
     this.typingTimer = setTimeout(() => {
-      this.typedCharacters = '';
+      this.typedCharacters = ''; // Reset typed characters
     }, 1000);
   }
 
-  // Static method to generate options
+  // Static method to generate options for the select element
   static generateOptions(data, section) {
     return data.map(({ label, value, content }, i) => `
-      <li id="${section === 'navbar' ? 'navigation-bar' : section}__${label}-option" role="option" aria-selected="${i === 0}" data-value="${value}" data-label="${label}" class="custom-select__option${i === 0 ? ' selected' : ''}">${content}</li>
+      <li 
+        id="${section === 'navbar' ? 'navigation-bar' : section}__${label}-option"
+        class="custom-select__option${i === 0 ? ' selected' : ''}"
+        role="option" aria-selected="${i === 0}"
+        data-value="${value}"
+        data-label="${label}"
+      >
+        ${content}
+      </li>
     `).join('');
   }
 
-  // Static method to generate the select element
+  // Static method to generate the select element's HTML structure
   static generateSelectHTML(data, section) {
     return `
       <span class="custom-select__label-container"></span>

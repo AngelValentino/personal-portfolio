@@ -1,5 +1,6 @@
 import { 
-  addProgressiveLoading
+  addProgressiveLoading,
+  throttle
 } from "./utils.js";
 
 import { 
@@ -47,36 +48,43 @@ const scrollToTopBtn = document.getElementById('footer__scroll-to-top-btn');
 //* FLAG VARIABLES
 let lastScroll = 0;
 
+//* FUNCTION DECLARATIONS
 
-//TODO Overall review and add comments
-
+// Retrieve the preferred theme from local storage, defaults to 'light'
 export function getPreferredTheme() {
   return localStorage.getItem('preferredTheme') || 'light';
 }
 
+// Apply the selected theme (either 'dark' or 'light')
 function setTheme(theme) {
+  // Update the toggle theme button's language based on the current theme and language
   function updateToggleBtnAttrsLang(choosedTheme) {
     translateElement(getPreferredLanguage(), toggleThemeBtn, choosedTheme);
   }
 
   function applyThemeStyles(isDark) {
+    // Toggle the 'dark-theme' class on the root element based on the theme
     document.documentElement.classList.toggle('dark-theme', isDark);
     
+    // Show/hide coffee SVG or image based on the theme
     coffeeSVGLm.style.display = isDark ? 'inline-block' : 'none';
     coffeeImgContainerLm.style.display = isDark ? 'none' : 'inline-block';
     
+    // Show light theme icon in dark mode, dark theme icon in light mode
     lightThemeIconLm.style.display = isDark ? 'block' : 'none';
     darkThemeIconLm.style.display = isDark ? 'none' : 'block';
     
+    // Update the language attributes on the theme toggle button
     updateToggleBtnAttrsLang(isDark ? 'dark' : 'light');
   };
 
   const isDarkTheme = theme === 'dark';
   applyThemeStyles(isDarkTheme);
   
-  localStorage.setItem('preferredTheme', theme);
+  localStorage.setItem('preferredTheme', theme); // Store the user's theme preference in local storage
 }
 
+// Update body scroll class based on scroll position
 function updateBodyClassOnScroll() {
   // Get the current vertical scroll position of the page (in pixels)
 	const currentScroll = window.scrollY;
@@ -94,7 +102,7 @@ function updateBodyClassOnScroll() {
 	if (currentScroll > lastScroll && !bodyLm.classList.contains("scroll-down")) {
     bodyLm.classList.remove("scroll-up");
     bodyLm.classList.add("scroll-down");
-    navbarSelect.hideOptions();
+    navbarSelect.hideOptions(); // Hide language options
 	} 
   // If the user is scrolling up (current scroll is less than the last scroll)
   // AND the 'scroll-down' class is currently present add 'scroll-up' class
@@ -108,15 +116,23 @@ function updateBodyClassOnScroll() {
 	lastScroll = currentScroll;
 }
 
+//* END OF FUNCTION DECLARATIONS
+
 //* INITIAL FUNCTION AND CONSTRUCTOR CALLS
 
+// Create language select instances for the navbar and mobile menu
 export const navbarSelect = new LangSelect(navbarSelectLangLm, generateLangSelectData('navbar'), 'navbar');
 export const mobileMenuSelect = new LangSelect(mobileMenuSelectLangLm, generateLangSelectData('mobile-menu'), 'mobile-menu');
 
+// Generate the project list dynamically
 generateProjectList();
+// Select all elements that need to be translated on the page
 const elementsToBeTranslated = document.querySelectorAll("[data-i18n-section]");
 
+// Apply the user's preferred theme on page load
 setTheme(getPreferredTheme());
+
+// Add progressive image loading functionality to all blur image loaders
 addProgressiveLoading(document.querySelectorAll('.blur-img-loader'));
 
 //* END OF INITIAL FUNCTION AND CONSTRUCTOR CALLS
@@ -124,37 +140,44 @@ addProgressiveLoading(document.querySelectorAll('.blur-img-loader'));
 //* ADD EVENT LISTENERS
 
 // HIDE OR SHOW NAVBAR ON SCROLL
+// Listen to the window's scroll event and throttle the scroll update function
 window.addEventListener("scroll", updateBodyClassOnScroll);
 
-// Scroll to top
+// Scroll to the top of the page when the "scroll to top" button is clicked
 scrollToTopBtn.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });
 
 // CHANGE LANGUAGE
-// Listen for the custom select 'change' event
+// Handle language change in both the navbar and mobile menu
 navbarSelectLangLm.addEventListener('onSelectChange', handleLangSelectChange(elementsToBeTranslated));
 mobileMenuSelectLangLm.addEventListener('onSelectChange', handleLangSelectChange(elementsToBeTranslated));
-// Update the active language on load
+
+// Update the active language when the page loads
 updateActiveLangOnLoad(navbarSelect, mobileMenuSelect);
 
 // TOGGLE THEME
+// Toggle the theme (dark/light) when the theme button is clicked
 toggleThemeBtn.addEventListener('click', () => {
   const isDarkTheme = document.documentElement.classList.toggle('dark-theme');
   setTheme(isDarkTheme ? 'dark' : 'light');
 });
 
 // MOBILE MENU
+// Open mobile menu when the menu button is clicked and add accessibility support, such as close at 'Escape' key
 navMenuBtn.addEventListener('click', openMobileMenu);
+// Close the mobile menu after a navigation link is clicked
 mobileMenuLm.addEventListener('click', closeMobileMenuAfterLinkClick);
 
 // PROJECTS
+// Add slider-related event listeners for user interaction
 projectListLm.addEventListener('click', toggleProjectInfoPanel);
 
 // SKILLS SLIDER
 addSliderEvents(sliderLm, sliderProgressBarInnerLm);
 
 // DOM LOADER
+// When the DOM content is fully loaded, hide the loader
 document.addEventListener('DOMContentLoaded', () => {
   // Get references to loader elements
   const bouncerLoaderContainerLm = document.getElementById('bouncer-container');
@@ -166,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
   bouncerLoaderContainerLm.style.backgroundColor = 'transparent';
   bouncerLoaderLm.style.opacity = 0;
 
-  // Set loader dispay to none
+  // After 500ms, completely hide the loader
   setTimeout(() => {
     bouncerLoaderContainerLm.style.display = 'none';
   }, 500);

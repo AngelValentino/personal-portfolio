@@ -13,11 +13,17 @@ import {
   getPreferredLanguage 
 } from "./language.js";
 
+
+//* DOM REFERENCES
 const navMenuBtn = document.getElementById('navigation-bar__menu-btn');
 const mobileMenuLm = document.getElementById('mobile-menu');
 const closeMobileMenuBtn = document.getElementById('mobile-menu__close-btn');
+
+//* VARIABLES
+// Object to store event handlers for the mobile menu
 const mobileMenuEventsHandler = {};
 
+//* REASSIGNMENT VARIABLES
 let hideMobileMenuTimId = null;
 let hideMobileMenuOverflowTimId = null;
 let lastActiveLmBeforeMobileMenu = null;

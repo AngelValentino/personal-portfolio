@@ -1,6 +1,9 @@
-const projectListLm = document.getElementById('project-list');
 import { convertToKebabCase } from "../utils.js";
 
+// Get the project list element from the DOM
+const projectListLm = document.getElementById('project-list');
+
+// Project data array, containing project information and description in multiple languages
 export const projectsData = [
   {
     id: 1,
@@ -56,6 +59,7 @@ export const projectsData = [
   }
 ];
 
+// Generate the HTML for the project's image link
 function generateProjectLinkHTML(project) {
   return `
     <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-img-link" class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
@@ -72,8 +76,9 @@ function generateProjectLinkHTML(project) {
   `;
 }
 
+// Generate the HTML for the project technologies icons
 function generateProjectTechIconsHTML(techTitles) {
-  // Get the respective tech icon images
+  // Loop through the technologies titles list and get the respective tech icons
   return techTitles.map(title => `
     <li>
       <img title="${title}" src="images/tech-icons/${title}-icon.jpg" alt="${title}">
@@ -81,6 +86,7 @@ function generateProjectTechIconsHTML(techTitles) {
   `).join('');
 }
 
+// Generate the project information HTML. Including title, description, technologies list and project links
 function generateProjectInfoHTML(project) {
   return `
     <div id="project__info-${project.id}" class="project__info">
@@ -114,13 +120,16 @@ function generateProjectInfoHTML(project) {
   `;
 }
 
+// Determine project's layout symmetry 
 function setProjectSymmetry(symmetry, project) {
+  // Original layout: image first, info second
   if (symmetry === 'original') {
     return `
       ${generateProjectLinkHTML(project)}
       ${generateProjectInfoHTML(project)}
     `;
   } 
+  // Mirrowed layout: info first, image second
   else if (symmetry === 'mirrowed') {
     return `
       ${generateProjectInfoHTML(project)}
@@ -129,6 +138,7 @@ function setProjectSymmetry(symmetry, project) {
   }
 }
 
+// Generate the HTML for a single project item
 function generateProjectHTML(symmetry, project) {
   return `
     <li class="project ${symmetry === 'original' ? 'original' : 'mirrowed'}">
@@ -147,18 +157,23 @@ function generateProjectHTML(symmetry, project) {
   `;
 }
 
+// Generate and display the project list in the DOM
 export function generateProjectList() {
   projectListLm.innerHTML = projectsData
-    .map((project, i) => generateProjectHTML(i % 2 === 0 ? 'original' : 'mirrowed', project))
+    .map((project, i) => generateProjectHTML(i % 2 === 0 ? 'original' : 'mirrowed', project)) // Alternate the layout for each project: 'original' for even index, 'mirrowed' for odd index
     .join('');
 }
 
+// Toggle the visibility of a sibling button
 function toggleSiblingBtn(btn, className) {
+  // Determine the target button based on the provided class name
   const targetBtn = className === 'show' ? btn.nextElementSibling : btn.previousElementSibling;
+  // Toggle the specified class on the target button and focus it
   targetBtn.classList.toggle(className);
   targetBtn.focus();
 }
 
+// Handle toggling the project info panel based on user interaction
 export function toggleProjectInfoPanel(e) {
   const moreInfoBtn = e.target.closest('.project__more-info-btn');
   const closePanelBtn = e.target.closest('.project__info-close-btn');
@@ -166,17 +181,19 @@ export function toggleProjectInfoPanel(e) {
   const infoPanelLm = projectLm && projectLm.querySelector('.project__info');
   const imgLinkLm = projectLm && projectLm.querySelector('.project__img-link');
 
+  // If the more info button was clicked
   if (moreInfoBtn) {
     // Show info panel and scroll to top
     infoPanelLm.classList.add('show');
     infoPanelLm.scrollTo(0, 0);
-    // Show close panel button and add focus
+    // Show close panel button and add focus to it
     toggleSiblingBtn(moreInfoBtn, 'show');
 
     // Hide project image link and more info button
     imgLinkLm.classList.add('hide');
     moreInfoBtn.classList.add('hide');
   }
+  // If the close panel button was clicked
   else if (closePanelBtn) {
     // Hide info panel and close info panel button
     infoPanelLm.classList.remove('show');

@@ -8,6 +8,7 @@ export function getPreferredLanguage() {
 
 // Checks if the specified language exists in the translations object
 export function checkLanguageError(lang) {
+  // Log an error if the language does not exist and return true to indicate it
   if (!translations[lang]) {
     console.error(`No language: '${lang}' has been found in the translations object. Could not translate the selected elements.`);
     return true;
@@ -41,8 +42,8 @@ export function checkTranslateError(elementName, lang, section, element) {
 
 // Translates a single element based on the specified language and theme
 export function translateElement(lang, element, currentTheme) {
-  // Get the section and and translations element key from the current element
-  const section = element.getAttribute("data-i18n-section"); // There will always be a section attribute as this is how the element array is being queried
+  // Get the section and element name keys from the current element's data attributes
+  const section = element.getAttribute("data-i18n-section"); // The section attribute will always be present, as it is used to query the 'elementsToBeTranslated' array
   const elementName = element.getAttribute("data-i18n-element");
 
   // Check for translation errors before proceeding
@@ -51,35 +52,35 @@ export function translateElement(lang, element, currentTheme) {
   // Access the translation values for the specified element
   let elementValues = translations[lang][section][elementName]; // Get the attributes that need to be translated
 
-  // Handle the theme toggle button based on the current theme
+  // Handle the theme toggle button translation based on the current theme
   if (element.classList.contains('navigation-bar__toggle-theme-btn')) {
     currentTheme = currentTheme || getPreferredTheme(); // Get the preferred theme if not provided
-    elementValues = elementValues[currentTheme]; // Get theme-specific theme values
+    elementValues = elementValues[currentTheme]; // Get theme-specific values
   }
 
  // Update the element attributes and content with the translated values
   for (let key in elementValues) {
     if (elementValues[key]) {
-      element[key] = elementValues[key]; // Update the element's attribute or content(innerText or innerHTML)
+      element[key] = elementValues[key]; // Update the element's attribute or content (innerText or innerHTML)
     }
   }
 }
 
-// Changes the website language and updates relevant elements
+// Changes portfolio preferred language and updates relevant elements
 export function changeLanguage(lang = 'en', elementsToBeTranslated) {
   const metaDescription = document.querySelector('meta[name="description"]');
   
   // Check for language errors; if found, stop code execution
   if (checkLanguageError(lang)) return;
 
-  // Set the lang HTML attribute to the curent language
+  // Set the lang HTML attribute to the current language
   document.documentElement.setAttribute('lang', lang);
 
   // Check if the metaDescription element exists
   if (!metaDescription) {
     console.warn(`Meta description element not found. Unable to update description for language: '${lang}'.`);
   }
-  // Check if translations exist for the current language
+  // Check if translations exist for the current language's HTML section
   else if (!translations[lang].html) {
     console.warn(`No 'html' key has been found for language: '${lang}'. Unable to update document title and meta description.`);
   } 
@@ -99,25 +100,33 @@ export function changeLanguage(lang = 'en', elementsToBeTranslated) {
   localStorage.setItem('preferredLanguage', lang);
 }
 
+// Event handler for changing the language when a custom select element changes
 export function handleLangSelectChange(elementsToBeTranslated) {
   return e => {
+    // Check for errors
     if (checkLanguageError(e.detail.value)) return;
+    // Translate selected elements
     changeLanguage(e.detail.value, elementsToBeTranslated);
   }
 }
 
+// Updates the active language option when the page loads based on the preferred language
 export function updateActiveLangOnLoad(navbarSelect, mobileMenuSelect) {
   const navbarSelectLangLm = document.getElementById('navigation-bar__custom-select-container');
   const preferredLanguage = getPreferredLanguage();
   
+  // If the navbar select is visible, set its active language option
   if (navbarSelectLangLm.offsetParent) {
+    // Check fo errors
     if (checkLanguageError(preferredLanguage)) return;
-    // Navbar is visible, set the first lang select value from localStorage
+    // Set the preferred lang value from localStorage
     navbarSelect.setActiveOption(null, preferredLanguage, true);
   } 
+  // If the mobile menu is visible, set its active language option
   else {
+    // Check fo errors
     if (checkLanguageError(preferredLanguage)) return;
-    // Mobile menu is visible, set the first lang select value from localStorage
+    // Set the preferred lang value from localStorage
     mobileMenuSelect.setActiveOption(null, preferredLanguage, true);
   }
 }

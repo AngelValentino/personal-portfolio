@@ -881,6 +881,7 @@ export const translations = {
   }
 };
 
+// Object containing translations for project elements in multiple languages
 const projectLanguages = {
   en: {
     moreInfoBtnTitle: 'More info',
@@ -916,17 +917,18 @@ const projectLanguages = {
   }
 };
 
-// Helper function to add translations
+// Helper function to add project translations to the translations object
 function addProjectTranslations(project, lang = 'en', translations) {
-  // Check if the project has a title
+  // Check if the project object has a title; log an error and exit if not
   if (!project.title) {
     console.error('Project title is missing. Could not translate the project object.');
     return;
   }
   
+  // Convert the project title to kebab case (lowercase and hyphens)
   const projectTitle = convertToKebabCase(project.title);
 
-  // Project controls
+  // Add translations for "More Info" and "Close Info" buttons
   translations.projects[`${projectTitle}-more-info-btn`] = {
     ariaLabel: `Read more information about ${project.title}.`,
     title: projectLanguages[lang].moreInfoBtnTitle
@@ -936,7 +938,7 @@ function addProjectTranslations(project, lang = 'en', translations) {
     title: projectLanguages[lang].closeInfoBtnTitle
   };
 
-  // Project link
+  // Add translations for the live demo image link and tooltip text
   translations.projects[`${projectTitle}-img-link`] = {
     ariaLabel: `Go to ${project.title} live demo.`
   };
@@ -944,7 +946,7 @@ function addProjectTranslations(project, lang = 'en', translations) {
     innerText: projectLanguages[lang].tooltipText
   };
 
-  // Project info
+  // Add translations for the project description, demo, and code repository link
   translations.projects[`${projectTitle}-description`] = {
     innerHTML: project.description[lang]
   };
@@ -960,6 +962,8 @@ function addProjectTranslations(project, lang = 'en', translations) {
   translations.projects[`${projectTitle}-code-link`] = {
     ariaLabel: `Go to ${project.title} code repository.`
   };
+
+  // Add translations for the list of technologies used in the project
   translations.projects[`${projectTitle}-tech-list`] = {
     ariaLabel: projectLanguages[lang].techListAriaLabel
   };
@@ -967,7 +971,7 @@ function addProjectTranslations(project, lang = 'en', translations) {
 
 // Handles adding translations to the translation object based on the available language
 function handleProjectTranslations() {
-  // Iterate over each project in projectData
+  // Iterate over each project in projectData array
   projectsData.forEach(project => {
     // Iterate over each language in projectLanguages
     for (const lang in projectLanguages) {
@@ -986,5 +990,5 @@ function handleProjectTranslations() {
   });
 }
 
-//* Add project translations to translations object
+//* Call the function to add project translations to the global translations object
 handleProjectTranslations();
