@@ -1,6 +1,5 @@
 import { 
-  addProgressiveLoading,
-  throttle
+  addProgressiveLoading
 } from "./utils.js";
 
 import { 
