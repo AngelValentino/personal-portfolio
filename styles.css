@@ -167,7 +167,7 @@ body {
 .slide-in-and-back.underline::before,
 .slide-middle-out::after,
 .slide-middle-out.underline::before,
-.appear-bg-from-center::after {
+.appear-bg-from-center::after  {
   content: "";
   position: absolute;
   left: 0;
@@ -175,18 +175,17 @@ body {
   width: 100%;
   height: 0.1em;
   background-color: currentColor;
-  border-radius: 5px;
+  border-radius: 2px;
   transform: scaleX(0);
 }
 
-/* Makes sure the underline does not become to thin at HTML font-size resize */
+/* Makes sure the underline does not become too thin at small font sizes */
 .slide-in-and-out.fixed-height::after,
 .slide-in-and-out.underline.fixed-height::before,
 .slide-in-and-back.fixed-height::after,
 .slide-in-and-back.underline.fixed-height::before,
 .slide-middle-out.fixed-height::after,
-.slide-middle-out.underline.fixed-height::before,
-.appear-bg-from-center.fixed-height::after {
+.slide-middle-out.underline.fixed-height::before {
   height: 2px;
 }
 
@@ -194,8 +193,8 @@ body {
 .slide-in-and-back::after,
 .slide-middle-out::after,
 .appear-bg-from-center::after {
-  transition: transform 0.3s, height 0.3s, background-color var(--base-transition-duration);
-  will-change: transform, height;
+  transition: transform 0.3s, opacity 0.5s, background-color var(--base-transition-duration);
+  will-change: transform;
 }
 
 .slide-in-and-out::after {
@@ -211,10 +210,13 @@ body {
 }
 
 .appear-bg-from-center::after {
-  border-radius: 2px;
-  top: 50%;
-  transform: scaleX(0) translateY(-50%);
   background-color: var(--bg-color-tertiary);
+  z-index: -1;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
   z-index: -1;
 }
 
@@ -263,17 +265,14 @@ body {
     transform-origin: left;
   }
   
-  .slide-in-and-back:is(:hover, :focus-visible)::after {
-    transform: scaleX(1);
-  }
-  
+  .slide-in-and-back:is(:hover, :focus-visible)::after,
   .slide-middle-out:is(:hover, :focus-visible)::after {
     transform: scaleX(1);
   }
 
   .appear-bg-from-center:is(:hover, :focus-visible)::after {
-    height: 100%;
-    transform: scaleX(1) translateY(-50%);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 
   .slide-button:is(:hover, :focus-visible) {
