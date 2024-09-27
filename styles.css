@@ -220,6 +220,10 @@ body {
   z-index: -1;
 }
 
+.appear-bg-from-center.rounded {
+  border-radius: 50%;
+}
+
 .appear-bg-from-center.rounded::after {
   border-radius: 50%;
 }
@@ -423,7 +427,6 @@ body {
   right: 37px;
   padding: 3px;
   line-height: 0;
-  border-radius: 50%;
 }
 
 .mobile-menu__close-icon {
@@ -527,7 +530,6 @@ body {
   display: none;
   color: var(--text-color);
   transition: color var(--base-transition-duration);
-  border-radius: 50%;
 }
 
 .navigation-bar__menu-icon {
@@ -536,7 +538,6 @@ body {
 
 .navigation-bar__toggle-theme-btn {
   line-height: 0;
-  border-radius: 50%;
   transition: color 1s;
   padding: 3px;
   margin: 0 -3px;
