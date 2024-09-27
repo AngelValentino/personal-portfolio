@@ -231,7 +231,6 @@ export function toggleProjectInfoPanel(e) {
   const isMoreInfoBtnClicked = e.target.closest('.project__more-info-btn');
   const isClosePanelBtnClicked = e.target.closest('.project__info-close-btn');
 
-  console.log('click')
   // If a project element is found and one of the buttons was clicked
   if (projectLm && (isClosePanelBtnClicked || isMoreInfoBtnClicked)) {
     // Get the required DOM elements inside the project
