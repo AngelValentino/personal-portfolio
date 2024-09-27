@@ -179,6 +179,17 @@ body {
   transform: scaleX(0);
 }
 
+/* Makes sure the underline does not become to thin at HTML font-size resize */
+.slide-in-and-out.fixed-height::after,
+.slide-in-and-out.underline.fixed-height::before,
+.slide-in-and-back.fixed-height::after,
+.slide-in-and-back.underline.fixed-height::before,
+.slide-middle-out.fixed-height::after,
+.slide-middle-out.underline.fixed-height::before,
+.appear-bg-from-center.fixed-height::after {
+  height: 2px;
+}
+
 .slide-in-and-out::after,
 .slide-in-and-back::after,
 .slide-middle-out::after,
@@ -872,7 +883,6 @@ body {
 }
 
 .project__info {
-  background-color: var(--bg-color-secondary);
   padding: 20px;
   transition: background-color var(--base-transition-duration);
   z-index: 1;
@@ -895,12 +905,6 @@ body {
   font-size: 0.99rem;
   color: var(--text-color-secondary);
   transition: color var(--base-transition-duration);
-}
-
-/* Make sure the underline does not become to thin at HTML font-size resize */
-.project__info-summary-text .slide-in-and-back.underline::before,
-.project__info-summary-text .slide-in-and-back::after {
-  height: 2px;
 }
 
 .project__technologies-list {

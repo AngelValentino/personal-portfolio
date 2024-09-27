@@ -3,16 +3,19 @@ import { convertToKebabCase } from "../utils.js";
 // Get the project list element from the DOM
 const projectListLm = document.getElementById('project-list');
 
+// Toggle info panel logic event handler
+const infoPanelEventHandler = {};
+
 // Project data array, containing project information and description in multiple languages
 export const projectsData = [
   {
     id: 1,
     title: 'Racing Spirit',
     description: {
-      en: 'Racing Spirit is an e-commerce single-page application (SPA), featuring a JSON mock back-end, developed from scratch using HTML, CSS, JavaScript and React. Inspired by <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> design and featuring product images from <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      es: 'Racing Spirit es una aplicación de una sola página (SPA) de comercio electrónico, que cuenta con un back-end simulado en JSON, desarrollada desde cero utilizando HTML, CSS, JavaScript y React. Inspirada en el diseño de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> y con imágenes de productos de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      ro: 'Racing Spirit este o aplicație de tip single-page (SPA) de comerț electronic, care include un back-end simulat în JSON, dezvoltată de la zero folosind HTML, CSS, JavaScript și React. Inspirată de designul <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> și cu imagini de produse de la <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      ca: `Racing Spirit és una aplicació d'una sola pàgina (SPA) de comerç electrònic, que compta amb un back-end simulat en JSON, desenvolupada des de zero utilitzant HTML, CSS, JavaScript i React. Inspirada en el disseny de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> i amb imatges de productes d'<a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.`
+      en: 'Racing Spirit is an e-commerce single-page application (SPA), featuring a JSON mock back-end, developed from scratch using HTML, CSS, JavaScript and React. Inspired by <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> design and featuring product images from <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      es: 'Racing Spirit es una aplicación de una sola página (SPA) de comercio electrónico, que cuenta con un back-end simulado en JSON, desarrollada desde cero utilizando HTML, CSS, JavaScript y React. Inspirada en el diseño de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> y con imágenes de productos de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      ro: 'Racing Spirit este o aplicație de tip single-page (SPA) de comerț electronic, care include un back-end simulat în JSON, dezvoltată de la zero folosind HTML, CSS, JavaScript și React. Inspirată de designul <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> și cu imagini de produse de la <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      ca: `Racing Spirit és una aplicació d'una sola pàgina (SPA) de comerç electrònic, que compta amb un back-end simulat en JSON, desenvolupada des de zero utilitzant HTML, CSS, JavaScript i React. Inspirada en el disseny de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> i amb imatges de productes d'<a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.`
     },
     technologies: [
       'html',
@@ -27,10 +30,10 @@ export const projectsData = [
     id: 2,
     title: 'YouTube Clone',
     description: {
-      en: 'Front-end <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a> home page clone developed from scratch using HTML, CSS and JavaScript. Featuring videos containing information about <a class="slide-in-and-back underline no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a> movies.',
-      es: 'Front-end clon de la página de inicio de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a> desarrollado desde cero utilizando HTML, CSS y JavaScript. Incluye videos con información sobre películas de <a class="slide-in-and-back underline no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a>.',
-      ro: 'Clonă Front-end a paginii principale de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a> dezvoltată de la zero folosind HTML, CSS și JavaScript. Conține videoclipuri cu informații despre filmele <a class="slide-in-and-back underline no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a>.',
-      ca: `Front-end clon de la pàgina d'inici de <a class="slide-in-and-back underline no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a>  desenvolupat des de zero utilitzant HTML, CSS i JavaScript. Inclou vídeos amb informació sobre les pel·lícules de <a class="slide-in-and-back underline no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a>.`
+      en: 'Front-end <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a> home page clone developed from scratch using HTML, CSS and JavaScript. Featuring videos containing information about <a class="slide-in-and-back underline fixed-height no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a> movies.',
+      es: 'Front-end clon de la página de inicio de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a> desarrollado desde cero utilizando HTML, CSS y JavaScript. Incluye videos con información sobre películas de <a class="slide-in-and-back underline fixed-height no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a>.',
+      ro: 'Clonă Front-end a paginii principale de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a> dezvoltată de la zero folosind HTML, CSS și JavaScript. Conține videoclipuri cu informații despre filmele <a class="slide-in-and-back underline fixed-height no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a>.',
+      ca: `Front-end clon de la pàgina d'inici de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a>  desenvolupat des de zero utilitzant HTML, CSS i JavaScript. Inclou vídeos amb informació sobre les pel·lícules de <a class="slide-in-and-back underline fixed-height no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a>.`
     },
     technologies: [
       'html',
@@ -164,43 +167,83 @@ export function generateProjectList() {
     .join('');
 }
 
-// Toggle the visibility of a sibling button
-function toggleSiblingBtn(btn, className) {
-  // Determine the target button based on the provided class name
-  const targetBtn = className === 'show' ? btn.nextElementSibling : btn.previousElementSibling;
-  // Toggle the specified class on the target button and focus it
-  targetBtn.classList.toggle(className);
-  targetBtn.focus();
+// Toggles visibility of the close and more info buttons, and sets focus based on which button is visible
+function togglePanelBtns(closeInfoBtn, moreInfoBtn) {
+  // Toggle visibility classes for both buttons
+  closeInfoBtn.classList.toggle('show'); // Show/hide the close button
+  moreInfoBtn.classList.toggle('hide'); // Show/hide the more info button
+
+  // Checks wich button is visible and adds focus to it
+  if (closeInfoBtn.offsetParent) {
+    // Close info button is visible, set focus
+    closeInfoBtn.focus();
+  } 
+  else if (moreInfoBtn.offsetParent) {
+    // More info button is visible, set focus
+    moreInfoBtn.focus();
+  }
 }
 
-// Handle toggling the project info panel based on user interaction
-export function toggleProjectInfoPanel(e) {
-  const moreInfoBtn = e.target.closest('.project__more-info-btn');
-  const closePanelBtn = e.target.closest('.project__info-close-btn');
-  const projectLm = e.target.closest('.project');
-  const infoPanelLm = projectLm && projectLm.querySelector('.project__info');
-  const imgLinkLm = projectLm && projectLm.querySelector('.project__img-link');
-
-  // If the more info button was clicked
-  if (moreInfoBtn) {
-    // Show info panel and scroll to top
-    infoPanelLm.classList.add('show');
-    infoPanelLm.scrollTo(0, 0);
-    // Show close panel button and add focus to it
-    toggleSiblingBtn(moreInfoBtn, 'show');
-
-    // Hide project image link and more info button
-    imgLinkLm.classList.add('hide');
-    moreInfoBtn.classList.add('hide');
+// Handles closing the info panel via "Escape" key
+function handleCloseInfoPanelAtEscKey(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn) {
+  return e => {
+    if (e.key === 'Escape') {
+      hideInfoPanel(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn);
+    }
   }
-  // If the close panel button was clicked
-  else if (closePanelBtn) {
-    // Hide info panel and close info panel button
-    infoPanelLm.classList.remove('show');
-    closePanelBtn.classList.remove('show');
+}
 
-    // Show project image link and more info button
-    imgLinkLm.classList.remove('hide');
-    toggleSiblingBtn(closePanelBtn, 'hide');
+// Hides the info panel and restores the initial state of the buttons and image
+function hideInfoPanel(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn) {
+  infoPanelLm.classList.remove('show'); // Remove the 'show' class to hide the info panel
+  imgLinkLm.classList.remove('hide'); // Restore visibility of the image link
+  togglePanelBtns(closeInfoBtn, moreInfoBtn); // Toggle the buttons back to their initial state
+
+  // Remove the "Escape" key event listener when the info panel is hidden
+  projectLm.removeEventListener('keydown', infoPanelEventHandler.closeInfoPanelAtEscKey);
+}
+
+// Shows the info panel and hides the image, toggles the buttons, and sets up the "Escape" key handler
+function showInfoPanel(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn) {
+  // Create the "Escape" key event handler and store it in the infoPanelEventHandler object
+  const closeInfoPanelAtEscKey = handleCloseInfoPanelAtEscKey(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn);
+  infoPanelEventHandler.closeInfoPanelAtEscKey = closeInfoPanelAtEscKey;
+  
+  // Add the 'show' class to display the info panel and scroll to the top of the panel
+  infoPanelLm.classList.add('show');
+  infoPanelLm.scrollTo(0, 0);
+  // Hide the image and toggle the buttons to display the close button
+  imgLinkLm.classList.add('hide');
+  togglePanelBtns(closeInfoBtn, moreInfoBtn);
+
+  // Add an event listener to handle closing the info panel when the "Escape" key is pressed
+  projectLm.addEventListener('keydown', closeInfoPanelAtEscKey); 
+}
+
+// Handles toggling the project info panel based on which button (more info or close) was clicked
+export function toggleProjectInfoPanel(e) {
+  // Get the closest project container based on the clicked target
+  const projectLm = e.target.closest('.project');
+  
+  // Check if the more info or close panel buttons were clicked
+  const isMoreInfoBtnClicked = e.target.closest('.project__more-info-btn');
+  const isClosePanelBtnClicked = e.target.closest('.project__info-close-btn');
+
+  // If a project element is found and one of the buttons was clicked
+  if (projectLm && (isClosePanelBtnClicked || isMoreInfoBtnClicked)) {
+    // Get the required DOM elements inside the project
+    const infoPanelLm = projectLm.querySelector('.project__info');
+    const imgLinkLm = projectLm.querySelector('.project__img-link');
+    const moreInfoBtn = projectLm.querySelector('.project__more-info-btn');
+    const closeInfoBtn = projectLm.querySelector('.project__info-close-btn');
+
+    // If the more info button was clicked, show the info panel
+    if (isMoreInfoBtnClicked) {
+      showInfoPanel(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn);
+    }
+    // If the close panel button was clicked, hide the info panel
+    else if (isClosePanelBtnClicked) {
+      hideInfoPanel(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn);
+    }
   }
 }
