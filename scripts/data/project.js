@@ -9,7 +9,7 @@ const infoPanelEventHandler = {};
 // Project data array, containing project information and description in multiple languages
 export const projectsData = [
   {
-    id: 1,
+    id: '5c307f0d-0efd-4276-8b25-9f6a02db61f6',
     title: 'Racing Spirit',
     description: {
       en: 'Racing Spirit is an e-commerce single-page application (SPA), featuring a JSON mock back-end, developed from scratch using HTML, CSS, JavaScript and React. Inspired by <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> design and featuring product images from <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
@@ -27,7 +27,7 @@ export const projectsData = [
     demoUrl: 'https://racing-spirit.pages.dev/'
   },
   {
-    id: 2,
+    id: 'd588f5d8-c4e2-4ed4-bcff-867adc10b277',
     title: 'YouTube Clone',
     description: {
       en: 'Front-end <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.youtube.com/">YouTube</a> home page clone developed from scratch using HTML, CSS and JavaScript. Featuring videos containing information about <a class="slide-in-and-back underline fixed-height no-wrap" target="blank" href="https://ghiblicollection.com/">Studio Ghibli</a> movies.',
@@ -44,7 +44,7 @@ export const projectsData = [
     demoUrl: 'https://youtube-clone1.pages.dev/'
   },
   {
-    id: 3,
+    id: '967cfa4a-54db-42c7-a4b1-89968b596017',
     title: 'TaskFlow',
     description: {
       en: 'TaskFlow is your go-to app for effortless productivity. Easily manage tasks, set reminders, and track your progress. All with a clean, user-friendly and accessible design that helps you stay organized and focused.',
@@ -144,7 +144,7 @@ function setProjectSymmetry(symmetry, project) {
 // Generate the HTML for a single project item
 function generateProjectHTML(symmetry, project) {
   return `
-    <li class="project ${symmetry === 'original' ? 'original' : 'mirrowed'}">
+    <li id="${project.id}" class="project ${symmetry === 'original' ? 'original' : 'mirrowed'}">
       <button data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-more-info-btn" aria-label="Read more information about ${project.title}." aria-controls="project__info-${project.id}" title="More info" class="project__more-info-btn">
         <svg aria-hidden="true" focusable="false" role="presentation" class="project__more-info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path fill="currentColor" d="M17 5.5A2.5 2.5 0 0 0 14.5 3h-9A2.5 2.5 0 0 0 3 5.5v9A2.5 2.5 0 0 0 5.5 17h1.25A2.25 2.25 0 0 1 11 15.968a2.25 2.25 0 0 1 4 0a2.25 2.25 0 0 1 1.988-1.218q.012-.124.012-.25zM6 6.75c0-.414.316-.75.706-.75h6.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706C6.316 7.5 6 7.164 6 6.75m0 3c0-.414.316-.75.706-.75h3.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706c-.39 0-.706-.336-.706-.75M6.706 12h6.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706c-.39 0-.706-.336-.706-.75s.316-.75.706-.75m3.544 5a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0M13 18.25a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4 0a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5" />
@@ -200,14 +200,16 @@ function hideInfoPanel(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfo
   togglePanelBtns(closeInfoBtn, moreInfoBtn); // Toggle the buttons back to their initial state
 
   // Remove the "Escape" key event listener when the info panel is hidden
-  projectLm.removeEventListener('keydown', infoPanelEventHandler.closeInfoPanelAtEscKey);
+  projectLm.removeEventListener('keydown', infoPanelEventHandler[projectLm.id]);
+  // Remove function reference if not needed
+  delete infoPanelEventHandler[projectLm.id];
 }
 
 // Shows the info panel and hides the image, toggles the buttons, and sets up the "Escape" key handler
 function showInfoPanel(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn) {
   // Create the "Escape" key event handler and store it in the infoPanelEventHandler object
   const closeInfoPanelAtEscKey = handleCloseInfoPanelAtEscKey(projectLm, imgLinkLm, infoPanelLm, moreInfoBtn, closeInfoBtn);
-  infoPanelEventHandler.closeInfoPanelAtEscKey = closeInfoPanelAtEscKey;
+  infoPanelEventHandler[projectLm.id] = closeInfoPanelAtEscKey;
   
   // Add the 'show' class to display the info panel and scroll to the top of the panel
   infoPanelLm.classList.add('show');
@@ -229,6 +231,7 @@ export function toggleProjectInfoPanel(e) {
   const isMoreInfoBtnClicked = e.target.closest('.project__more-info-btn');
   const isClosePanelBtnClicked = e.target.closest('.project__info-close-btn');
 
+  console.log('click')
   // If a project element is found and one of the buttons was clicked
   if (projectLm && (isClosePanelBtnClicked || isMoreInfoBtnClicked)) {
     // Get the required DOM elements inside the project
