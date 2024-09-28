@@ -159,6 +159,8 @@ body {
 .slide-middle-out,
 .appear-bg-from-center {
   position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .slide-in-and-out::after,
@@ -212,12 +214,10 @@ body {
 .appear-bg-from-center::after {
   background-color: var(--bg-color-tertiary);
   z-index: -1;
+  inset: 0;
   height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform: scale(0);
   opacity: 0;
-  z-index: -1;
 }
 
 .appear-bg-from-center.rounded {
@@ -275,7 +275,7 @@ body {
   }
 
   .appear-bg-from-center:is(:hover, :focus-visible)::after {
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 
@@ -885,7 +885,6 @@ body {
 .project__info {
   padding: 20px;
   transition: background-color var(--base-transition-duration);
-  z-index: 1;
 }
 
 .project__info-title {
