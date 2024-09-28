@@ -160,6 +160,9 @@ body {
 .appear-bg-from-center {
   position: relative;
   z-index: 1;
+}
+
+.appear-bg-from-center {
   overflow: hidden;
 }
 
