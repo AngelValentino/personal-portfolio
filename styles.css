@@ -242,6 +242,7 @@ body {
   position: relative;
   overflow: hidden;
   transition: background-color var(--base-transition-duration), color var(--base-transition-duration), padding 0.25s;
+  will-change: padding;
 }
 
 .slide-button::after {
