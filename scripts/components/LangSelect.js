@@ -35,7 +35,7 @@ export function generateLangSelectData(section) {
       `,
       label: 'catalan', 
       value: 'ca', 
-    },
+    }
   ];
 }
 
