@@ -119,18 +119,18 @@ export const translations = {
         ariaLabel: "Go to Angel Valentino's Github profile."
       },
       'avatar-image': {
-        alt: 'japanese tiger drawing'
+        alt: "Angel Valentino's profile image."
       },
       'tech-stach-list': {
         ariaLabel: "Angel Valentino's tech stack."
       },
       'tech-stach-title': {
-        innerText: 'Tech stack'
+        innerText: 'Tech Stack'
       }
     },
     about: {
       image: {
-        alt: 'japanese tiger drawing'
+        alt: 'A sewing machine next to a laptop displaying code for a web application, combining traditional sewing tools with modern digital technology.'
       },
       title: {
         innerText: 'About me'
@@ -338,7 +338,7 @@ export const translations = {
         ariaLabel: "Ir al perfil de GitHub de Angel Valentino."
       },
       'avatar-image': {
-        alt: 'dibujo de tigre japonés'
+        alt: 'Imagen de perfil de Angel Valentino.'
       },
       'tech-stach-list': {
         ariaLabel: "Tecnologías con las que Angel Valentino tiene familiaridad con."
@@ -349,7 +349,7 @@ export const translations = {
     },
     about: {
       image: {
-        alt: 'dibujo de tigre japonés'
+        alt: 'Una máquina de coser junto a un portátil que muestra código para una aplicación web, combinando herramientas de costura tradicionales con tecnología digital moderna.'
       },
       title: {
         innerText: 'Sobre mí'
@@ -557,7 +557,7 @@ export const translations = {
         ariaLabel: "Accesează profilul lui Angel Valentino de pe Github."
       },
       'avatar-image': {
-        alt: 'desen cu tigru japonez'
+        alt: 'Imaginea de profil a lui Angel Valentino.'
       },
       'tech-stach-list': {
         ariaLabel: "Tehnologiile pe care Angel Valentino le utilizează."
@@ -568,7 +568,7 @@ export const translations = {
     },
     about: {
       image: {
-        alt: 'desen cu tigru japonez'
+        alt: 'O mașină de cusut lângă un laptop care afișează cod pentru o aplicație web, combinând unelte tradiționale de cusut cu tehnologia digitală modernă.'
       },
       title: {
         innerText: 'Despre mine'
@@ -776,7 +776,7 @@ export const translations = {
         ariaLabel: "Vés al perfil de Github d'Angel Valentino."
       },
       'avatar-image': {
-        alt: 'dibuix de tigre japonès'
+        alt: "Imatge de perfil d'Angel Valentino."
       },
       'tech-stach-list': {
         ariaLabel: "Tecnologies conegudes per Angel Valentino."
@@ -787,7 +787,7 @@ export const translations = {
     },
     about: {
       image: {
-        alt: 'dibuix de tigre japonès'
+        alt: "Una màquina de cosir al costat d'un ordinador portàtil que mostra codi per a una aplicació web, combinant eines de costura tradicionals amb tecnologia digital moderna."
       },
       title: {
         innerText: 'Sobre mi'
@@ -1047,7 +1047,7 @@ function addProjectTranslations(project, lang = 'en', translations) {
     ariaLabel: `${projectLanguages[lang].imageLink.ariaLabel} ${project.title}`
   };
   translations.projects[`${kebabCaseProjectTitle}-img`] = {
-    alt: `${projectLanguages[lang].image.alt} ${project.title}`
+    alt: `${projectLanguages[lang].image.alt} ${project.title}.`
   };
   translations.projects[`${kebabCaseProjectTitle}-tooltip-text`] = {
     innerText: projectLanguages[lang].tooltip.innerText

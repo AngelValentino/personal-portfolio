@@ -67,7 +67,7 @@ function generateProjectLinkHTML(project) {
   return `
     <a data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-img-link" class="project__img-link" aria-label="Go to ${project.title} live demo." target="_blank" href="${project.demoUrl}">
       <div class="project__img-container blur-img-loader" style="background-image: url(images/projects-screenshots/${convertToKebabCase(project.title)}-low-res.jpg)">
-        <img data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-img" class="project__img" src="images/projects-screenshots/${convertToKebabCase(project.title)}.jpg" alt="${project.title} screenshot">
+        <img data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-img" class="project__img" src="images/projects-screenshots/${convertToKebabCase(project.title)}.jpg" alt="${project.title} screenshot.">
       </div>
       <div aria-hidden="true" role="presentation" class="project__tooltip">
         <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-tooltip-text" class="project__tooltip-text">Live Demo</p>
