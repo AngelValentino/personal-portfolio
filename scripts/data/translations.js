@@ -139,7 +139,7 @@ export const translations = {
         innerText: "Hi, my name is Angel, and I'm a self-taught software engineer who focuses on developing responsible and accessible user interfaces. I also enjoy sewing in my free time as a creative hobby."
       },
       'second-paragraph': {
-        innerText: "I firmly believe that mastering the basics is essential for a deep understanding of any craft. Whether it's sewing or coding, the best way to learn is by diving in without training wheels. That's why I emphasize working with HTML/CSS and vanilla JavaScript, even though I'm proficient with libraries and frameworks such as React or Bootstrap."
+        innerText: "I firmly believe that mastering the basics is essential for a deep understanding of any craft. Whether it's sewing or coding, the best way to learn is by diving in without training wheels. That's why I emphasize working with HTML/CSS and vanilla JavaScript, even though I'm proficient with frameworks and libraries such as React or Bootstrap."
       },
       'third-paragraph': {
         innerText: "Currently, I'm expanding my skills by learning back-end development with PHP and SQL."
@@ -225,7 +225,7 @@ export const translations = {
   es: {
     html: {
       title: 'Angel Valentino / Desarrollador Web',
-      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se centra en desarrollar interfaces de usuario responsables y accesibles."
+      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se centra en desarrollar interfaces de usuario de diseño responsivo y accesible."
     },
     'mobile-menu': {
       'close-btn': {
@@ -355,10 +355,10 @@ export const translations = {
         innerText: 'Sobre mí'
       },
       'first-paragraph': {
-        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se enfoca en desarrollar interfaces de usuario adaptables y accesibles. También coso en mi tiempo libre como pasatiempo creativo."
+        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se enfoca en desarrollar interfaces de usuario de diseño responsivo y accesible. También coso en mi tiempo libre como pasatiempo creativo."
       },
       'second-paragraph': {
-        innerText: "Creo firmemente que dominar lo básico es esencial para una comprensión profunda de cualquier oficio. Ya sea coser o programar, la mejor manera de aprender es ir directo. Por eso, hago hincapié en trabajar con HTML/CSS y JavaScript puro, aunque también soy competente con bibliotecas y frameworks como React o Bootstrap."
+        innerText: "Creo firmemente que dominar lo básico es esencial para una comprensión profunda de cualquier oficio. Ya sea coser o programar, la mejor manera de aprender es ir directo. Por eso, hago hincapié en trabajar con HTML/CSS y JavaScript puro, aunque también soy competente con frameworks y librerias como React o Bootstrap."
       },
       'third-paragraph': {
         innerText: "Actualmente, estoy ampliando mis habilidades aprendiendo desarrollo back-end con PHP y SQL."
@@ -577,7 +577,7 @@ export const translations = {
         innerText: "Bună, numele meu este Angel și sunt un inginer de software autodidact care se concentrează pe dezvoltarea de interfețe de utilizator responsive și accesibile. Îmi place, de asemenea, să cos în timpul meu liber ca hobby creativ."
       },
       'second-paragraph': {
-        innerText: "Cred cu tărie că stăpânirea bazelor este esențială pentru o înțelegere profundă a oricărei meserii. Fie că este vorba despre cusut sau programare, cel mai bun mod de a învăța este să te implicați în mod direct. De aceea, pun accent pe lucrul cu HTML/CSS și JavaScript pur, chiar dacă sunt familiarizat cu biblioteci și frameworks precum React sau Bootstrap."
+        innerText: "Cred cu tărie că stăpânirea bazelor este esențială pentru o înțelegere profundă a oricărei meserii. Fie că este vorba despre cusut sau programare, cel mai bun mod de a învăța este să te implicați în mod direct. De aceea, pun accent pe lucrul cu HTML/CSS și JavaScript pur, chiar dacă sunt familiarizat cu frameworks și biblioteci precum React sau Bootstrap."
       },
       'third-paragraph': {
         innerText: "În prezent, îmi extind abilitățile învățând dezvoltare back-end cu PHP și SQL."
@@ -796,7 +796,7 @@ export const translations = {
         innerText: "Hola, em dic Angel, i sóc un enginyer de programació autodidacta que es concentra en desenvolupar interfícies d'usuari responsives i accessibles. També gaudeixo cosint en el meu temps lliure com a afició creativa."
       },
       'second-paragraph': {
-        innerText: "Crec fermament que dominar els fonaments és essencial per a una comprensió profunda de qualsevol ofici. Ja sigui cosint o programant, la millor manera d'aprendre és submergint-se directament. Per això, dono importància a treballar amb HTML/CSS i JavaScript pur, tot i que sóc competent amb biblioteques i frameworks com React o Bootstrap."
+        innerText: "Crec fermament que dominar els fonaments és essencial per a una comprensió profunda de qualsevol ofici. Ja sigui cosint o programant, la millor manera d'aprendre és submergint-se directament. Per això, dono importància a treballar amb HTML/CSS i JavaScript pur, tot i que sóc competent amb frameworks i biblioteques com React o Bootstrap."
       },
       'third-paragraph': {
         innerText: "Actualment, estic ampliant les meves habilitats aprenent desenvolupament back-end amb PHP i SQL."
