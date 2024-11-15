@@ -146,7 +146,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Download CV',
-        href: 'documents/resume-en.pdf'
+        href: 'documents/angel_valentino_resume_en.pdf'
       }
     },
     projects: {
@@ -365,7 +365,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Descargar CV',
-        href: 'documents/resume-es.pdf'
+        href: 'documents/angel_valentino_resume_es.pdf'
       }
     },
     projects: {
@@ -444,7 +444,7 @@ export const translations = {
   ro: {
     html: {
       title: 'Angel Valentino / Dezvoltator Web',
-      'meta-description': "Bună, numele meu este Angel și sunt un inginer software autodidact care se concentrează pe dezvoltarea interfețelor de utilizator responsabile și accesibile."
+      'meta-description': "Bună, numele meu este Angel și sunt un inginer de software autodidact care se concentrează pe dezvoltarea de interfețe utilizator responsive și accesibile."
     },
     'mobile-menu': {
       'close-btn': {
@@ -584,7 +584,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Descarcă CV',
-        href: 'documents/resume-en.pdf'
+        href: 'documents/angel_valentino_resume_en.pdf'
       }
     },
     projects: {
@@ -663,7 +663,7 @@ export const translations = {
   ca: {
     html: {
       title: 'Angel Valentino / Desenvolupador Web',
-      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se centra en desarrollar interfaces de usuario responsables y accesibles."
+      'meta-description': "Hola, el meu nom és Angel i sóc un enginyer informàtic autodidacta que es centra en desenvolupar interfícies d'usuari responsives i accessibles."
     },
     'mobile-menu': {
       'close-btn': {
@@ -803,7 +803,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Descarregar CV',
-        href: 'documents/resume-es.pdf'
+        href: 'documents/angel_valentino_resume_es.pdf'
       }
     },
     projects: {
