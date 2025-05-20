@@ -1624,7 +1624,7 @@ footer {
   }
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 800px) {
   html {
     font-size: 15px;
   }

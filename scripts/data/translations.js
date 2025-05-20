@@ -6,7 +6,7 @@ export const translations = {
   en: {
     html: {
       title: 'Angel Valentino / Web Developer',
-      'meta-description': "Hi, my name is Angel, and I'm a self-taught software engineer who focuses on developing responsive and accessible user interfaces."
+      'meta-description': "Hi, my name is Angel, and I'm a experienced software engineer who focuses on developing responsive and accessible web applications."
     },
     'mobile-menu': {
       'close-btn': {
@@ -101,10 +101,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Front-End<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Full-Stack<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: `Hi, I'm Angel Valentino. A passionate Front-End Developer based in Spain.<img class="hero__title-location-img" aria-hidden="true" role="presentation" src="images/welcome-title-icons/location-pin2.png" alt="">`
+        innerHTML: `Hi, I'm Angel Valentino. A passionate Full-Stack DevOps engineer based in Spain.<img class="hero__title-location-img" aria-hidden="true" role="presentation" src="images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Angel Valentino's social links."
@@ -136,13 +136,13 @@ export const translations = {
         innerText: 'About me'
       },
       'first-paragraph': {
-        innerText: "Hi, my name is Angel, and I'm a self-taught software engineer who focuses on developing responsible and accessible user interfaces. I also enjoy sewing in my free time as a creative hobby."
+        innerText: "Hi, my name is Angel, and I'm a experienced software engineer who focuses on developing responsive and accessible web applications. I also enjoy sewing in my free time as a creative hobby."
       },
       'second-paragraph': {
-        innerText: "I firmly believe that mastering the basics is essential for a deep understanding of any craft. Whether it's sewing or coding, the best way to learn is by diving in without training wheels. That's why I emphasize working with HTML/CSS and vanilla JavaScript, even though I'm proficient with frameworks and libraries such as React or Bootstrap."
+        innerText: "I believe mastering the basics is essential to truly understand any craft. Whether sewing or coding, the best way to learn is by diving in without training wheels. That's why I focus on a vanilla tech stack for both frontend and backend, while also being proficient with libraries and frameworks. Building on this, I have experience creating accessible and responsive frontend clients, developing RESTful APIs connected to normalized DBs, and managing deployment and security through modern practices."
       },
       'third-paragraph': {
-        innerText: "Currently, I'm expanding my skills by learning back-end development with PHP and SQL."
+        innerText: "Currently, I'm expanding my skills by learning to build unique interfaces using HTML Canvas and Three.js."
       },
       'download-button': {
         innerText: 'Download CV',
@@ -225,7 +225,7 @@ export const translations = {
   es: {
     html: {
       title: 'Angel Valentino / Desarrollador Web',
-      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se centra en desarrollar interfaces de usuario de diseño responsivo y accesible."
+      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software experimentado enfocado en desarrollar aplicaciones web responsivas y accesibles."
     },
     'mobile-menu': {
       'close-btn': {
@@ -320,10 +320,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Desarrollador<br />Front-End<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Desarrollador<br />Full-Stack<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: `Hola, soy Angel Valentino. Un apasionado Desarrollador Front-End basado en España.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
+        innerHTML: `Hola, soy Angel Valentino. Un apasionado ingeniero Full-Stack DevOps basado en España.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Enlaces sociales de Angel Valentino."
@@ -355,13 +355,13 @@ export const translations = {
         innerText: 'Sobre mí'
       },
       'first-paragraph': {
-        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta que se enfoca en desarrollar interfaces de usuario de diseño responsivo y accesible. También coso en mi tiempo libre como pasatiempo creativo."
+        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software experimentado enfocado en desarrollar aplicaciones web responsivas y accesibles. También coso en mi tiempo libre como pasatiempo creativo."
       },
       'second-paragraph': {
-        innerText: "Creo firmemente que dominar lo básico es esencial para una comprensión profunda de cualquier oficio. Ya sea coser o programar, la mejor manera de aprender es ir directo. Por eso, hago hincapié en trabajar con HTML/CSS y JavaScript puro, aunque también soy competente con frameworks y librerias como React o Bootstrap."
+        innerText: "Creo que dominar lo básico es esencial para comprender cualquier oficio. Ya sea coser o programar, la mejor manera de aprender es ir directo. Por eso, hago hincapié en trabajar con un stack vanilla, tanto para frontend como backend, aunque también tengo experiencia con bibliotecas y frameworks. Partiendo de esto, tengo experiencia creando clientes frontend accesibles y responsivos, desarrollando RRESTful APIs conectadas a DBs normalizadas y gestionando despliegues y seguridad con prácticas modernas."
       },
       'third-paragraph': {
-        innerText: "Actualmente, estoy ampliando mis habilidades aprendiendo desarrollo back-end con PHP y SQL."
+        innerText: "Actualmente, estoy ampliando mis habilidades aprendiendo a construir interfaces únicas usando HTML Canvas y Three.js."
       },
       'download-button': {
         innerText: 'Descargar CV',
@@ -444,7 +444,7 @@ export const translations = {
   ro: {
     html: {
       title: 'Angel Valentino / Dezvoltator Web',
-      'meta-description': "Bună, numele meu este Angel și sunt un inginer de software autodidact care se concentrează pe dezvoltarea de interfețe utilizator responsive și accesibile."
+      'meta-description': "Bună, numele meu este Angel, și sunt un inginer de software experimentat, concentrat pe dezvoltarea de aplicații web responsive și accesibile."
     },
     'mobile-menu': {
       'close-btn': {
@@ -539,10 +539,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Dezvoltator<br />Front-End<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Dezvoltator<br />Full-Stack<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: 'Bună, sunt Angel Valentino. Un dezvoltator Front-End pasionat, bazat în Spania.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">'
+        innerHTML: 'Bună, sunt Angel Valentino. Un inginer Full-Stack DevOps pasionat, bazat în Spania.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">'
       },
       'social-list': {
         ariaLabel: "Linkuri sociale ale lui Angel Valentino."
@@ -574,13 +574,13 @@ export const translations = {
         innerText: 'Despre mine'
       },
       'first-paragraph': {
-        innerText: "Bună, numele meu este Angel și sunt un inginer de software autodidact care se concentrează pe dezvoltarea de interfețe de utilizator responsive și accesibile. Îmi place, de asemenea, să cos în timpul meu liber ca hobby creativ."
+        innerText: "Bună, numele meu este Angel, și sunt un inginer de software experimentat, concentrat pe dezvoltarea de aplicații web responsive și accesibile. Îmi place, de asemenea, să cos în timpul meu liber ca hobby creativ."
       },
       'second-paragraph': {
-        innerText: "Cred cu tărie că stăpânirea bazelor este esențială pentru o înțelegere profundă a oricărei meserii. Fie că este vorba despre cusut sau programare, cel mai bun mod de a învăța este să te implicați în mod direct. De aceea, pun accent pe lucrul cu HTML/CSS și JavaScript pur, chiar dacă sunt familiarizat cu frameworks și biblioteci precum React sau Bootstrap."
+        innerText: "Cred că stăpânirea elementelor de bază este esențială pentru a înțelege orice meșteșug. Fie că este cusut sau programare, cel mai bun mod de a învăța este implicarea directă. De aceea mă concentrez pe un stack vanilla, pentru frontend și backend, deși sunt proficient și cu biblioteci și framework-uri. Pe această bază, am experiență în crearea de clienți frontend accesibili și responsivi, dezvoltarea de API-uri RESTful conectate la DB-uri normalizate și gestionarea implementării și securității prin practici moderne."
       },
       'third-paragraph': {
-        innerText: "În prezent, îmi extind abilitățile învățând dezvoltare back-end cu PHP și SQL."
+        innerText: "În prezent, îmi extind abilitățile învățând să construiesc interfețe unice folosind HTML Canvas și Three.js."
       },
       'download-button': {
         innerText: 'Descarcă CV',
@@ -663,7 +663,7 @@ export const translations = {
   ca: {
     html: {
       title: 'Angel Valentino / Desenvolupador Web',
-      'meta-description': "Hola, el meu nom és Angel i sóc un enginyer informàtic autodidacta que es centra en desenvolupar interfícies d'usuari responsives i accessibles."
+      'meta-description': "Hola, em dic Angel, i sóc un enginyer de programació experimentat concentrat en desenvolupar aplicacions web responsives i accessibles."
     },
     'mobile-menu': {
       'close-btn': {
@@ -758,10 +758,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Front-End<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Full-Stack<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: `Hola, sóc Angel Valentino. Un apassionat desenvolupador Front-End basat a Espanya.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
+        innerHTML: `Hola, sóc Angel Valentino. Un apassionat enginyer Full-Stack DevOps basat a Espanya.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Enllaços socials d'Angel Valentino."
@@ -793,13 +793,13 @@ export const translations = {
         innerText: 'Sobre mi'
       },
       'first-paragraph': {
-        innerText: "Hola, em dic Angel, i sóc un enginyer de programació autodidacta que es concentra en desenvolupar interfícies d'usuari responsives i accessibles. També gaudeixo cosint en el meu temps lliure com a afició creativa."
+        innerText: "Hola, em dic Angel, i sóc un enginyer de programació experimentat concentrat en desenvolupar aplicacions web responsives i accessibles. També gaudeixo cosint en el meu temps lliure com a afició creativa."
       },
       'second-paragraph': {
-        innerText: "Crec fermament que dominar els fonaments és essencial per a una comprensió profunda de qualsevol ofici. Ja sigui cosint o programant, la millor manera d'aprendre és submergint-se directament. Per això, dono importància a treballar amb HTML/CSS i JavaScript pur, tot i que sóc competent amb frameworks i biblioteques com React o Bootstrap."
+        innerText: "Crec que dominar les bases és essencial per entendre qualsevol ofici. Sigui cosir o programar, la millor manera d'aprendre és submergint-se directament. Per això em centro en un stack vanilla per al frontend i backend, tot i que també sóc competent amb biblioteques i frameworks. A partir d'aquí, tinc experiència creant clients frontend accessibles i responsius, desenvolupant RESTful APIs connectades a DBs normalitzades i gestionant desplegaments i seguretat amb pràctiques modernes."
       },
       'third-paragraph': {
-        innerText: "Actualment, estic ampliant les meves habilitats aprenent desenvolupament back-end amb PHP i SQL."
+        innerText: "Actualment, estic ampliant les meves habilitats aprenent a construir interfícies úniques amb HTML Canvas i Three.js."
       },
       'download-button': {
         innerText: 'Descarregar CV',
