@@ -914,6 +914,7 @@ body {
   align-items: center;
   gap: 10px;
   margin: 0 0 30px;
+  flex-wrap: wrap;
 }
 
 .project__technologies-list img {

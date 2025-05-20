@@ -9,24 +9,27 @@ const infoPanelEventHandler = {};
 // Project data array, containing project information and description in multiple languages
 export const projectsData = [
   {
-    id: '5c307f0d-0efd-4276-8b25-9f6a02db61f6',
-    title: 'Racing Spirit',
+    id: '967cfa4a-54db-42c7-a4b1-89968b596017',
+    title: 'TaskFlow',
     description: {
-      en: 'Racing Spirit is an e-commerce single-page application (SPA), featuring a JSON server mock back-end, developed from scratch using HTML, CSS, JavaScript and React. Inspired by <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> design and featuring product images from <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      es: 'Racing Spirit es una SPA de comercio electrónico con un back-end simulado por JSON server, desarrollada desde cero utilizando HTML, CSS, JavaScript y React. Inspirada en el diseño de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> y con imágenes de productos de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      ro: 'Racing Spirit este o aplicație SPA de comerț electronic, cu un back-end simulat prin JSON server, dezvoltată de la zero folosind HTML, CSS, JavaScript și React. Inspirată de designul <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> și cu imagini de produse de la <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
-      ca: `Racing Spirit és una aplicació SPA de comerç electrònic amb un back-end simulat amb JSON server, desenvolupada des de zero utilitzant HTML, CSS, JavaScript i React. Inspirada en el disseny de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> i amb imatges de productes d'<a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.`
+      en: 'TaskFlow is your go-to app for effortless productivity. Manage tasks, set reminders, and track progress with a clean, accessible UI. It is a vanilla JavaScript SPA using MVC, connected with a secure PHP RESTful JWT auth API, Redis rate limited, CORS. Using a MySQL DB.',
+      es: 'TaskFlow es tu app para productividad sin esfuerzo. Gestiona tareas, crea recordatorios y sigue el progreso con una interfaz limpia y accesible. SPA en JavaScript puro con MVC conectada a una PHP RESTful JWT auth API, limitada por Redis, CORS. Usando una MySQL DB.',
+      ro: 'TaskFlow este aplicația ta pentru productivitate fără efort. Gestionează sarcini, setează memento-uri și urmărește progresul cu o interfață curată și accesibilă. SPA în JavaScript pur cu MVC conectată la API RESTful JWT în PHP, limitat prin Redis și CORS. Folosește o MySQL DB.',
+      ca: `TaskFlow és la teva app per a productivitat sense esforç. Gestiona tasques, crea recordatoris i segueix el progrés amb una interfície neta i accessible. SPA en JavaScript pur MVC connectada amb una API RESTful JWT en PHP, limitada per Redis i CORS. Usant o MySQL DB.`
     },
     technologies: [
       'html',
       'css',
       'javascript',
-      'react'
+      'php',
+      'sql',
+      'redis'
     ],
-    codeUrl: 'https://github.com/AngelValentino/racing-spirit',
-    demoUrl: 'https://racing-spirit.pages.dev/'
+    codeUrl: 'https://github.com/AngelValentino/TaskFlow',
+    demoUrl: 'https://taskflowapp.net/'
   },
-  {
+
+    {
     id: 'd588f5d8-c4e2-4ed4-bcff-867adc10b277',
     title: 'YouTube Clone',
     description: {
@@ -43,23 +46,25 @@ export const projectsData = [
     codeUrl: 'https://github.com/AngelValentino/youtube-clone',
     demoUrl: 'https://youtube-clone1.pages.dev/'
   },
-  {
-    id: '967cfa4a-54db-42c7-a4b1-89968b596017',
-    title: 'TaskFlow',
+    {
+    id: '5c307f0d-0efd-4276-8b25-9f6a02db61f6',
+    title: 'Racing Spirit',
     description: {
-      en: 'TaskFlow is your go-to app for effortless productivity. Easily manage tasks, set reminders, and track your progress. All with a clean, user-friendly and accessible design that helps you stay organized and focused.',
-      es: 'TaskFlow es tu aplicación ideal para una productividad sin esfuerzo. Gestiona tareas fácilmente, configura recordatorios y sigue tu progreso. Todo con un diseño limpio, amigable y accesible que te ayuda a mantenerte organizado y enfocado.',
-      ro: 'TaskFlow este aplicația ta de bază pentru o productivitate fără efort. Gestionează sarcinile cu ușurință, setează memento-uri și urmărește-ți progresul. Totul cu un design curat, prietenos și accesibil care te ajută să rămâi organizat și concentrat.',
-      ca: `TaskFlow és l'aplicació ideal per a una productivitat sense esforç. Gestiona les tasques amb facilitat, configura recordatoris i fes un seguiment del teu progrés. Tot amb un disseny net, intuïtiu i accessible que t'ajuda a mantenir-te organitzat i centrat.`
+      en: 'Racing Spirit is an e-commerce single-page application (SPA), featuring a JSON server mock back-end, developed from scratch using HTML, CSS, JavaScript and React. Inspired by <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> design and featuring product images from <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      es: 'Racing Spirit es una SPA de comercio electrónico con un back-end simulado por JSON server, desarrollada desde cero utilizando HTML, CSS, JavaScript y React. Inspirada en el diseño de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> y con imágenes de productos de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      ro: 'Racing Spirit este o aplicație SPA de comerț electronic, cu un back-end simulat prin JSON server, dezvoltată de la zero folosind HTML, CSS, JavaScript și React. Inspirată de designul <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> și cu imagini de produse de la <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.',
+      ca: `Racing Spirit és una aplicació SPA de comerç electrònic amb un back-end simulat amb JSON server, desenvolupada des de zero utilitzant HTML, CSS, JavaScript i React. Inspirada en el disseny de <a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://doomsdayco.com/">DoomsdayCo</a> i amb imatges de productes d'<a class="slide-in-and-back underline fixed-height no-wrap" target="_blank" href="https://www.ironheart.co.uk/">Iron Heart</a>.`
     },
     technologies: [
       'html',
       'css',
-      'javascript'
+      'javascript',
+      'react',
+      'node'
     ],
-    codeUrl: 'https://github.com/AngelValentino/TaskFlow',
-    demoUrl: 'https://taskflow1.pages.dev/'
-  }
+    codeUrl: 'https://github.com/AngelValentino/racing-spirit',
+    demoUrl: 'https://racing-spirit.pages.dev/'
+  },
 ];
 
 // Generate the HTML for the project's image link
