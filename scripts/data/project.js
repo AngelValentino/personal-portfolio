@@ -12,8 +12,8 @@ export const projectsData = [
     id: '967cfa4a-54db-42c7-a4b1-89968b596017',
     title: 'TaskFlow',
     description: {
-      en: 'TaskFlow is your go-to app for effortless productivity. Manage tasks, set reminders, and track progress with a clean, accessible UI. It is a vanilla JavaScript SPA using MVC, connected with a secure PHP RESTful JWT auth API, Redis rate limited, CORS. Using a MySQL DB.',
-      es: 'TaskFlow es tu app para productividad sin esfuerzo. Gestiona tareas, crea recordatorios y sigue el progreso con una interfaz limpia y accesible. SPA en JavaScript puro con MVC conectada a una PHP RESTful JWT auth API, limitada por Redis, CORS. Usando una MySQL DB.',
+      en: 'TaskFlow is your go-to app for effortless productivity. Manage tasks, set reminders, and track progress with a clean, accessible UI. It is a vanilla JavaScript SPA using MVC, connected with a secure PHP RESTful JWT auth API, Redis rate limited and CORS. Using a MySQL DB.',
+      es: 'TaskFlow es tu app para productividad sin esfuerzo. Gestiona tareas, crea recordatorios y sigue el progreso con una interfaz limpia y accesible. SPA en JavaScript puro con MVC conectada a una PHP RESTful JWT auth API, limitada por Redis y CORS. Usando una MySQL DB.',
       ro: 'TaskFlow este aplicația ta pentru productivitate fără efort. Gestionează sarcini, setează memento-uri și urmărește progresul cu o interfață curată și accesibilă. SPA în JavaScript pur cu MVC conectată la API RESTful JWT în PHP, limitat prin Redis și CORS. Folosește o MySQL DB.',
       ca: `TaskFlow és la teva app per a productivitat sense esforç. Gestiona tasques, crea recordatoris i segueix el progrés amb una interfície neta i accessible. SPA en JavaScript pur MVC connectada amb una API RESTful JWT en PHP, limitada per Redis i CORS. Usant o MySQL DB.`
     },
