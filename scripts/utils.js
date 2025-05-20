@@ -15,11 +15,11 @@ export function addProgressiveLoading(elements) {
 
       // Delay to smoothly transition from low-res to full-res image
       setTimeout(() => {
-          // Remove the low-resolution background image
-          imgContainerLm.style.backgroundImage = 'none';
-          // Remove blur img container loader background color 
-          imgContainerLm.style.backgroundColor = 'transparent';
-       }, 250);
+        // Remove the low-resolution background image
+        imgContainerLm.style.backgroundImage = 'none';
+        // Remove blur img container loader background color 
+        imgContainerLm.style.backgroundColor = 'transparent';
+      }, 250);
     }
   
     // If the image has already been fully loaded, trigger the loaded function immediately

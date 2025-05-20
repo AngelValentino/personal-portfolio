@@ -669,7 +669,7 @@ body {
 }
 
 .hero__tech-stack-list img {
-  width: 50px;
+  width: 3.125rem;
   display: block;
   transition: transform 0.15s;
   border-radius: 10px;
@@ -1621,6 +1621,12 @@ footer {
 @media screen and (max-width: 540px) {
   .footer__text-link-line-break {
     display: initial;
+  }
+}
+
+@media screen and (max-height: 750px) {
+  html {
+    font-size: 15px;
   }
 }
 
