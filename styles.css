@@ -1562,6 +1562,12 @@ footer {
     padding: 124px var(--base-content-horizontal-padding) 75px var(--base-content-horizontal-padding);
   }
 
+  .hero-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
   .hero__title-image {
     display: grid;
     grid-template-columns: 1fr;
