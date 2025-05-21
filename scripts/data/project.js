@@ -28,8 +28,7 @@ export const projectsData = [
     codeUrl: 'https://github.com/AngelValentino/TaskFlow',
     demoUrl: 'https://taskflowapp.net/'
   },
-
-    {
+  {
     id: 'd588f5d8-c4e2-4ed4-bcff-867adc10b277',
     title: 'YouTube Clone',
     description: {
@@ -46,7 +45,7 @@ export const projectsData = [
     codeUrl: 'https://github.com/AngelValentino/youtube-clone',
     demoUrl: 'https://youtube-clone1.pages.dev/'
   },
-    {
+  {
     id: '5c307f0d-0efd-4276-8b25-9f6a02db61f6',
     title: 'Racing Spirit',
     description: {
