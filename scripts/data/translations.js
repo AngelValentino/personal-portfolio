@@ -6,7 +6,7 @@ export const translations = {
   en: {
     html: {
       title: 'Angel Valentino / Web Developer',
-      'meta-description': "Hi, my name is Angel, and I'm a experienced software engineer who focuses on developing responsive and accessible web applications."
+      'meta-description': "Hi, my name is Angel, and I'm an experienced software engineer who focuses on developing responsive and accessible web applications."
     },
     'mobile-menu': {
       'close-btn': {
@@ -136,7 +136,7 @@ export const translations = {
         innerText: 'About me'
       },
       'first-paragraph': {
-        innerText: "Hi, my name is Angel, and I'm a experienced software engineer who focuses on developing responsive and accessible web applications. I also enjoy sewing in my free time as a creative hobby."
+        innerText: "Hi, my name is Angel, and I'm an experienced software engineer who focuses on developing responsive and accessible web applications. I also enjoy sewing in my free time as a creative hobby."
       },
       'second-paragraph': {
         innerText: "I believe mastering the basics is essential to truly understand any craft. Whether sewing or coding, the best way to learn is by diving in without training wheels. That's why I focus on a vanilla tech stack for both frontend and backend, while also being proficient with libraries and frameworks. Building on this, I have experience creating accessible and responsive frontend clients, developing RESTful APIs connected to normalized DBs, and managing deployment and security through modern practices."
