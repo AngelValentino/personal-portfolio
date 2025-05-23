@@ -355,10 +355,10 @@ export const translations = {
         innerText: 'Sobre mí'
       },
       'first-paragraph': {
-        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software experimentado enfocado en desarrollar aplicaciones web responsivas y accesibles. También coso en mi tiempo libre como pasatiempo creativo."
+        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software experimentado, enfocado en desarrollar aplicaciones web responsivas y accesibles. También coso en mi tiempo libre como pasatiempo creativo."
       },
       'second-paragraph': {
-        innerText: "Creo que dominar lo básico es esencial para comprender cualquier oficio. Ya sea coser o programar, la mejor manera de aprender es ir directo. Por eso, hago hincapié en trabajar con un stack vanilla, tanto para frontend como backend, aunque también tengo experiencia con bibliotecas y frameworks. Partiendo de esto, tengo experiencia creando clientes frontend accesibles y responsivos, desarrollando RRESTful APIs conectadas a DBs normalizadas y gestionando despliegues y seguridad con prácticas modernas."
+        innerText: "Creo que dominar lo básico es esencial para comprender cualquier oficio. Ya sea coser o programar, la mejor manera de aprender es ir directo. Por eso, hago hincapié en trabajar con un stack vanilla, tanto para frontend como backend, aunque también tengo experiencia con bibliotecas y frameworks. Partiendo de esto, tengo experiencia creando clientes frontend accesibles y responsivos, desarrollando RESTful APIs conectadas a DBs normalizadas y gestionando despliegues y seguridad con prácticas modernas."
       },
       'third-paragraph': {
         innerText: "Actualmente, estoy ampliando mis habilidades aprendiendo a construir interfaces únicas usando HTML Canvas y Three.js."
@@ -793,7 +793,7 @@ export const translations = {
         innerText: 'Sobre mi'
       },
       'first-paragraph': {
-        innerText: "Hola, em dic Angel, i sóc un enginyer de programació experimentat concentrat en desenvolupar aplicacions web responsives i accessibles. També gaudeixo cosint en el meu temps lliure com a afició creativa."
+        innerText: "Hola, em dic Angel, i sóc un enginyer de programació experimentat, concentrat en desenvolupar aplicacions web responsives i accessibles. També gaudeixo cosint en el meu temps lliure com a afició creativa."
       },
       'second-paragraph': {
         innerText: "Crec que dominar les bases és essencial per entendre qualsevol ofici. Sigui cosir o programar, la millor manera d'aprendre és submergint-se directament. Per això em centro en un stack vanilla per al frontend i backend, tot i que també sóc competent amb biblioteques i frameworks. A partir d'aquí, tinc experiència creant clients frontend accessibles i responsius, desenvolupant RESTful APIs connectades a DBs normalitzades i gestionant desplegaments i seguretat amb pràctiques modernes."
