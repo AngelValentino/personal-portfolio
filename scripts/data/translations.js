@@ -101,10 +101,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Full-Stack<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Full-Stack<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="assets/images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: `Hi, I'm Angel Valentino. A passionate Full-Stack DevOps engineer based in Spain.<img class="hero__title-location-img" aria-hidden="true" role="presentation" src="images/welcome-title-icons/location-pin2.png" alt="">`
+        innerHTML: `Hi, I'm Angel Valentino. A passionate Full-Stack DevOps engineer based in Spain.<img class="hero__title-location-img" aria-hidden="true" role="presentation" src="assets/images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Angel Valentino's social links."
@@ -146,7 +146,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Download CV',
-        href: 'documents/angel_valentino_resume_en.pdf'
+        href: 'assets/documents/angel_valentino_resume_en.pdf'
       }
     },
     projects: {
@@ -320,10 +320,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Desarrollador<br />Full-Stack<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Desarrollador<br />Full-Stack<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="assets/images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: `Hola, soy Angel Valentino. Un apasionado ingeniero Full-Stack DevOps basado en España.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
+        innerHTML: `Hola, soy Angel Valentino. Un apasionado ingeniero Full-Stack DevOps basado en España.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="assets/images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Enlaces sociales de Angel Valentino."
@@ -365,7 +365,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Descargar CV',
-        href: 'documents/angel_valentino_resume_es.pdf'
+        href: 'assets/documents/angel_valentino_resume_es.pdf'
       }
     },
     projects: {
@@ -539,10 +539,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Dezvoltator<br />Full-Stack<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Dezvoltator<br />Full-Stack<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="assets/images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: 'Bună, sunt Angel Valentino. Un inginer Full-Stack DevOps pasionat, bazat în Spania.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">'
+        innerHTML: 'Bună, sunt Angel Valentino. Un inginer Full-Stack DevOps pasionat, bazat în Spania.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="assets/images/welcome-title-icons/location-pin2.png" alt="">'
       },
       'social-list': {
         ariaLabel: "Linkuri sociale ale lui Angel Valentino."
@@ -584,7 +584,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Descarcă CV',
-        href: 'documents/angel_valentino_resume_en.pdf'
+        href: 'assets/documents/angel_valentino_resume_en.pdf'
       }
     },
     projects: {
@@ -758,10 +758,10 @@ export const translations = {
     },
     hero: {
       title: {
-        innerHTML: 'Full-Stack<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="images/welcome-title-icons/waving-hand.png" alt="">'
+        innerHTML: 'Full-Stack<br />Developer<img aria-hidden="true" role="presentation" class="hero__title-hand-img" src="assets/images/welcome-title-icons/waving-hand.png" alt="">'
       },
       description: {
-        innerHTML: `Hola, sóc Angel Valentino. Un apassionat enginyer Full-Stack DevOps basat a Espanya.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="images/welcome-title-icons/location-pin2.png" alt="">`
+        innerHTML: `Hola, sóc Angel Valentino. Un apassionat enginyer Full-Stack DevOps basat a Espanya.<img aria-hidden="true" role="presentation" class="hero__title-location-img" src="assets/images/welcome-title-icons/location-pin2.png" alt="">`
       },
       'social-list': {
         ariaLabel: "Enllaços socials d'Angel Valentino."
@@ -803,7 +803,7 @@ export const translations = {
       },
       'download-button': {
         innerText: 'Descarregar CV',
-        href: 'documents/angel_valentino_resume_es.pdf'
+        href: 'assets/documents/angel_valentino_resume_es.pdf'
       }
     },
     projects: {

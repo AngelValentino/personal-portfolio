@@ -6,7 +6,7 @@ export function generateLangSelectData(section) {
   return [
     { 
       content: `
-        <img aria-hidden="true" role="presentation" src="./images/flag-icons/united-states-flag.png" alt="">
+        <img aria-hidden="true" role="presentation" src="assets/images/flag-icons/united-states-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="english-select-option">English</span>
       `,
       label: 'english',
@@ -14,7 +14,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <img aria-hidden="true" role="presentation" src="./images/flag-icons/spain-flag.png" alt="">
+        <img aria-hidden="true" role="presentation" src="assets/images/flag-icons/spain-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="spanish-select-option">Spanish</span>
       `,
       label: 'spanish', 
@@ -22,7 +22,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <img aria-hidden="true" role="presentation" src="./images/flag-icons/romania-flag.png" alt="">
+        <img aria-hidden="true" role="presentation" src="assets/images/flag-icons/romania-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="romanian-select-option">Romanian</span>
       `,
       label: 'romanian', 
@@ -30,7 +30,7 @@ export function generateLangSelectData(section) {
     },
     { 
       content: `
-        <img aria-hidden="true" role="presentation" src="./images/flag-icons/catalonia-flag.png" alt="">
+        <img aria-hidden="true" role="presentation" src="assets/images/flag-icons/catalonia-flag.png" alt="">
         <span data-i18n-section="${section}" data-i18n-element="catalan-select-option">Catalan</span>
       `,
       label: 'catalan', 
