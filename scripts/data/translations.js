@@ -6,7 +6,7 @@ export const translations = {
   en: {
     html: {
       title: 'Angel Valentino / Web Developer',
-      'meta-description': "Hi, my name is Angel, and I'm an experienced software engineer who focuses on developing responsive and accessible web applications."
+      'meta-description': "Hi, my name is Angel, and I'm a self-taught software engineer who focuses on developing responsive and accessible web applications."
     },
     'mobile-menu': {
       'close-btn': {
@@ -136,7 +136,7 @@ export const translations = {
         innerText: 'About me'
       },
       'first-paragraph': {
-        innerText: "Hi, my name is Angel, and I'm an experienced software engineer who focuses on developing responsive and accessible web applications. I also enjoy sewing in my free time as a creative hobby."
+        innerText: "Hi, my name is Angel, and I'm a self-taught software engineer who focuses on developing responsive and accessible web applications. I also enjoy sewing in my free time as a creative hobby."
       },
       'second-paragraph': {
         innerText: "I believe mastering the basics is essential to truly understand any craft. Whether sewing or coding, the best way to learn is by diving in without training wheels. That's why I focus on a vanilla tech stack for both frontend and backend, while also being proficient with libraries and frameworks. Building on this, I have experience creating accessible and responsive frontend clients, developing RESTful APIs connected to normalized DBs, and managing deployment and security through modern practices."
@@ -225,7 +225,7 @@ export const translations = {
   es: {
     html: {
       title: 'Angel Valentino / Desarrollador Web',
-      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software experimentado enfocado en desarrollar aplicaciones web responsivas y accesibles."
+      'meta-description': "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta enfocado en desarrollar aplicaciones web responsivas y accesibles."
     },
     'mobile-menu': {
       'close-btn': {
@@ -355,7 +355,7 @@ export const translations = {
         innerText: 'Sobre mí'
       },
       'first-paragraph': {
-        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software experimentado, enfocado en desarrollar aplicaciones web responsivas y accesibles. También coso en mi tiempo libre como pasatiempo creativo."
+        innerText: "Hola, mi nombre es Angel y soy un ingeniero de software autodidacta, enfocado en desarrollar aplicaciones web responsivas y accesibles. También coso en mi tiempo libre como pasatiempo creativo."
       },
       'second-paragraph': {
         innerText: "Creo que dominar lo básico es esencial para comprender cualquier oficio. Ya sea coser o programar, la mejor manera de aprender es ir directo. Por eso, hago hincapié en trabajar con un stack vanilla, tanto para frontend como backend, aunque también tengo experiencia con bibliotecas y frameworks. Partiendo de esto, tengo experiencia creando clientes frontend accesibles y responsivos, desarrollando RESTful APIs conectadas a DBs normalizadas y gestionando despliegues y seguridad con prácticas modernas."
@@ -444,7 +444,7 @@ export const translations = {
   ro: {
     html: {
       title: 'Angel Valentino / Dezvoltator Web',
-      'meta-description': "Bună, numele meu este Angel, și sunt un inginer de software experimentat, concentrat pe dezvoltarea de aplicații web responsive și accesibile."
+      'meta-description': "Bună, numele meu este Angel, și sunt un inginer de software autodidact, concentrat pe dezvoltarea de aplicații web responsive și accesibile."
     },
     'mobile-menu': {
       'close-btn': {
@@ -574,7 +574,7 @@ export const translations = {
         innerText: 'Despre mine'
       },
       'first-paragraph': {
-        innerText: "Bună, numele meu este Angel, și sunt un inginer de software experimentat, concentrat pe dezvoltarea de aplicații web responsive și accesibile. Îmi place, de asemenea, să cos în timpul meu liber ca hobby creativ."
+        innerText: "Bună, numele meu este Angel, și sunt un inginer de software autodidact, concentrat pe dezvoltarea de aplicații web responsive și accesibile. Îmi place, de asemenea, să cos în timpul meu liber ca hobby creativ."
       },
       'second-paragraph': {
         innerText: "Cred că stăpânirea elementelor de bază este esențială pentru a înțelege orice meșteșug. Fie că este cusut sau programare, cel mai bun mod de a învăța este implicarea directă. De aceea mă concentrez pe un stack vanilla, pentru frontend și backend, deși sunt proficient și cu biblioteci și framework-uri. Pe această bază, am experiență în crearea de clienți frontend accesibili și responsivi, dezvoltarea de API-uri RESTful conectate la DB-uri normalizate și gestionarea implementării și securității prin practici moderne."
@@ -663,7 +663,7 @@ export const translations = {
   ca: {
     html: {
       title: 'Angel Valentino / Desenvolupador Web',
-      'meta-description': "Hola, em dic Angel, i sóc un enginyer de programació experimentat concentrat en desenvolupar aplicacions web responsives i accessibles."
+      'meta-description': "Hola, em dic Angel, i sóc un enginyer de programació autodidacta concentrat en desenvolupar aplicacions web responsives i accessibles."
     },
     'mobile-menu': {
       'close-btn': {
@@ -793,7 +793,7 @@ export const translations = {
         innerText: 'Sobre mi'
       },
       'first-paragraph': {
-        innerText: "Hola, em dic Angel, i sóc un enginyer de programació experimentat, concentrat en desenvolupar aplicacions web responsives i accessibles. També gaudeixo cosint en el meu temps lliure com a afició creativa."
+        innerText: "Hola, em dic Angel, i sóc un enginyer de programació autodidacta concentrat en desenvolupar aplicacions web responsives i accessibles. També gaudeixo cosint en el meu temps lliure com a afició creativa."
       },
       'second-paragraph': {
         innerText: "Crec que dominar les bases és essencial per entendre qualsevol ofici. Sigui cosir o programar, la millor manera d'aprendre és submergint-se directament. Per això em centro en un stack vanilla per al frontend i backend, tot i que també sóc competent amb biblioteques i frameworks. A partir d'aquí, tinc experiència creant clients frontend accessibles i responsius, desenvolupant RESTful APIs connectades a DBs normalitzades i gestionant desplegaments i seguretat amb pràctiques modernes."
