@@ -26,7 +26,8 @@ export const projectsData = [
       'redis'
     ],
     codeUrl: 'https://github.com/AngelValentino/TaskFlow',
-    demoUrl: 'https://taskflowapp.net/'
+    demoUrl: 'https://taskflowapp.net/',
+    videoUrl: 'https://www.youtube.com/@AngelValentino294'
   },
   {
     id: 'd588f5d8-c4e2-4ed4-bcff-867adc10b277',
@@ -97,12 +98,25 @@ function generateProjectTechIconsHTML(techTitles) {
 function generateProjectInfoHTML(project) {
   return `
     <div id="project__info-${project.id}" class="project__info">
-      <h3 class="project__info-title">
-        <a class="project__info-link appear-bg-from-center" target="_blank" href="${project.demoUrl}">
+      <h3 class="project__title">
+        <a class="project__demo-link appear-bg-from-center" target="_blank" href="${project.demoUrl}">
           ${project.title}
         </a>
+        ${project.videoUrl 
+          ? `
+            <a title="Video walkthrough" aria-label="Go to the video walkthrough for ${project.title}." data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-video-link" class="project__video-link" href="${project.videoUrl}" target="_blank">
+              <svg class="project__video-link-icon" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g fill="none" fill-rule="evenodd">
+                  <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                  <path fill="currentColor" d="M4 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm4.625 5.63a1.235 1.235 0 0 1 1.715-.992c.504.216 1.568.702 2.916 1.48a28 28 0 0 1 2.74 1.786a1.234 1.234 0 0 1 0 1.98a28 28 0 0 1-2.74 1.784a28 28 0 0 1-2.916 1.482a1.234 1.234 0 0 1-1.715-.992a29 29 0 0 1-.176-3.264c0-1.551.112-2.719.176-3.264" />
+                </g>
+              </svg>
+            </a>
+            ` 
+          : ''
+        }
       </h3>
-      <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-description" class="project__info-summary-text">${project.description.en}</p>
+      <p data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-description" class="project__summary-text">${project.description.en}</p>
       <ul data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-tech-list" aria-label="Project technologies." class="project__technologies-list">
         ${generateProjectTechIconsHTML(project.technologies)}
       </ul>
@@ -154,8 +168,8 @@ function generateProjectHTML(symmetry, project) {
           <path fill="currentColor" d="M17 5.5A2.5 2.5 0 0 0 14.5 3h-9A2.5 2.5 0 0 0 3 5.5v9A2.5 2.5 0 0 0 5.5 17h1.25A2.25 2.25 0 0 1 11 15.968a2.25 2.25 0 0 1 4 0a2.25 2.25 0 0 1 1.988-1.218q.012-.124.012-.25zM6 6.75c0-.414.316-.75.706-.75h6.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706C6.316 7.5 6 7.164 6 6.75m0 3c0-.414.316-.75.706-.75h3.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706c-.39 0-.706-.336-.706-.75M6.706 12h6.588c.39 0 .706.336.706.75s-.316.75-.706.75H6.706c-.39 0-.706-.336-.706-.75s.316-.75.706-.75m3.544 5a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0M13 18.25a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5m4 0a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5" />
         </svg>
       </button> 
-      <button data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-close-info-btn" title="Close more info" aria-label="Close more information about ${project.title}" aria-controls="project__info-${project.id}" class="project__info-close-btn">
-        <svg aria-hidden="true" focusable="false" role="presentation" class="project__info-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <button data-i18n-section="projects" data-i18n-element="${convertToKebabCase(project.title)}-close-info-btn" title="Close more info" aria-label="Close more information about ${project.title}" aria-controls="project__info-${project.id}" class="project__close-btn">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="project__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12" />
         </svg>
       </button>
@@ -233,7 +247,7 @@ export function toggleProjectInfoPanel(e) {
   
   // Check if the more info or close panel buttons were clicked
   const isMoreInfoBtnClicked = e.target.closest('.project__more-info-btn');
-  const isClosePanelBtnClicked = e.target.closest('.project__info-close-btn');
+  const isClosePanelBtnClicked = e.target.closest('.project__close-btn');
 
   // If a project element is found and one of the buttons was clicked
   if (projectLm && (isClosePanelBtnClicked || isMoreInfoBtnClicked)) {
@@ -241,7 +255,7 @@ export function toggleProjectInfoPanel(e) {
     const infoPanelLm = projectLm.querySelector('.project__info');
     const imgLinkLm = projectLm.querySelector('.project__img-link');
     const moreInfoBtn = projectLm.querySelector('.project__more-info-btn');
-    const closeInfoBtn = projectLm.querySelector('.project__info-close-btn');
+    const closeInfoBtn = projectLm.querySelector('.project__close-btn');
 
     // If the more info button was clicked, show the info panel
     if (isMoreInfoBtnClicked) {

@@ -889,19 +889,21 @@ body {
   transition: background-color var(--base-transition-duration);
 }
 
-.project__info-title {
-  display: inline-block;
+.project__title {
+  display: inline-flex;
   margin-bottom: 20px;
   font-size: 1.7rem;
+  align-items: center;
+  gap: 5px;
 }
 
-.project__info-link {
+.project__demo-link {
   display: block;
   padding: 3px 5px;
   transition: color var(--base-transition-duration);
 }
 
-.project__info-summary-text {
+.project__summary-text {
   margin-bottom: 15px;
   font-size: 0.99rem;
   color: var(--text-color-secondary);
@@ -952,6 +954,15 @@ body {
   transition: color var(--base-transition-duration);
 }
 
+.project__video-link {
+  line-height: 0;
+  transition: opacity var(--base-transition-duration);
+}
+
+.project__video-link-icon {
+  width: 2rem;
+}
+
 .project__more-info-btn {
   display: none;
   position: absolute;
@@ -971,7 +982,7 @@ body {
   width: 1.85rem;
 }
 
-.project__info-close-btn {
+.project__close-btn {
   display: none;
   position: absolute;
   right: 20px;
@@ -985,7 +996,7 @@ body {
   transition: background-color var(--base-transition-duration), color var(--base-transition-duration);
 }
 
-.project__info-close-icon {
+.project__close-icon {
   width: 1.55rem;
 }
 
@@ -1334,11 +1345,15 @@ footer {
     color: var(--contrast-color-secondary);
   }
 
+  .project__video-link:is(:hover, :focus-visible) {
+    opacity: 0.75;
+  }
+
   .project__more-info-btn:is(:hover, :focus-visible) {
     color: var(--text-color-secondary);
   }
 
-  .project__info-close-btn:is(:hover, :focus-visible) {
+  .project__close-btn:is(:hover, :focus-visible) {
     background-color: var(--contrast-color-2-secondary);
   }
 
@@ -1411,7 +1426,7 @@ footer {
     transform: scale(0.95);
   }
 
-  .project__info-close-btn:active {
+  .project__close-btn:active {
     transform: scale(0.95);
   }
   
@@ -1479,13 +1494,13 @@ footer {
     display: none;
   }
 
-  .project__info-close-btn {
+  .project__close-btn {
     justify-content: center;
     align-items: center;
     will-change: transform;
   }
 
-  .project__info-close-btn.show {
+  .project__close-btn.show {
     display: flex;
   }
 
@@ -1516,10 +1531,9 @@ footer {
     display: flex;
   }
 
-  .project__info-title {
+  .project__title {
     align-self: center;
   }
-
   /* END OF PROJECT SECTION */
 
   /* ABOUT SECTION */

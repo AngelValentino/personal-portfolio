@@ -904,6 +904,10 @@ const projectLanguages = {
     demoLink: {
       ariaLabel: 'Go to the live demo of'
     },
+    videoLink: {
+      ariaLabel: 'Go to the video walkthrough for',
+      title: 'Video walkthrough'
+    },
     demoText: {
       innerText: 'Live Demo'
     },
@@ -937,6 +941,10 @@ const projectLanguages = {
     },
     demoLink: {
       ariaLabel: 'Ve a la demostración en vivo de'
+    },
+    videoLink: {
+      ariaLabel: 'Ir al video explicativo de',
+      title: 'Video explicativo'
     },
     demoText: {
       innerText: 'Demo en Vivo'
@@ -975,6 +983,10 @@ const projectLanguages = {
     demoText: {
       innerText: 'Demo Live'
     },
+    videoLink: {
+      ariaLabel: 'Vezi explicația video pentru',
+      title: 'Explicație video'
+    },
     codeLink: {
       ariaLabel: 'Mergi la repository-ul de cod al'
     },
@@ -1005,6 +1017,10 @@ const projectLanguages = {
     },
     demoLink: {
       ariaLabel: 'Ves a la demostració en viu de'
+    },
+    videoLink: {
+      ariaLabel: 'Mira el vídeo explicatiu de',
+      title: 'Explicació en vídeo'
     },
     demoText: {
       innerText: 'En Directe'
@@ -1053,7 +1069,7 @@ function addProjectTranslations(project, lang = 'en', translations) {
     innerText: projectLanguages[lang].tooltip.innerText
   };
 
-  // Add translations for the project description, demo, and code repository link
+  // Add translations for the project description, demo, code repository and video link
   translations.projects[`${kebabCaseProjectTitle}-description`] = {
     innerHTML: project.description[lang]
   };
@@ -1062,6 +1078,10 @@ function addProjectTranslations(project, lang = 'en', translations) {
   };
   translations.projects[`${kebabCaseProjectTitle}-demo-link`] = {
     ariaLabel: `${projectLanguages[lang].demoLink.ariaLabel} ${project.title}.`
+  };
+  translations.projects[`${kebabCaseProjectTitle}-video-link`] = {
+    ariaLabel: `${projectLanguages[lang].videoLink.ariaLabel} ${project.title}.`,
+    title: projectLanguages[lang].videoLink.title
   };
   translations.projects[`${kebabCaseProjectTitle}-code-text`] = {
     innerText: projectLanguages[lang].codeText.innerText
