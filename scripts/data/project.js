@@ -27,7 +27,7 @@ export const projectsData = [
     ],
     codeUrl: 'https://github.com/AngelValentino/TaskFlow',
     demoUrl: 'https://taskflowapp.net/',
-    videoUrl: 'https://youtu.be/qJKPE3M1CkU'
+    videoUrl: 'https://www.youtube.com/watch?v=iwnIOa8g1bs'
   },
   {
     id: 'd588f5d8-c4e2-4ed4-bcff-867adc10b277',
